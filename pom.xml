@@ -8,9 +8,9 @@
 	</parent>
 
 	<groupId>jdimeo</groupId>
-	<artifactId>triplea-units</artifactId>
-	<name>TripleA Unit Editor</name>
-	<description>Easy editing of TripleA unit attributes in an XML game file</description>
+	<artifactId>triplea-map-tools</artifactId>
+	<name>TripleA Map Editing Tools</name>
+	<description>Easy editing of TripleA XML game files via MS Excel</description>
 	<version>0.0.1-SNAPSHOT</version>
 
 	<dependencies>
