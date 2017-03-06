@@ -52,6 +52,7 @@
 						<arg>-XsimpleEquals</arg>
 						<arg>-XsimpleHashCode</arg>
 						<arg>-Xannotate</arg>
+						<arg>-Xfluent-builder</arg>
 					</args>
 					<plugins>
 						<plugin>
@@ -59,6 +60,11 @@
 							<artifactId>jaxb2-basics</artifactId>
 							<version>0.11.1</version>
 						</plugin>
+						<plugin>
+                            <groupId>net.codesup.util</groupId>
+                            <artifactId>jaxb2-rich-contract-plugin</artifactId>
+                            <version>1.15.0</version>
+                        </plugin>
 						<plugin>
 							<groupId>org.jvnet.jaxb2_commons</groupId>
 							<artifactId>jaxb2-basics-annotate</artifactId>

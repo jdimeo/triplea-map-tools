@@ -8,6 +8,7 @@ import com.datamininglab.commons.lang.JCommanderUtils;
 import com.datamininglab.commons.xsd.XMLCodec;
 
 import generated.Game;
+import lombok.val;
 
 public class ExcelMapEditor {
 	@Parameter(names = {"-g", "--gameFile"}, description = "The original game XML file", required = true)
@@ -19,7 +20,11 @@ public class ExcelMapEditor {
 	public void run() throws IOException {
 		File gf = new File(gameFile);
 		File uf = new File(unitFile);
-		new GameWorkbook(new XMLCodec<>(Game.class).load(gf)).sync(uf);
+		
+		val codec = new XMLCodec<>(Game.class);
+		val game  = codec.load(gf);
+		new GameWorkbook(game).sync(uf);
+		codec.save(game, gf);
 	}
 	
 	public static void main(String[] args) throws IOException {

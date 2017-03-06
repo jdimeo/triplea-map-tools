@@ -10,18 +10,26 @@ import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.function.BiFunction;
 
 import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.BooleanUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.math.NumberUtils;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
+
+import com.datamininglab.commons.lang.NumberExtensions;
+import com.datamininglab.commons.lang.Utilities;
+
+import generated.Player;
+import generated.Unit;
 
 public interface WorkbookUtils {
 	default Sheet getOrCreate(Workbook wb, String name) {
@@ -73,17 +81,38 @@ public interface WorkbookUtils {
 			ret.put(row.getCell(fc).getStringCellValue(), map);
 			for (int c = fc; c < lc; c++) {
 				Cell cell = row.getCell(c);
-				switch (cell.getCellType()) {
-					case Cell.CELL_TYPE_NUMERIC:
-						map.put(cols.get(c), cell.getNumericCellValue());
-						break;
-					case Cell.CELL_TYPE_STRING: default:
-						map.put(cols.get(c), cell.getStringCellValue());
-						break;
+				if (cell != null) {
+					switch (cell.getCellType()) {
+						case Cell.CELL_TYPE_NUMERIC:
+							map.put(cols.get(c), cell.getNumericCellValue());
+							break;
+						case Cell.CELL_TYPE_STRING: default:
+							map.put(cols.get(c), cell.getStringCellValue());
+							break;
+					}
 				}
 			}
 		}
 		return ret;
+	}
+	
+	default String asString(Object o) {
+		return Objects.toString(o, null);
+	}
+	default boolean asBoolean(Object o) {
+		return BooleanUtils.toBoolean(asString(o));
+	}
+	default Integer asInteger(Object o) {
+		if (o == null) { return null; }
+		if (o instanceof Number) { return NumberExtensions.asInteger(Utilities.cast(o)); }
+		return NumberUtils.toInt(asString(o));
+	}
+	
+	default Player asPlayer(String name) {
+		return Player.builder().withName(name).build();
+	}
+	default Unit asUnit(String name) {
+		return Unit.builder().withName(name).build();
 	}
 		
 	default void writeTable(Sheet ws, Map<String, Map<String, String>> table) {
