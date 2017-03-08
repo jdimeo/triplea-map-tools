@@ -5,9 +5,7 @@ import java.io.IOException;
 
 import com.beust.jcommander.Parameter;
 import com.datamininglab.commons.lang.JCommanderUtils;
-import com.datamininglab.commons.xsd.XMLCodec;
 
-import generated.Game;
 import lombok.val;
 
 public class ExcelMapEditor {
@@ -21,7 +19,7 @@ public class ExcelMapEditor {
 		File gf = new File(gameFile);
 		File uf = new File(unitFile);
 		
-		val codec = new XMLCodec<>(Game.class);
+		val codec = new GameCodec();
 		val game  = codec.load(gf);
 		new GameWorkbook(game).sync(uf);
 		codec.save(game, gf);

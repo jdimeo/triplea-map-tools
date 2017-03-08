@@ -11,6 +11,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 import org.apache.commons.lang3.BooleanUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.math.NumberUtils;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -66,13 +67,13 @@ public class Territories implements WorkbookUtils {
 		
 		game.getInitialize().getOwnerInitialize().getTerritoryOwner().forEach(owner -> {
 			TerritoryData td = territories.get(owner.getTerritory());
-			if (td == null || td.owner == null) { return; }
+			if (td == null || StringUtils.isBlank(td.owner)) { return; }
 			
 			owner.setOwner(asPlayer(td.owner));
 			td.step++;
 		});
 		territories.values().forEach(td -> {
-			if (td.step < 1 && td.owner != null) {
+			if (td.step < 1 && !StringUtils.isBlank(td.owner)) {
 				game.getInitialize().getOwnerInitialize().getTerritoryOwner().add(
 					TerritoryOwner.builder().withOwner(asPlayer(td.owner)).withTerritory(td.name).build());
 			}
@@ -112,7 +113,7 @@ public class Territories implements WorkbookUtils {
 			TerritoryData td = territories.get(unitInit.getTerritory());
 			Unit u = Utilities.cast(unitInit.getUnitType());
 			Integer q = td.initUnits.remove(u.getName());
-			if (q != null) { unitInit.setQuantity(q.toString()); }
+			if (q != null && q > 0) { unitInit.setQuantity(q.toString()); }
 		});
 		territories.values().forEach(td -> {
 			if (td.owner == null && !td.initUnits.isEmpty()) {
@@ -121,12 +122,14 @@ public class Territories implements WorkbookUtils {
 			}
 			
 			td.initUnits.forEach((unit, qty) -> {
-				game.getInitialize().getUnitInitialize().getUnitPlacement().add(UnitPlacement.builder()
-					.withUnitType(asUnit(unit))
-					.withOwner(asPlayer(td.owner))
-					.withQuantity(qty.toString())
-					.withTerritory(td.name)
-					.build());
+				if (qty > 0) {
+					game.getInitialize().getUnitInitialize().getUnitPlacement().add(UnitPlacement.builder()
+						.withUnitType(asUnit(unit))
+						.withOwner(asPlayer(td.owner))
+						.withQuantity(qty.toString())
+						.withTerritory(td.name)
+						.build());
+				}
 			});
 		});
 	}
