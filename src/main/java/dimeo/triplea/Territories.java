@@ -111,9 +111,13 @@ public class Territories implements WorkbookUtils {
 		
 		game.getInitialize().getUnitInitialize().getUnitPlacement().forEach(unitInit -> {
 			TerritoryData td = territories.get(unitInit.getTerritory());
-			Unit u = Utilities.cast(unitInit.getUnitType());
-			Integer q = td.initUnits.remove(u.getName());
-			if (q != null && q > 0) { unitInit.setQuantity(q.toString()); }
+			if (td == null) {
+				LogContext.warning("Can't set unit quantity for unknown territory %s", unitInit.getTerritory());
+			} else {
+				Unit u = Utilities.cast(unitInit.getUnitType());
+				Integer q = td.initUnits.remove(u.getName());
+				if (q != null && q > 0) { unitInit.setQuantity(q.toString()); }				
+			}
 		});
 		territories.values().forEach(td -> {
 			if (td.owner == null && !td.initUnits.isEmpty()) {
@@ -147,19 +151,22 @@ public class Territories implements WorkbookUtils {
 		
 		game.getInitialize().getUnitInitialize().getUnitPlacement().forEach(unitInit -> {
 			Unit u = Utilities.cast(unitInit.getUnitType());
-			territories.get(unitInit.getTerritory()).initUnits.put(u.getName(), NumberUtils.toInt(unitInit.getQuantity()));
+			LambdaUtils.accept(territories.get(unitInit.getTerritory()),
+				t -> t.initUnits.put(u.getName(), NumberUtils.toInt(unitInit.getQuantity())));
 		});
 		
 		game.getInitialize().getOwnerInitialize().getTerritoryOwner().forEach(owner -> {
 			Player p = Utilities.cast(owner.getOwner());
-			territories.get(owner.getTerritory()).owner = p.getName();
+			LambdaUtils.accept(territories.get(owner.getTerritory()),
+				t -> t.owner = p.getName());
 		});
 		
 		game.getAttachmentList().getAttachment().forEach(attach -> {
 			if (attach.getJavaClass().equals(ATTACH_CLASS)) {
 				attach.getOption().forEach(opt -> {
 					if (opt.getName().equals(COL_PROD)) {
-						territories.get(attach.getAttachTo()).production = NumberUtils.toInt(opt.getValue());		
+						LambdaUtils.accept(territories.get(attach.getAttachTo()),
+							t -> t.production = NumberUtils.toInt(opt.getValue()));		
 					}
 				});
 			}
