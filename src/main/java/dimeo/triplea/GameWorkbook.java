@@ -14,11 +14,11 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import com.datamininglab.commons.logging.LogContext;
-
 import generated.Game;
 import lombok.val;
+import lombok.extern.log4j.Log4j2;
 
+@Log4j2
 public class GameWorkbook {
 	private Game game;
 	
@@ -28,14 +28,14 @@ public class GameWorkbook {
 	
 	public void sync(File f) {
 		val units = new Units(game);
-		val territories = new Territories(game);
+		val territories = new Territories(SyncLog.DEFAULT, game);
 		
 		Workbook wb;
 		if (f.exists()) {
 			try (FileInputStream fis = new FileInputStream(f)) {
 				 wb = WorkbookFactory.create(fis);
 			} catch (InvalidFormatException | IOException e) {
-				LogContext.warning(e, "Error reading XLSX");
+				log.warn("Error reading XLSX", e);
 				return;
 			}
 			
@@ -51,7 +51,7 @@ public class GameWorkbook {
 		try (FileOutputStream fos = new FileOutputStream(f)) {
 			wb.write(fos);
 		} catch (IOException e) {
-			LogContext.warning(e, "Error writing XLSX");
+			log.warn("Error writing XLSX", e);
 		}
 	}
 }

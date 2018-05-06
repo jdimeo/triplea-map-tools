@@ -11,14 +11,14 @@ import java.util.Map;
 import java.util.TreeMap;
 
 import org.apache.commons.lang3.BooleanUtils;
+import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.math.NumberUtils;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 
-import com.datamininglab.commons.lang.LambdaUtils;
-import com.datamininglab.commons.lang.Utilities;
-import com.datamininglab.commons.logging.LogContext;
+import com.elderresearch.commons.lang.LambdaUtils;
+import com.elderresearch.commons.lang.Utilities;
 
 import generated.Attachment;
 import generated.Game;
@@ -35,9 +35,11 @@ public class Territories implements WorkbookUtils {
 	private static final String COL_TERRITORY = "territory", COL_PROD = "production", COL_SEA = "water", COL_OWNER = "owner";
 	private static final String ATTACH_CLASS = "games.strategy.triplea.attachments.TerritoryAttachment";
 	
+	private SyncLog log;
 	private Game game;
 	
-	public Territories(Game game) {
+	public Territories(SyncLog log, Game game) {
+		this.log  = log;
 		this.game = game;
 	}
 	
@@ -55,25 +57,37 @@ public class Territories implements WorkbookUtils {
 			TerritoryData td = new TerritoryData(asString(map.remove(COL_TERRITORY)), asBoolean(map.remove(COL_SEA)));
 			td.production = asInteger(map.remove(COL_PROD));
 			td.owner = asString(map.remove(COL_OWNER));
-			map.forEach((unit, count) -> td.initUnits.put(unit, asInteger(count)));
+			map.forEach((unit, count) -> LambdaUtils.accept(count, c -> td.initUnits.put(unit, asInteger(c))));
 			territories.put(territory, td);
 		});
 		
 		game.getMap().getGridOrTerritory().forEach(obj -> {
 			Territory t = Utilities.cast(obj);
 			TerritoryData td = territories.get(t.getName());
-			if (td != null) { t.setWater(String.valueOf(td.isSea)); }
+			if (td != null) {
+				val isSea = String.valueOf(td.isSea);
+				if (!StringUtils.equalsAnyIgnoreCase(isSea, t.getWater())) {
+					log.logChange(t.getName(), "water", t.getWater(), isSea);
+					t.setWater(isSea);
+				}
+			}
 		});
 		
 		game.getInitialize().getOwnerInitialize().getTerritoryOwner().forEach(owner -> {
 			TerritoryData td = territories.get(owner.getTerritory());
 			if (td == null || StringUtils.isBlank(td.owner)) { return; }
 			
-			owner.setOwner(asPlayer(td.owner));
-			td.step++;
+			val newp = asPlayer(td.owner);
+			Player oldp = Utilities.cast(owner.getOwner());
+			if (!StringUtils.equalsIgnoreCase(newp.getName(), oldp.getName())) {
+				log.logChange(owner.getTerritory(), "owner", oldp.getName(), newp.getName());
+				owner.setOwner(newp);
+			}
+			td.step = 1;
 		});
 		territories.values().forEach(td -> {
 			if (td.step < 1 && !StringUtils.isBlank(td.owner)) {
+				log.logSet(td.name, "owner", td.owner);
 				game.getInitialize().getOwnerInitialize().getTerritoryOwner().add(
 					TerritoryOwner.builder().withOwner(asPlayer(td.owner)).withTerritory(td.name).build());
 			}
@@ -86,15 +100,20 @@ public class Territories implements WorkbookUtils {
 				if (td == null || td.production == null) { return; }
 				
 				attach.getOption().forEach(opt -> {
+					val p = td.production.toString();
 					if (opt.getName().equals(COL_PROD)) {
-						opt.setValue(td.production.toString());
-						td.step++;
+						if (!StringUtils.equalsIgnoreCase(opt.getValue(), p)) {
+							log.logChange(td.name, "production", opt.getValue(), p);
+							opt.setValue(p);
+						}
+						td.step = 2;
 					}
 				});
 			}
 		});
 		territories.values().forEach(td -> {
 			if (td.step < 2 && td.production != null) {
+				log.logSet(td.name, "production", td.production);
 				game.getAttachmentList().getAttachment().add(Attachment.builder()
 					.withAttachTo(td.name)
 					.withJavaClass(ATTACH_CLASS)
@@ -112,21 +131,27 @@ public class Territories implements WorkbookUtils {
 		game.getInitialize().getUnitInitialize().getUnitPlacement().forEach(unitInit -> {
 			TerritoryData td = territories.get(unitInit.getTerritory());
 			if (td == null) {
-				LogContext.warning("Can't set unit quantity for unknown territory %s", unitInit.getTerritory());
+				log.warn("Can't set unit quantity for unknown territory {}", unitInit.getTerritory());
 			} else {
 				Unit u = Utilities.cast(unitInit.getUnitType());
-				Integer q = td.initUnits.remove(u.getName());
-				if (q != null && q > 0) { unitInit.setQuantity(q.toString()); }				
+				int oldq = NumberUtils.toInt(unitInit.getQuantity()); 
+				int newq = ObjectUtils.defaultIfNull(td.initUnits.remove(u.getName()), 0);
+				if (newq != oldq) {
+					log.logChange(td.name, u.getName(), oldq, newq);
+					unitInit.setQuantity(String.valueOf(newq));
+				}
+				
+				Player oldp = Utilities.cast(unitInit.getOwner());
+				if (!StringUtils.equalsIgnoreCase(td.owner, LambdaUtils.apply(oldp, Player::getName))) {
+					log.logChange(td.name, u.getName() + " owner", oldp.getName(), td.owner);
+					unitInit.setOwner(asPlayer(td.owner));
+				}
 			}
 		});
 		territories.values().forEach(td -> {
-			if (td.owner == null && !td.initUnits.isEmpty()) {
-				LogContext.warning("Can't write unit placement for territory %s since it has no owner", td.name);
-				return;
-			}
-			
 			td.initUnits.forEach((unit, qty) -> {
 				if (qty > 0) {
+					log.logSet(td.name, unit, qty);
 					game.getInitialize().getUnitInitialize().getUnitPlacement().add(UnitPlacement.builder()
 						.withUnitType(asUnit(unit))
 						.withOwner(asPlayer(td.owner))
@@ -157,8 +182,7 @@ public class Territories implements WorkbookUtils {
 		
 		game.getInitialize().getOwnerInitialize().getTerritoryOwner().forEach(owner -> {
 			Player p = Utilities.cast(owner.getOwner());
-			LambdaUtils.accept(territories.get(owner.getTerritory()),
-				t -> t.owner = p.getName());
+			if (p != null) { LambdaUtils.accept(territories.get(owner.getTerritory()), t -> t.owner = p.getName()); }
 		});
 		
 		game.getAttachmentList().getAttachment().forEach(attach -> {

@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.IOException;
 
 import com.beust.jcommander.Parameter;
-import com.datamininglab.commons.lang.JCommanderUtils;
+import com.elderresearch.commons.lang.CLIUtils;
 
 import lombok.val;
 
@@ -27,6 +27,6 @@ public class ExcelMapEditor {
 	
 	public static void main(String[] args) throws IOException {
 		ExcelMapEditor uc = new ExcelMapEditor();
-		if (JCommanderUtils.parseArgs(args, uc)) { uc.run(); }
+		if (CLIUtils.parseArgs(args, uc)) { uc.run(); }
 	}
 }

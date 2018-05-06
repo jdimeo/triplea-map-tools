@@ -16,7 +16,7 @@ import javax.xml.bind.Marshaller;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.poi.util.IOUtils;
 
-import com.datamininglab.commons.xsd.XMLCodec;
+import com.elderresearch.commons.xsd.XMLCodec;
 
 import generated.Game;
 

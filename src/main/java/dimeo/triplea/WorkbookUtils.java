@@ -25,8 +25,8 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 
-import com.datamininglab.commons.lang.NumberExtensions;
-import com.datamininglab.commons.lang.Utilities;
+import com.elderresearch.commons.lang.NumberExtensions;
+import com.elderresearch.commons.lang.Utilities;
 
 import generated.Player;
 import generated.Unit;
@@ -70,7 +70,9 @@ public interface WorkbookUtils {
 		int lc = row.getLastCellNum();
 		
 		List<String> cols = new ArrayList<>();
-		for (int c = fc; c < lc; c++) { cols.add(row.getCell(c).getStringCellValue()); }
+		for (int c = fc; c < lc; c++) {
+			cols.add(StringUtils.stripToNull(row.getCell(c).getStringCellValue()));
+		}
 		
 		for (int r = fr + 1; r <= lr; r++) {
 			row = ws.getRow(r);
@@ -78,7 +80,7 @@ public interface WorkbookUtils {
 			lc = row.getLastCellNum();
 			
 			Map<String, Object> map = new LinkedHashMap<>();
-			ret.put(row.getCell(fc).getStringCellValue(), map);
+			ret.put(StringUtils.stripToNull(row.getCell(fc).getStringCellValue()), map);
 			for (int c = fc; c < lc; c++) {
 				Cell cell = row.getCell(c);
 				if (cell != null) {
@@ -86,8 +88,11 @@ public interface WorkbookUtils {
 						case Cell.CELL_TYPE_NUMERIC:
 							map.put(cols.get(c), cell.getNumericCellValue());
 							break;
+						case Cell.CELL_TYPE_BOOLEAN:
+							map.put(cols.get(c), cell.getBooleanCellValue());
+							break;
 						case Cell.CELL_TYPE_STRING: default:
-							map.put(cols.get(c), cell.getStringCellValue());
+							map.put(cols.get(c), StringUtils.stripToNull(cell.getStringCellValue()));
 							break;
 					}
 				}
@@ -109,10 +114,10 @@ public interface WorkbookUtils {
 	}
 	
 	default Player asPlayer(String name) {
-		return Player.builder().withName(name).build();
+		return name == null? null : Player.builder().withName(name).build();
 	}
 	default Unit asUnit(String name) {
-		return Unit.builder().withName(name).build();
+		return name == null? null : Unit.builder().withName(name).build();
 	}
 		
 	default void writeTable(Sheet ws, Map<String, Map<String, String>> table) {

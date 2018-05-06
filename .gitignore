@@ -6,6 +6,7 @@ pom.xml.next
 release.properties
 .classpath
 .project
+.factorypath
 .settings/
 .metadata/
 .checkstyle/
