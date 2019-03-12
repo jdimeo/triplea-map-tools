@@ -76,6 +76,8 @@ public interface WorkbookUtils {
 		
 		for (int r = fr + 1; r <= lr; r++) {
 			row = ws.getRow(r);
+			if (row == null) { break; }
+			
 			fc = row.getFirstCellNum();
 			lc = row.getLastCellNum();
 			
