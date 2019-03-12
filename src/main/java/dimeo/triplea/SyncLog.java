@@ -20,7 +20,7 @@ public interface SyncLog {
 		
 		@Override
 		public void logSet(String name, String prop, Object val) {
-			log.info("Set [} {} to {}W", name, prop, val);
+			log.info("Set {} {} to {}", name, prop, val);
 		}
 		
 		@Override

@@ -5,7 +5,6 @@
 package dimeo.triplea;
 
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.TreeMap;
@@ -23,10 +22,12 @@ import com.elderresearch.commons.lang.Utilities;
 import generated.Attachment;
 import generated.Game;
 import generated.Option;
+import generated.OwnerInitialize;
 import generated.Player;
 import generated.Territory;
 import generated.TerritoryOwner;
 import generated.Unit;
+import generated.UnitInitialize;
 import generated.UnitPlacement;
 import lombok.val;
 
@@ -51,7 +52,7 @@ public class Territories implements WorkbookUtils {
 		if (ws == null) { return; }
 		
 		val table = readTable(ws);
-		val territories = new HashMap<String, TerritoryData>();
+		val territories = new TreeMap<String, TerritoryData>();
 		
 		table.forEach((territory, map) -> {
 			TerritoryData td = new TerritoryData(asString(map.remove(COL_TERRITORY)), asBoolean(map.remove(COL_SEA)));
@@ -68,7 +69,7 @@ public class Territories implements WorkbookUtils {
 				val isSea = String.valueOf(td.isSea);
 				if (!StringUtils.equalsAnyIgnoreCase(isSea, t.getWater())) {
 					log.logChange(t.getName(), "water", t.getWater(), isSea);
-					t.setWater(isSea);
+					t.setWater(td.isSea? isSea : null);
 				}
 			}
 		});
@@ -79,8 +80,8 @@ public class Territories implements WorkbookUtils {
 			
 			val newp = asPlayer(td.owner);
 			Player oldp = Utilities.cast(owner.getOwner());
-			if (!StringUtils.equalsIgnoreCase(newp.getName(), oldp.getName())) {
-				log.logChange(owner.getTerritory(), "owner", oldp.getName(), newp.getName());
+			if (oldp == null || !StringUtils.equalsIgnoreCase(newp.getName(), oldp.getName())) {
+				log.logChange(owner.getTerritory(), "owner", oldp == null? "none" : oldp.getName(), newp.getName());
 				owner.setOwner(newp);
 			}
 			td.step = 1;
@@ -174,12 +175,14 @@ public class Territories implements WorkbookUtils {
 			territories.put(t.getName(), new TerritoryData(t.getName(), BooleanUtils.toBoolean(t.getWater())));
 		});
 		
+		if (game.getInitialize().getUnitInitialize() == null) { game.getInitialize().setUnitInitialize(new UnitInitialize()); }
 		game.getInitialize().getUnitInitialize().getUnitPlacement().forEach(unitInit -> {
 			Unit u = Utilities.cast(unitInit.getUnitType());
 			LambdaUtils.accept(territories.get(unitInit.getTerritory()),
 				t -> t.initUnits.put(u.getName(), NumberUtils.toInt(unitInit.getQuantity())));
 		});
 		
+		if (game.getInitialize().getOwnerInitialize() == null) { game.getInitialize().setOwnerInitialize(new OwnerInitialize()); }
 		game.getInitialize().getOwnerInitialize().getTerritoryOwner().forEach(owner -> {
 			Player p = Utilities.cast(owner.getOwner());
 			if (p != null) { LambdaUtils.accept(territories.get(owner.getTerritory()), t -> t.owner = p.getName()); }
