@@ -16,30 +16,36 @@ import javax.imageio.ImageIO;
 import com.elderresearch.commons.lang.Utilities;
 
 public class ColorChecker {
-	private static final int[] FIXED_COLORS = { 
-		new Color(0, 0, 0).getRGB(), new Color(255, 255, 255).getRGB(), new Color(0, 127, 255).getRGB()
+	private static final Color[] FIXED_COLORS = { 
+		new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 127, 255)
 	};
 	
 	public static void main(String[] args) throws IOException {
 		File f = new File(Utilities.first(args));
 		BufferedImage img = ImageIO.read(f);
-		Map<Integer, Integer> map = new HashMap<>();
+		Map<Color, Integer> map = new HashMap<>();
 		int w = img.getWidth();
 		int h = img.getHeight();
 		for (int x = 0; x < w; x++) {
 			for (int y = 0; y < h; y++) {
-				int rgb = (img.getRGB(x, y) & 0xFFFFFF) | 0xFF000000;
+				Color c = new Color(img.getRGB(x, y), true);
+				Color newc = c;
 				int closest = Integer.MAX_VALUE;
-				for (int fixed : FIXED_COLORS) {
-					if (Math.abs(fixed - rgb) < Math.abs(closest - rgb)) {
-						closest = fixed;
+				for (Color fixed : FIXED_COLORS) {
+					int delta = Math.abs(c.getRed() - fixed.getRed())
+							+ Math.abs(c.getGreen() - fixed.getGreen())
+							+ Math.abs(c.getBlue() - fixed.getBlue());
+					if (delta < closest) {
+						closest = delta;
+						newc = fixed;
 					}
 				}
-				map.put(rgb, map.getOrDefault(rgb, 0) + 1);
-				img.setRGB(x, y, closest);
+				c = newc;
+				map.merge(c, 1, (i, j) -> i + j);
+				img.setRGB(x, y, c.getRGB());
 			}
 		}
-		map.forEach((c, count) -> System.out.format("%40s %,15d%n", new Color(c), count));
+		map.forEach((c, count) -> System.out.format("%40s %,15d%n", c, count));
 		ImageIO.write(img, "png", f);
 	}
 }
