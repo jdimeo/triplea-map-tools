@@ -1,3 +1,4 @@
+		<!-- Develop ${unit} for ${player} -->
 		<attachment name="conditionAttachment-${player}-Develop-${unit}" attachTo="${player}" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
 			<option name="directPresenceTerritories" value="map" count="1"/>
 			<option name="unitPresence" value="Develop-${unit}" count="1"/>

@@ -64,21 +64,19 @@ public class Template {
 	@SuppressWarnings("deprecation")
 	private void recurse(String template, Map<String, ?> keyVals, List<String> lines) {
 		val copy = new LinkedHashMap<String, Object>(keyVals);
-		val anyLists = new MutableBoolean();
-		keyVals.forEach((k, v) -> {
-			if (v instanceof List<?>) {
-				List<?> list = Utilities.cast(v);
+		for (val e : keyVals.entrySet()) {
+			if (e.getValue() instanceof List<?>) {
+				List<?> list = Utilities.cast(e.getValue());
 				list.forEach(o -> {
-					copy.put(k, o);
+					copy.put(e.getKey(), o);
 					recurse(template, copy, lines);
 				});
-				anyLists.setTrue();
+				return;
 			}
-		});
-		if (anyLists.isFalse()) {
-			val strSub = new StrSubstitutor(copy);
-			strSub.setEnableSubstitutionInVariables(true);
-			lines.add(strSub.replace(template));
 		}
+		
+		val strSub = new StrSubstitutor(copy);
+		strSub.setEnableSubstitutionInVariables(true);
+		lines.add(strSub.replace(template));
 	}
 }

@@ -1,3 +1,4 @@
+        <!-- Give mech inf to ${player} so land transport works and define an "always true" condition for other triggers that should always fire -->
         <attachment name="techAttachment" attachTo="${player}" javaClass="games.strategy.triplea.attachments.TechAttachment" type="player">
             <option name="mechanizedInfantry" value="true" count=""/>
         </attachment>

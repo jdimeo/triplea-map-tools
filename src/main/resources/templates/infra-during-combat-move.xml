@@ -1,16 +1,14 @@
-		<attachment name="conditionAttachment-${player}-AlwaysTrue" attachTo="${player}" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
-		    <option name="techs" value="mechanizedInfantry" count="1" />
-		</attachment>
+		<!-- Set up trenches for ${player} (and their colony if applicable) so that undefended trenches are capturable during combat but can take hits during battle -->
 		<attachment name="triggerAttachment-infraDuringCombatMove-${player}-1" attachTo="${player}" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
 		    <option name="conditions" value="conditionAttachment-${player}-AlwaysTrue" />
-		    <option name="when" value="before:${player}CombatMove" />
+		    <option name="when" value="before:${player}-Combat-Move" />
 		    <option name="unitType" value="${unit}"/>
 		    <option name="unitProperty" value="isInfrastructure" count="true"/>
 		    <option name="uses" value="1"/>
 		</attachment>
 		<attachment name="triggerAttachment-infraDuringCombatMove-${player}-2" attachTo="${player}" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
 		    <option name="conditions" value="conditionAttachment-${player}-AlwaysTrue" />
-		    <option name="when" value="before:${player}Battle" />
+		    <option name="when" value="before:${player}-Battle" />
 		    <option name="unitType" value="${unit}"/>
 		    <option name="unitProperty" value="isInfrastructure" count="false"/>
 		    <option name="uses" value="1"/>
