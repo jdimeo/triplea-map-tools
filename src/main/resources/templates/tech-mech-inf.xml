@@ -1,3 +1,7 @@
         <attachment name="techAttachment" attachTo="${player}" javaClass="games.strategy.triplea.attachments.TechAttachment" type="player">
             <option name="mechanizedInfantry" value="true" count=""/>
         </attachment>
+		<attachment name="conditionAttachment-${player}-AlwaysTrue" attachTo="${player}" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
+		    <option name="techs" value="mechanizedInfantry" count="1" />
+		</attachment>
+        
