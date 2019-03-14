@@ -1,0 +1,22 @@
+		<productionFrontier name="${player}-Frontier">
+			<frontierRules name="buyAA-Gun"/>
+			<frontierRules name="buyArmoredTrain"/>
+			<frontierRules name="buyBattlecruiser"/>
+			<frontierRules name="buyBattleship"/>
+			<frontierRules name="buyCavalry"/>
+			<frontierRules name="buyDestroyer"/>
+			<frontierRules name="buyFactory"/>
+			<frontierRules name="buyField-Artillery"/>
+			<frontierRules name="buyFighter"/>
+			<frontierRules name="buyFreighter"/>
+			<frontierRules name="buyHarbor-Defenses"/>
+			<frontierRules name="buyInfantry"/>
+			<frontierRules name="buyShipyard"/>
+			<frontierRules name="buySubmarine"/>
+			<frontierRules name="buyTrain"/>
+			<frontierRules name="buyTrenches"/>
+			<frontierRules name="buyTroop-Transport"/>
+			<frontierRules name="buyZeppelin"/>
+		</productionFrontier>
+		<playerProduction player="${player}" frontier="${player}-Frontier"/>
+		<playerRepair player="${player}" frontier="repair"/>

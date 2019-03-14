@@ -1,0 +1,3 @@
+        <attachment name="techAttachment" attachTo="${player}" javaClass="games.strategy.triplea.attachments.TechAttachment" type="player">
+            <option name="mechanizedInfantry" value="true" count=""/>
+        </attachment>

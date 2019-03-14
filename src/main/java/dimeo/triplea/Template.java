@@ -5,15 +5,17 @@
 package dimeo.triplea;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.function.Consumer;
+import java.util.Map;
 
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.tuple.Pair;
+import org.apache.commons.lang3.mutable.MutableBoolean;
+import org.apache.commons.lang3.text.StrSubstitutor;
 import org.apache.poi.util.IOUtils;
 
 import com.beust.jcommander.Parameter;
@@ -29,50 +31,54 @@ public class Template {
 	private String templateName;
 	
 	@Parameter(description = "Colon-separated pairs of values to plug in to the template e.g. \"key:value\"")
-	private List<String> pairs = new ArrayList<>();
+	private List<String> pairs = new LinkedList<>();
 	
-	public static void main(String... args) {
+	public static void main(String... args) throws IOException {
 		val t = new Template();
-		if (CLIUtils.parseArgs(args, t)) { System.out.println(t.apply()); }
+		if (CLIUtils.parseArgs(args, t)) {
+			Files.write(Paths.get("out.xml"), t.apply(), StandardOpenOption.CREATE, StandardOpenOption.APPEND);
+		}
 	}
 	
-	public String apply() {
-		val keyVals = new HashMap<String, List<String>>();
-		
-		for (val pair : pairs) {
-			val arr = StringUtils.split(pair, ':');
-			keyVals.computeIfAbsent(arr[0].toLowerCase(), k -> new ArrayList<>()).add(arr[1]);
+	public List<String> apply() {
+		if (pairs.isEmpty()) {
+			throw new IllegalArgumentException("Must specify at least one pair of values to template");
 		}
 		
-		val lists = new ArrayList<Pair<String, List<String>>>();
-		keyVals.forEach((k, list) -> lists.add(Pair.of(k, list)));
+		val keyVals = new LinkedHashMap<String, List<String>>();
+		for (val pair : pairs) {
+			val arr = StringUtils.split(pair, ':');
+			keyVals.computeIfAbsent(arr[0], k -> new LinkedList<>()).add(arr[1]);
+		}
 		
-		val sb = new StringBuilder();
+		val ret = new LinkedList<String>();
 		try (val is = Utilities.getResourceOrFile(getClass(), "/templates/" + templateName)) {
 			val s = new String(IOUtils.toByteArray(is));
-			
-			recurse(0, lists, new LinkedList<>(), vals -> {
-				String applied = s;
-				for (Pair<String, String> pair : vals) {
-					applied = applied.replace("${" + pair.getLeft() + "}", pair.getRight());
-				}
-				sb.append(applied).append(System.lineSeparator());
-			});
-		
+			recurse(s, keyVals, ret);
 		} catch (IOException e) {
 			log.warn("Error reading template", e);
 		}
-		return sb.toString();
+		return ret;
 	}
 	
-	private static void recurse(int i, List<Pair<String, List<String>>> list, List<Pair<String, String>> vals, Consumer<List<Pair<String, String>>> callback) {
-		if (i >= list.size()) {
-			callback.accept(vals);
-			return;
-		}
-
-		for (String s : list.get(i).getRight()) {
-			recurse(i + 1, list, Utilities.concat(vals, Collections.singletonList(Pair.of(list.get(i).getLeft(), s))), callback);
+	@SuppressWarnings("deprecation")
+	private void recurse(String template, Map<String, ?> keyVals, List<String> lines) {
+		val copy = new LinkedHashMap<String, Object>(keyVals);
+		val anyLists = new MutableBoolean();
+		keyVals.forEach((k, v) -> {
+			if (v instanceof List<?>) {
+				List<?> list = Utilities.cast(v);
+				list.forEach(o -> {
+					copy.put(k, o);
+					recurse(template, copy, lines);
+				});
+				anyLists.setTrue();
+			}
+		});
+		if (anyLists.isFalse()) {
+			val strSub = new StrSubstitutor(copy);
+			strSub.setEnableSubstitutionInVariables(true);
+			lines.add(strSub.replace(template));
 		}
 	}
 }

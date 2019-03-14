@@ -1,7 +1,0 @@
-        <attachment name="unitAttachment" attachTo="Develop-${unit}" javaClass="games.strategy.triplea.attachments.UnitAttachment" type="unitType">
-            <option name="attack" value="0" count=""/>
-            <option name="defense" value="0" count=""/>
-            <option name="movement" value="0" count=""/>
-            <option name="maxBuiltPerPlayer" value="1" count=""/>
-            <option name="isInfrastructure" value="true" />
-        </attachment>

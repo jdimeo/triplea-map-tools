@@ -1,0 +1,12 @@
+		<attachment name="conditionAttachment-${player}-Develop-${unit}" attachTo="${player}" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
+			<option name="directPresenceTerritories" value="map" count="1"/>
+			<option name="unitPresence" value="Develop-${unit}" count="1"/>
+		</attachment>
+		<attachment name="triggerAttachment-${player}-Develop-${unit}" attachTo="${player}" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachment-${player}-Develop-${unit}" count=""/>
+			<option name="when" value="after:${player}Place" count=""/>
+			<option name="productionRule" value="${player}-Frontier:-buyDevelop-${unit}" count=""/>
+			<option name="productionRule" value="${player}-Frontier:buy${unit}" count=""/>
+			<option name="removeUnits" value="all:Develop-${unit}" count="1"/>
+			<option name="uses" value="1" count=""/>
+		</attachment>
