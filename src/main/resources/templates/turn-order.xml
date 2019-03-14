@@ -1,8 +1,8 @@
-            <step name="${player}-Combat-Move" delegate="move" player="${player}"/>
-            <step name="${player}-Load-Munitions" delegate="munitions" player="${player}"/>
-            <step name="${player}-Fire-Munitions" delegate="move" player="${player}" display="Fire Munitions"/>
+            <step name="${player}-CombatMove" delegate="move" player="${player}"/>
+            <step name="${player}-MunitionsTechActivation" delegate="munitions" player="${player}"/>
+            <step name="${player}-MunitionsCombatMove" delegate="move" player="${player}" display="Fire Munitions"/>
             <step name="${player}-Purchase" delegate="purchase" player="${player}"/>
             <step name="${player}-Battle" delegate="battle" player="${player}"/>
-            <step name="${player}-Non-Combat-Move" delegate="move" player="${player}" display="Non Combat Move"/>
+            <step name="${player}-NonCombatMove" delegate="move" player="${player}" display="Non Combat Move"/>
             <step name="${player}-Place" delegate="place" player="${player}"/>
-            <step name="${player}-End-Turn" delegate="endTurn" player="${player}"/>
+            <step name="${player}-EndTurn" delegate="endTurn" player="${player}"/>

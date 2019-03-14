@@ -1,16 +1,16 @@
-            <step name="${player}-Combat-Move" delegate="move" player="${player}"/>
-            <step name="${player}-Load-Munitions" delegate="munitions" player="${player}"/>
-            <step name="${player}-Fire-Munitions" delegate="move" player="${player}" display="Fire Munitions"/>
-            <step name="${colony${player}}-Combat-Move" delegate="move" player="${colony${player}}"/>
-            <step name="${colony${player}}-Load-Munitions" delegate="munitions" player="${colony${player}}"/>
-            <step name="${colony${player}}-Move-Munitions" delegate="move" player="${colony${player}}" display="Fire Munitions"/>
+            <step name="${player}-CombatMove" delegate="move" player="${player}"/>
+            <step name="${player}-MunitionsTechActivation" delegate="munitions" player="${player}"/>
+            <step name="${player}-MunitionsCombatMove" delegate="move" player="${player}" display="Fire Munitions"/>
+            <step name="${colony${player}}-CombatMove" delegate="move" player="${colony${player}}"/>
+            <step name="${colony${player}}-MunitionsTechActivation" delegate="munitions" player="${colony${player}}"/>
+            <step name="${colony${player}}-MunitionsCombatMove" delegate="move" player="${colony${player}}" display="Fire Munitions"/>
             <step name="${player}-Purchase" delegate="purchase" player="${player}"/>
             <step name="${colony${player}}-Purchase" delegate="purchase" player="${colony${player}}"/>
             <step name="${player}-Battle" delegate="battle" player="${player}"/>
             <step name="${colony${player}}-Battle" delegate="battle" player="${colony${player}}"/>
-            <step name="${player}-Non-Combat-Move" delegate="move" player="${player}" display="Non Combat Move"/>
-            <step name="${colony${player}}-Non-Combat-Move" delegate="move" player="${colony${player}}" display="Non Combat Move"/>
+            <step name="${player}-NonCombatMove" delegate="move" player="${player}" display="Non Combat Move"/>
+            <step name="${colony${player}}-NonCombatMove" delegate="move" player="${colony${player}}" display="Non Combat Move"/>
             <step name="${player}-Place" delegate="place" player="${player}"/>
             <step name="${colony${player}}-Place" delegate="place" player="${colony${player}}"/>
-            <step name="${player}-End-Turn" delegate="endTurn" player="${player}"/>
-            <step name="${colony${player}}-End-Turn" delegate="endTurn" player="${colony${player}}"/>
+            <step name="${player}-EndTurn" delegate="endTurn" player="${player}"/>
+            <step name="${colony${player}}-EndTurn" delegate="endTurn" player="${colony${player}}"/>
