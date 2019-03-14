@@ -26,7 +26,7 @@ public class TemplatesGW {
 		"colonyRussians:Bolsheviks"
 	};
 	private static final String[] PLAYERS_OTHER = {
-		"player:Austrians", "player:Ottomans", "player:Americans"	
+		"player:Austrians", "player:Ottomans", "player:Italians", "player:Americans"
 	};
 	
 	private static final String[] PLAYERS_WITH_TECH = ArrayUtils.addAll(PLAYERS_COLONIAL, PLAYERS_OTHER);
@@ -41,6 +41,14 @@ public class TemplatesGW {
 
 	public static void main(String[] args) throws IOException {
 		Files.deleteIfExists(Paths.get("out.xml"));
+		
+		// Interleaved to get turn order right
+		Template.main("-t", "turn-order-colony.xml", "player:Germans",  "colonyGermans:Imperial-German-Afrika");
+		Template.main("-t", "turn-order-colony.xml", "player:French",   "colonyFrench:French-Colonial-Africa");
+		Template.main("-t", "turn-order.xml",        "player:Russians", "player:Austrians", "player:Ottomans");
+		Template.main("-t", "turn-order-colony.xml", "player:British",  "colonyBritish:British-Commonwealth");
+		Template.main("-t", "turn-order.xml",        "player:Italians", "player:Americans", "player:Bolsheviks");
+		
 		Template.main(ArrayUtils.addAll(PLAYERS_COLONIES,
 			"-t", "production.xml"));
 		Template.main(ArrayUtils.addAll(PLAYERS_WITH_TECH,
