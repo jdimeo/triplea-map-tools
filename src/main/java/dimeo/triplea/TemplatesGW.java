@@ -46,6 +46,10 @@ public class TemplatesGW {
 		Template.main(ArrayUtils.addAll(PLAYERS_WITH_TECH,
 			"-t", "production-techs.xml"));
 		Template.main(ArrayUtils.addAll(PLAYERS_ALL,
+			"-t", "production-player.xml"));
+		Template.main(ArrayUtils.addAll(PLAYERS_ALL,
+			"-t", "production-repair.xml"));
+		Template.main(ArrayUtils.addAll(PLAYERS_ALL,
 			"-t", "tech-mech-inf.xml"));
 		Template.main(ArrayUtils.addAll(DEVELOP_UNITS,
 			"-t", "tech-unit-attach.xml"));

@@ -1,6 +1,6 @@
 		<productionFrontier name="${player}-Frontier">
 			<frontierRules name="buyAA-Gun"/>
-			<frontierRules name="buyArmoredTrain"/>
+			<frontierRules name="buyArmored-Train"/>
 			<frontierRules name="buyBattlecruiser"/>
 			<frontierRules name="buyBattleship"/>
 			<frontierRules name="buyCavalry"/>
@@ -24,5 +24,3 @@
 			<frontierRules name="buyTroop-Transport"/>
 			<frontierRules name="buyZeppelin"/>
 		</productionFrontier>
-		<playerProduction player="${player}" frontier="${player}-Frontier"/>
-		<playerRepair player="${player}" frontier="repair"/>
