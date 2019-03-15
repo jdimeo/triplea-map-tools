@@ -1,6 +1,11 @@
-		<!-- Remove after battle to avoid "this unit cannot land" warnings -->
+		<!-- Remove after battle to avoid "this unit cannot land" warnings, remove at end of turn again since they get created again during the "real" end turn delegate -->
 		<attachment name="triggerAttachment_Remove_${player}_${unit}_1" attachTo="${player}" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
 			<option name="conditions" value="conditionAttachment-${player}-AlwaysTrue" />
-			<option name="when" value="after:${player}Battle" />
+			<option name="when" value="after:${player}-Battle" />
 			<option name="removeUnits" value="all:${unit}" count="9999" />
+		</attachment>
+        <attachment name="triggerAttachment_Remove_${player}_${unit}_2" attachTo="${player}" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+            <option name="conditions" value="conditionAttachment-${player}-AlwaysTrue" />
+            <option name="when" value="after:${player}-EndTurn" />
+            <option name="removeUnits" value="all:${unit}" count="9999" />
 		</attachment>
