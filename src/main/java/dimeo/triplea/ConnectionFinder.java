@@ -66,7 +66,7 @@ public class ConnectionFinder {
 				
 				// Railroads must be wholly contained to be connected to a land
 				val adjacent = strThis.startsWith("RR") ^ strOther.startsWith("RR")? geoThis.contains(geoOther.getCentroid()) : geoThis.overlaps(geoOther);
-				if (adjacent) {
+				if (adjacent && geoThis.intersection(geoOther).getArea() > 20) {
 					System.out.print(" | " + strArr[j]);
 					pw.format("        <connection t1=\"%s\" t2=\"%s\"/>%n", strThis, strOther);
 					set.add(strThis + "<->" + strOther);
