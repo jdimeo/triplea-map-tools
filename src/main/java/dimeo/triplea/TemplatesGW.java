@@ -42,12 +42,16 @@ public class TemplatesGW {
 	public static void main(String[] args) throws IOException {
 		Files.deleteIfExists(Paths.get("out.xml"));
 		
-		// Interleaved to get turn order right
-		Template.main("-t", "turn-order-colony.xml", "player:Germans",  "colonyGermans:Imperial-German-Afrika");
-		Template.main("-t", "turn-order-colony.xml", "player:French",   "colonyFrench:French-Colonial-Africa");
-		Template.main("-t", "turn-order.xml",        "player:Russians", "player:Austrians", "player:Ottomans");
-		Template.main("-t", "turn-order-colony.xml", "player:British",  "colonyBritish:British-Commonwealth");
-		Template.main("-t", "turn-order.xml",        "player:Italians", "player:Americans", "player:Bolsheviks");
+		Template.main("-t", "turn-order.xml",
+			"player:Germans", "player:Imperial-German-Afrika",
+			"player:French",   "player:French-Colonial-Africa",
+			"player:Russians",
+			"player:Austrians",
+			"player:Ottomans",
+			"player:British",  "player:British-Commonwealth",
+			"player:Italians",
+			"player:Americans",
+			"player:Bolsheviks");
 		
 		Template.main(ArrayUtils.addAll(PLAYERS_COLONIES,
 			"-t", "production.xml"));
