@@ -64,9 +64,13 @@ public class ConnectionFinder {
 				if (set.contains(strThis + "<->" + strOther)
 				 || set.contains(strOther + "<->" + strThis)) { continue; }
 				
+				val rrThis  = strThis.startsWith("RR");
+				val rrOther = strOther.startsWith("RR");
+				
 				// Railroads must be wholly contained to be connected to a land
-				val adjacent = strThis.startsWith("RR") ^ strOther.startsWith("RR")? geoThis.contains(geoOther.getCentroid()) : geoThis.overlaps(geoOther);
-				if (adjacent && geoThis.intersection(geoOther).getArea() > 20) {
+				val adjacent = rrThis ^ rrOther? geoThis.contains(geoOther.getCentroid()) : geoThis.overlaps(geoOther);
+				val minArea = rrThis && rrOther? 5 : 20;
+				if (adjacent && geoThis.intersection(geoOther).getArea() > minArea) {
 					System.out.print(" | " + strArr[j]);
 					pw.format("        <connection t1=\"%s\" t2=\"%s\"/>%n", strThis, strOther);
 					set.add(strThis + "<->" + strOther);

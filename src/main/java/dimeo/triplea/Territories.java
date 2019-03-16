@@ -143,8 +143,9 @@ public class Territories implements WorkbookUtils {
 				}
 				
 				Player oldp = Utilities.cast(unitInit.getOwner());
-				if (!StringUtils.equalsIgnoreCase(td.owner, LambdaUtils.apply(oldp, Player::getName))) {
-					log.logChange(td.name, u.getName() + " owner", oldp.getName(), td.owner);
+				val oldpName = LambdaUtils.apply(oldp, Player::getName);
+				if (!StringUtils.equalsIgnoreCase(td.owner, oldpName)) {
+					log.logChange(td.name, u.getName() + " owner", oldpName, td.owner);
 					unitInit.setOwner(asPlayer(td.owner));
 				}
 			}
