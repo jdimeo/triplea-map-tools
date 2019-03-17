@@ -107,7 +107,7 @@ public class Units implements WorkbookUtils {
 		return val instanceof Number? FMT.format(val) : val.toString();
 	}
 	
-	private static Option toOption(String key, Object val) {
+	public static Option toOption(String key, Object val) {
 		val ret = new Option();
 		ret.setName(key);
 		ret.setValue(toOptionValue(val));
