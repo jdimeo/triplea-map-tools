@@ -7,8 +7,11 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.TreeSet;
 
+import org.apache.commons.lang3.BooleanUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.jooq.lambda.Seq;
 
 import com.beust.jcommander.Parameter;
 import com.elderresearch.commons.lang.CLIUtils;
@@ -21,12 +24,15 @@ public class RailroadHelper {
 	@Parameter(names = {"-g", "--gameFile"}, description = "The original game XML file", required = true)
 	private String gameFile;
 	
+	private Set<String> rrZones;
+	
 	public void run() throws IOException {
 		File gf = new File(gameFile);
 		
 		val codec = new GameCodec();
 		val game  = codec.load(gf);
 		addCanals(game);
+		movementRestrictions(game);
 		codec.save(game, gf);
 	}
 	
@@ -57,19 +63,38 @@ public class RailroadHelper {
 		
 		canals.sort(Comparator.comparing(Attachment::getName));
 		
+		rrZones = new TreeSet<>(rrToOtherRR.keySet());
+		
 		g.getAttachmentList().getAttachment().removeIf($ -> $.getName().contains("RR"));
 		g.getAttachmentList().getAttachment().addAll(canals);
 	}
 	
+	private void movementRestrictions(Game g) {
+		val rrZonesStr = Seq.seq(rrZones).toString(":");
+		g.getAttachmentList().getAttachment().forEach(a -> {
+			if (a.getJavaClass().equals(Units.ATTACH_CLASS) && Seq.seq(a.getOption()).anyMatch(o -> o.getName().equals("isSea") && BooleanUtils.toBoolean(o.getValue()))) {
+				addOrUpdateOption(a, a.getAttachTo().contains("Train")
+					|| a.getAttachTo().contains("Railgun")? "unitPlacementOnlyAllowedIn" : "unitPlacementRestrictions", rrZonesStr);
+			}
+		});
+	}
+	
 	private static Attachment canalAttachment(String sz, String name, String lz) {
-		val a = new Attachment();
-		a.setJavaClass("games.strategy.triplea.attachments.CanalAttachment");
-		a.setAttachTo(sz);
-		a.setName("canalAttachment" + name);
-		a.setType("territory");
-		a.getOption().add(Units.toOption("canalName", name));
-		a.getOption().add(Units.toOption("landTerritories", lz));
-		return a;
+		return Attachment.builder()
+			.withJavaClass("games.strategy.triplea.attachments.CanalAttachment")
+			.withAttachTo(sz)
+			.withName("canalAttachment" + name)
+			.withType("territory")
+			.withOption(Units.toOption("canalName", name), Units.toOption("landTerritories", lz))
+			.build();
+	}
+	
+	private static void addOrUpdateOption(Attachment a, String name, String value) {
+		Seq.seq(a.getOption()).filter(o -> o.getName().equals(name)).findAny().orElseGet(() -> {
+			val o = Units.toOption(name, value);
+			a.getOption().add(o);
+			return o;
+		}).setValue(value);
 	}
 	
 	public static void main(String[] args) throws IOException {

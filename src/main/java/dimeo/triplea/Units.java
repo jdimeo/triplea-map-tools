@@ -32,7 +32,7 @@ public class Units implements WorkbookUtils {
 	private static final String COL_COST = "cost", COL_COST_RESOURCE = "costResource", COL_UNIT = "unit";
 	private static final Set<String> SKIP_COLS = ImmutableSet.of(COL_COST, COL_COST_RESOURCE, COL_UNIT);
 	
-	private static final String ATTACH_CLASS = "games.strategy.triplea.attachments.UnitAttachment";
+	public static final String ATTACH_CLASS = "games.strategy.triplea.attachments.UnitAttachment";
 	private static final DecimalFormat FMT = new DecimalFormat("#");
 	
 	private Game game;
