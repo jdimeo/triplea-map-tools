@@ -37,6 +37,8 @@ public class RailroadHelper {
 	}
 	
 	private void addCanals(Game g) {
+		rrZones = new TreeSet<>();
+		
 		val rrToOtherRR = new HashMap<String, Set<String>>();
 		val rrToLand = new HashMap<String, String>();
 		g.getMap().getConnection().forEach(c -> {
@@ -44,7 +46,6 @@ public class RailroadHelper {
 			val rr2 = c.getT2().startsWith("RR");
 			if (rr1 && rr2) {
 				rrToOtherRR.computeIfAbsent(c.getT1(), $ -> new HashSet<>()).add(c.getT2());
-				rrToOtherRR.computeIfAbsent(c.getT2(), $ -> new HashSet<>()).add(c.getT1());
 			} else if (rr1 ^ rr2) {
 				String sz = rr1? c.getT1() : c.getT2();
 				String lz = rr1? c.getT2() : c.getT1();
@@ -53,17 +54,21 @@ public class RailroadHelper {
 		});
 		
 		val canals = new ArrayList<Attachment>();
-		rrToLand.forEach((sz, lz) -> {
-			rrToOtherRR.get(sz).forEach(otherSz -> {
+		rrToOtherRR.forEach((sz, otherSzs) -> {
+			rrZones.add(sz);
+			otherSzs.forEach(otherSz -> {
+				rrZones.add(otherSz);
+				
+				val lz1 = rrToLand.get(sz);
+				val lz2 = rrToLand.get(otherSz);
+				
 				val name = StringUtils.deleteWhitespace(sz + "to" + otherSz);
-				canals.add(canalAttachment(sz, name, lz));
-				canals.add(canalAttachment(otherSz, name, lz));
+				canals.add(canalAttachment(sz, name, lz1, lz2));
+				canals.add(canalAttachment(otherSz, name, lz1, lz2));	
 			});
 		});
 		
 		canals.sort(Comparator.comparing(Attachment::getName));
-		
-		rrZones = new TreeSet<>(rrToOtherRR.keySet());
 		
 		g.getAttachmentList().getAttachment().removeIf($ -> $.getName().contains("RR"));
 		g.getAttachmentList().getAttachment().addAll(canals);
@@ -79,13 +84,13 @@ public class RailroadHelper {
 		});
 	}
 	
-	private static Attachment canalAttachment(String sz, String name, String lz) {
+	private static Attachment canalAttachment(String sz, String name, String lz1, String lz2) {
 		return Attachment.builder()
 			.withJavaClass("games.strategy.triplea.attachments.CanalAttachment")
 			.withAttachTo(sz)
 			.withName("canalAttachment" + name)
 			.withType("territory")
-			.withOption(Units.toOption("canalName", name), Units.toOption("landTerritories", lz))
+			.withOption(Units.toOption("canalName", name), Units.toOption("landTerritories", lz1 + ":" + lz2))
 			.build();
 	}
 	

@@ -4,7 +4,6 @@ import java.awt.Polygon;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -15,6 +14,7 @@ import org.locationtech.jts.geom.Geometry;
 import org.locationtech.jts.geom.GeometryCollection;
 import org.locationtech.jts.geom.GeometryFactory;
 import org.locationtech.jts.geom.PrecisionModel;
+import org.locationtech.jts.geom.TopologyException;
 
 import com.elderresearch.commons.lang.Utilities;
 
@@ -41,39 +41,34 @@ public class ConnectionFinder {
 			, gf));
 		});
 		
-		val set = new HashSet<String>();
-		
 		val strArr = new String[geoms.size()];
 		val geoArr = new Geometry[geoms.size()];
 		int i = 0;
 		for (val e : geoms.entrySet()) {
 			strArr[i] = e.getKey();
-			geoArr[i++] = e.getValue().buffer(2.0);
+			geoArr[i++] = e.getValue().buffer(2.0).norm();
 		}
-		
+
 		for (i = 0; i < strArr.length; i++) {
 			val geoThis = geoArr[i];
 			val strThis = strArr[i];
 			System.out.print("Connections for " + strThis);
 			
-			for (int j = 0; j < strArr.length; j++) {
-				if (i == j) { continue; }
+			for (int j = i + 1; j < strArr.length; j++) {
 				val geoOther = geoArr[j];
 				val strOther = strArr[j];
-				
-				if (set.contains(strThis + "<->" + strOther)
-				 || set.contains(strOther + "<->" + strThis)) { continue; }
 				
 				val rrThis  = strThis.startsWith("RR");
 				val rrOther = strOther.startsWith("RR");
 				
-				// Railroads must be wholly contained to be connected to a land
-				val adjacent = rrThis ^ rrOther? geoThis.contains(geoOther.getCentroid()) : geoThis.overlaps(geoOther);
-				val minArea = rrThis && rrOther? 5 : 20;
-				if (adjacent && geoThis.intersection(geoOther).getArea() > minArea) {
-					System.out.print(" | " + strArr[j]);
-					pw.format("        <connection t1=\"%s\" t2=\"%s\"/>%n", strThis, strOther);
-					set.add(strThis + "<->" + strOther);
+				val minArea = rrThis && rrOther? 5 : 30;
+				try {
+					if (geoThis.intersects(geoOther) && geoThis.intersection(geoOther).getArea() > minArea) {
+						System.out.print(" | " + strArr[j]);
+						pw.format("        <connection t1=\"%s\" t2=\"%s\"/>%n", strThis, strOther);
+					}
+				} catch (TopologyException e) {
+					System.err.println("Error with " + strThis + " <-> " + strOther + ": " + e.getMessage());
 				}
 			}
 			System.out.println();
