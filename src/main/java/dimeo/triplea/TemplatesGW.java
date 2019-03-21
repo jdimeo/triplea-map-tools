@@ -71,7 +71,7 @@ public class TemplatesGW {
 			"-t", "tech-frontier-change-colony.xml"));
 		Template.main(ArrayUtils.addAll(ArrayUtils.addAll(REMOVE_AFTER_BATTLE_UNITS, PLAYERS_ALL),
 			"-t", "remove-all-after-combat.xml"));
-		Template.main(ArrayUtils.addAll(ArrayUtils.addAll(INFRA_DURING_COMBAT_MOVE_UNITS, ArrayUtils.add(PLAYERS_WITH_TECH, "player:Bolsheviks")),
+		Template.main(ArrayUtils.addAll(ArrayUtils.addAll(INFRA_DURING_COMBAT_MOVE_UNITS, PLAYERS_ALL),
 			"-t", "infra-during-combat-move.xml"));
 	}
 }
