@@ -4,12 +4,10 @@
 		    <option name="when" value="before:${player}-CombatMove" count=""/>
 		    <option name="unitType" value="${unit}" count=""/>
 		    <option name="unitProperty" value="isInfrastructure" count="true"/>
-		    <option name="uses" value="1" count=""/>
 		</attachment>
 		<attachment name="triggerAttachment-infraDuringCombatMove-${player}-2" attachTo="${player}" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
 		    <option name="conditions" value="conditionAttachment-${player}-AlwaysTrue" count=""/>
 		    <option name="when" value="before:${player}-Battle" count=""/>
 		    <option name="unitType" value="${unit}" count=""/>
 		    <option name="unitProperty" value="isInfrastructure" count="false"/>
-		    <option name="uses" value="1" count=""/>
 		</attachment>

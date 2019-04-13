@@ -29,8 +29,10 @@ import generated.TerritoryOwner;
 import generated.Unit;
 import generated.UnitInitialize;
 import generated.UnitPlacement;
+import lombok.AllArgsConstructor;
 import lombok.val;
 
+@AllArgsConstructor
 public class Territories implements WorkbookUtils {
 	private static final String SHEET = "Territories";
 	private static final String COL_TERRITORY = "territory", COL_PROD = "production", COL_SEA = "water", COL_OWNER = "owner";
@@ -38,11 +40,6 @@ public class Territories implements WorkbookUtils {
 	
 	private SyncLog log;
 	private Game game;
-	
-	public Territories(SyncLog log, Game game) {
-		this.log  = log;
-		this.game = game;
-	}
 	
 	public void readFrom(Workbook wb) {
 		readFrom(wb.getSheet(SHEET));
