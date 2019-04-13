@@ -1,11 +1,18 @@
-		<!-- Remove after battle to avoid "this unit cannot land" warnings, remove at end of turn again since they get created again during the "real" end turn delegate -->
+        <!-- Add single unit so it shows up in battle calculator during both combat moves -->
+		<attachment name="triggerAttachment_Add_${player}_${unit}" attachTo="${player}" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+            <option name="conditions" value="conditionAttachment-${player}-AlwaysTrue" count=""/>
+            <option name="when" value="before:${player}-CombatMove" count=""/>
+            <option name="placement" value="By DKJD:${unit}" count="1" />
+        </attachment>
+        <!-- Remove after battle to avoid "this unit cannot land" warnings -->
 		<attachment name="triggerAttachment_Remove_${player}_${unit}_1" attachTo="${player}" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
-			<option name="conditions" value="conditionAttachment-${player}-AlwaysTrue" />
-			<option name="when" value="after:${player}-Battle" />
+			<option name="conditions" value="conditionAttachment-${player}-AlwaysTrue" count=""/>
+			<option name="when" value="after:${player}-Battle" count=""/>
 			<option name="removeUnits" value="all:${unit}" count="9999" />
 		</attachment>
+		<!-- Remove again at end of turn again since they get created again during the "real" end turn delegate -->
         <attachment name="triggerAttachment_Remove_${player}_${unit}_2" attachTo="${player}" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
-            <option name="conditions" value="conditionAttachment-${player}-AlwaysTrue" />
-            <option name="when" value="after:${player}-EndTurn" />
+            <option name="conditions" value="conditionAttachment-${player}-AlwaysTrue" count=""/>
+            <option name="when" value="after:${player}-EndTurn" count=""/>
             <option name="removeUnits" value="all:${unit}" count="9999" />
 		</attachment>

@@ -3,5 +3,5 @@
 			<option name="defense" value="0" count=""/>
 			<option name="movement" value="0" count=""/>
 			<option name="maxBuiltPerPlayer" value="1" count=""/>
-			<option name="isInfrastructure" value="true" />
+			<option name="isInfrastructure" value="true" count=""/>
 		</attachment>
