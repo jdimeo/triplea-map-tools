@@ -1,6 +1,6 @@
-            <step name="${player}-CombatMove" delegate="move" player="${player}"/>
-            <step name="${player}-MunitionsTechActivation" delegate="munitions" player="${player}"/>
-            <step name="${player}-MunitionsCombatMove" delegate="move" player="${player}" display="Fire Munitions"/>
+            <step name="${player}-CombatMove" delegate="move" player="${player}" display="Move Battleships, Cruisers and Railguns"/>
+            <step name="${player}-MunitionsTechActivation" delegate="munitions" player="${player}" display="Load Munitions"/>
+            <step name="${player}-MunitionsCombatMove" delegate="move" player="${player}" display="Fire Munitions and Combat Move"/>
             <step name="${player}-Purchase" delegate="purchase" player="${player}"/>
             <step name="${player}-Battle" delegate="battle" player="${player}"/>
             <step name="${player}-NonCombatMove" delegate="move" player="${player}" display="Non Combat Move"/>
