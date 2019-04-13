@@ -50,7 +50,7 @@ public class Units implements WorkbookUtils {
 		
 		Map<String, Map<String, Object>> units = readTable(ws);
 		
-		val unitAttachIdx = new MutableInt(), lastUnitAttachIdx = new MutableInt();
+		MutableInt unitAttachIdx = new MutableInt(), lastUnitAttachIdx = new MutableInt();
 		game.getAttachmentList().getAttachment().forEach(attach -> {
 			unitAttachIdx.increment();
 			if (attach.getJavaClass().equals(ATTACH_CLASS)) {
