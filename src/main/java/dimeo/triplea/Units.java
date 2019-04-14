@@ -66,7 +66,9 @@ public class Units implements WorkbookUtils {
 				});
 				// Add new options from workbook
 				map.entrySet().forEach(e -> {
-					if (!SKIP_COLS.contains(e.getKey())) { attach.getOption().add(toOption(e.getKey(), e.getValue())); }		
+					if (!SKIP_COLS.contains(e.getKey()) && e.getValue() != null) {
+						attach.getOption().add(toOption(e.getKey(), e.getValue()));
+					}		
 				});
 			}
 		});
