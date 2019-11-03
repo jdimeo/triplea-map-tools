@@ -10,3 +10,4 @@ release.properties
 .settings/
 .metadata/
 .checkstyle/
+/.apt_generated_tests/
