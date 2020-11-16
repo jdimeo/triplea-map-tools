@@ -7,12 +7,11 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.text.WordUtils;
+import org.apache.commons.text.WordUtils;
 
 import lombok.val;
 
 public class CorrectFileCapitalization {
-
 	public static void main(String[] args) throws IOException {
 		val root = Paths.get(args[0]);
 		Files.walk(root).forEach(f -> {

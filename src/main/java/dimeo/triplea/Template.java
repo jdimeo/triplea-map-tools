@@ -14,8 +14,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.mutable.MutableBoolean;
-import org.apache.commons.lang3.text.StrSubstitutor;
+import org.apache.commons.text.StringSubstitutor;
 import org.apache.poi.util.IOUtils;
 
 import com.beust.jcommander.Parameter;
@@ -61,7 +60,6 @@ public class Template {
 		return ret;
 	}
 	
-	@SuppressWarnings("deprecation")
 	private void recurse(String template, Map<String, ?> keyVals, List<String> lines) {
 		val copy = new LinkedHashMap<String, Object>(keyVals);
 		for (val e : keyVals.entrySet()) {
@@ -75,7 +73,7 @@ public class Template {
 			}
 		}
 		
-		val strSub = new StrSubstitutor(copy);
+		val strSub = new StringSubstitutor(copy);
 		strSub.setEnableSubstitutionInVariables(true);
 		lines.add(strSub.replace(template));
 	}
