@@ -2,9 +2,9 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>com.elderresearch</groupId>
-		<artifactId>eri-application-base</artifactId>
-		<version>4.0.2</version>
+		<groupId>com.elderresearch.maven-parent</groupId>
+		<artifactId>maven-parent</artifactId>
+		<version>6.0.9</version>
 	</parent>
 
 	<groupId>jdimeo</groupId>
@@ -12,6 +12,11 @@
 	<name>TripleA Map Editing Tools</name>
 	<description>Easy editing of TripleA XML game files via MS Excel</description>
 	<version>0.0.1-SNAPSHOT</version>
+	
+	<properties>
+		<project.directory>../jdimeo/triplea-map-tools</project.directory>
+		<jaxb.runtime.version>2.3.3</jaxb.runtime.version>
+	</properties>
 
 	<dependencies>
 		<dependency>
@@ -41,7 +46,7 @@
 			<plugin>
 				<groupId>org.jvnet.jaxb2.maven2</groupId>
 				<artifactId>maven-jaxb2-plugin</artifactId>
-				<version>0.13.1</version>
+				<version>0.14.0</version>
 				<executions>
 					<execution>
 						<goals>
@@ -54,29 +59,30 @@
 						<include>*.dtd</include>
 					</schemaIncludes>
 					<args>
+						<arg>-Xfluent-api</arg>
 						<arg>-XsimpleEquals</arg>
 						<arg>-XsimpleHashCode</arg>
-						<arg>-Xannotate</arg>
-						<arg>-Xfluent-builder</arg>
 					</args>
 					<plugins>
+						<dependency>
+						    <groupId>org.jvnet.jaxb2_commons</groupId>
+						    <artifactId>jaxb2-fluent-api</artifactId>
+						    <version>3.0</version>
+						</dependency>
 						<plugin>
 							<groupId>org.jvnet.jaxb2_commons</groupId>
 							<artifactId>jaxb2-basics</artifactId>
-							<version>0.11.1</version>
-						</plugin>
-						<plugin>
-                            <groupId>net.codesup.util</groupId>
-                            <artifactId>jaxb2-rich-contract-plugin</artifactId>
-                            <version>1.15.0</version>
-                        </plugin>
-						<plugin>
-							<groupId>org.jvnet.jaxb2_commons</groupId>
-							<artifactId>jaxb2-basics-annotate</artifactId>
-					        <version>1.0.2</version>
+							<version>0.12.0</version>
 						</plugin>
 					</plugins>
 				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>org.glassfish.jaxb</groupId>
+						<artifactId>jaxb-runtime</artifactId>
+						<version>${jaxb.runtime.version}</version>
+					</dependency>
+				</dependencies>
 			</plugin>
 		</plugins>
 	</build>

@@ -87,7 +87,7 @@ public class Territories implements WorkbookUtils {
 			if (td.step < 1 && !StringUtils.isBlank(td.owner)) {
 				log.logSet(td.name, "owner", td.owner);
 				game.getInitialize().getOwnerInitialize().getTerritoryOwner().add(
-					TerritoryOwner.builder().withOwner(asPlayer(td.owner)).withTerritory(td.name).build());
+					new TerritoryOwner().withOwner(asPlayer(td.owner)).withTerritory(td.name));
 			}
 			td.step = 1;
 		});
@@ -112,16 +112,14 @@ public class Territories implements WorkbookUtils {
 		territories.values().forEach(td -> {
 			if (td.step < 2 && td.production != null) {
 				log.logSet(td.name, "production", td.production);
-				game.getAttachmentList().getAttachment().add(Attachment.builder()
+				game.getAttachmentList().getAttachment().add(new Attachment()
 					.withAttachTo(td.name)
 					.withJavaClass(ATTACH_CLASS)
 					.withType(COL_TERRITORY)
 					.withName("territoryAttachment")
-					.addOption(Option.builder()
+					.withOption(new Option()
 						.withName(COL_PROD)
-						.withValue(td.production.toString())
-						.build())
-					.build());
+						.withValue(td.production.toString())));
 			}
 			td.step = 2;
 		});
@@ -151,12 +149,11 @@ public class Territories implements WorkbookUtils {
 			td.initUnits.forEach((unit, qty) -> {
 				if (qty > 0) {
 					log.logSet(td.name, unit, qty);
-					game.getInitialize().getUnitInitialize().getUnitPlacement().add(UnitPlacement.builder()
+					game.getInitialize().getUnitInitialize().getUnitPlacement().add(new UnitPlacement()
 						.withUnitType(asUnit(unit))
 						.withOwner(asPlayer(td.owner))
 						.withQuantity(qty.toString())
-						.withTerritory(td.name)
-						.build());
+						.withTerritory(td.name));
 				}
 			});
 		});

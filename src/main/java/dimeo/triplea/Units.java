@@ -75,33 +75,28 @@ public class Units implements WorkbookUtils {
 		
 		// Add new attachments for remaining units
 		units.forEach((name, options) -> {
-			game.getUnitList().getUnit().add(Unit.builder().withName(name).build());
+			game.getUnitList().getUnit().add(new Unit().withName(name));
 			
-			val attach = Attachment.builder()
+			val attach = new Attachment()
 				.withJavaClass(ATTACH_CLASS)
 				.withAttachTo(name)
 				.withName("unitAttachment")
 				.withType("unitType");
 			options.forEach((k, v) -> {
-				if (!SKIP_COLS.contains(k)) { attach.addOption(toOption(k, v)); }	
+				if (!SKIP_COLS.contains(k)) { attach.withOption(toOption(k, v)); }	
 			});
-			game.getAttachmentList().getAttachment().add(lastUnitAttachIdx.getAndIncrement(), attach.build());
+			game.getAttachmentList().getAttachment().add(lastUnitAttachIdx.getAndIncrement(), attach);
 			
-			val prod = ProductionRule.builder()
+			val prod = new ProductionRule()
 				.withName("buy" + name)
-				.withCost(Cost.builder()
+				.withCost(new Cost()
 					.withQuantity(toOptionValue(options.get(COL_COST)))
-					.withResource(Resource.builder()
-						.withName(toOptionValue(options.get(COL_COST_RESOURCE)))
-						.build())
-					.build())
-				.withResult(Result.builder()
+					.withResource(new Resource()
+						.withName(toOptionValue(options.get(COL_COST_RESOURCE)))))
+				.withResult(new Result()
 					.withQuantity("1")
-					.withResourceOrUnit(Unit.builder()
-						.withName(toOptionValue(name))
-						.build())
-					.build());
-			game.getProduction().getProductionRule().add(prod.build());
+					.withResourceOrUnit(new Unit().withName(toOptionValue(name))));
+			game.getProduction().getProductionRule().add(prod);
 		});
 	}
 	

@@ -116,10 +116,10 @@ public interface WorkbookUtils {
 	}
 	
 	default Player asPlayer(String name) {
-		return name == null? null : Player.builder().withName(name).build();
+		return name == null? null : new Player().withName(name);
 	}
 	default Unit asUnit(String name) {
-		return name == null? null : Unit.builder().withName(name).build();
+		return name == null? null : new Unit().withName(name);
 	}
 		
 	default void writeTable(Sheet ws, Map<String, Map<String, String>> table) {

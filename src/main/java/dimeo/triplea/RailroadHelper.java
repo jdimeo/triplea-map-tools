@@ -85,13 +85,12 @@ public class RailroadHelper {
 	}
 	
 	private static Attachment canalAttachment(String sz, String name, String lz1, String lz2) {
-		return Attachment.builder()
+		return new Attachment()
 			.withJavaClass("games.strategy.triplea.attachments.CanalAttachment")
 			.withAttachTo(sz)
 			.withName("canalAttachment" + name)
 			.withType("territory")
-			.withOption(Units.toOption("canalName", name), Units.toOption("landTerritories", lz1 + ":" + lz2))
-			.build();
+			.withOption(Units.toOption("canalName", name), Units.toOption("landTerritories", lz1 + ":" + lz2));
 	}
 	
 	private static void addOrUpdateOption(Attachment a, String name, String value) {
