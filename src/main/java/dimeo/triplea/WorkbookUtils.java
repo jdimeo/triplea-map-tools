@@ -87,13 +87,13 @@ public interface WorkbookUtils {
 				Cell cell = row.getCell(c);
 				if (cell != null) {
 					switch (cell.getCellType()) {
-						case Cell.CELL_TYPE_NUMERIC:
+						case NUMERIC:
 							map.put(cols.get(c), cell.getNumericCellValue());
 							break;
-						case Cell.CELL_TYPE_BOOLEAN:
+						case BOOLEAN:
 							map.put(cols.get(c), cell.getBooleanCellValue());
 							break;
-						case Cell.CELL_TYPE_STRING: default:
+						case STRING: default:
 							map.put(cols.get(c), StringUtils.stripToNull(cell.getStringCellValue()));
 							break;
 					}
