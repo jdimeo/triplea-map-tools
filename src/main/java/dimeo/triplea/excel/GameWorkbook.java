@@ -1,8 +1,4 @@
-/*******************************************************************************
- * Copyright (c) 2017 Elder Research, Inc.
- * All rights reserved.
- *******************************************************************************/
-package dimeo.triplea;
+package dimeo.triplea.excel;
 
 import java.io.File;
 import java.io.FileInputStream;

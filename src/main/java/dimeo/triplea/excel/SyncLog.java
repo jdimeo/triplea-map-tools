@@ -1,8 +1,4 @@
-/*******************************************************************************
- * Copyright (c) 2017 Elder Research, Inc.
- * All rights reserved.
- *******************************************************************************/
-package dimeo.triplea;
+package dimeo.triplea.excel;
 
 import lombok.extern.log4j.Log4j2;
 

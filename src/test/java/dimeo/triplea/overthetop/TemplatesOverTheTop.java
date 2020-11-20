@@ -1,8 +1,4 @@
-/*******************************************************************************
- * Copyright (c) 2017 Elder Research, Inc.
- * All rights reserved.
- *******************************************************************************/
-package dimeo.triplea;
+package dimeo.triplea.overthetop;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -10,7 +6,9 @@ import java.nio.file.Paths;
 
 import org.apache.commons.lang3.ArrayUtils;
 
-public class TemplatesGW {
+import dimeo.triplea.Template;
+
+public class TemplatesOverTheTop {
 	private static final String[] DEVELOP_UNITS = {
 		"unit:Bomber", "unit:Carrier", "unit:Heavy-Artillery", "unit:Mech-Infantry", "unit:Railgun", "unit:Tank"
 	};
@@ -42,7 +40,7 @@ public class TemplatesGW {
 	public static void main(String[] args) throws IOException {
 		Files.deleteIfExists(Paths.get("out.xml"));
 		
-		Template.main("-t", "turn-order.xml",
+		new Template("turn-order.xml",
 			"player:Germans", "player:Imperial-German-Afrika",
 			"player:French",   "player:French-Colonial-Africa",
 			"player:Russians",
@@ -51,27 +49,20 @@ public class TemplatesGW {
 			"player:British",  "player:British-Commonwealth",
 			"player:Italians",
 			"player:Americans",
-			"player:Bolsheviks");
+			"player:Bolsheviks").call();
 		
-		Template.main(ArrayUtils.addAll(PLAYERS_COLONIES,
-			"-t", "production.xml"));
-		Template.main(ArrayUtils.addAll(PLAYERS_WITH_TECH,
-			"-t", "production-techs.xml"));
-		Template.main(ArrayUtils.addAll(PLAYERS_ALL,
-			"-t", "production-player.xml"));
-		Template.main(ArrayUtils.addAll(PLAYERS_ALL,
-			"-t", "production-repair.xml"));
-		Template.main(ArrayUtils.addAll(PLAYERS_ALL,
-			"-t", "tech-mech-inf.xml"));
-		Template.main(ArrayUtils.addAll(DEVELOP_UNITS,
-			"-t", "tech-unit-attach.xml"));
-		Template.main(ArrayUtils.addAll(ArrayUtils.addAll(DEVELOP_UNITS, PLAYERS_OTHER),
-			"-t", "tech-frontier-change.xml"));
-		Template.main(ArrayUtils.addAll(ArrayUtils.addAll(DEVELOP_UNITS, ArrayUtils.addAll(PLAYERS_COLONIAL, PLAYERS_COLONY_MAP)),
-			"-t", "tech-frontier-change-colony.xml"));
-		Template.main(ArrayUtils.addAll(ArrayUtils.addAll(REMOVE_AFTER_BATTLE_UNITS, PLAYERS_ALL),
-			"-t", "remove-all-after-combat.xml"));
-		Template.main(ArrayUtils.addAll(ArrayUtils.addAll(INFRA_DURING_COMBAT_MOVE_UNITS, PLAYERS_ALL),
-			"-t", "infra-during-combat-move.xml"));
+		new Template("production.xml", PLAYERS_COLONIES).call();
+		new Template("production-techs.xml", PLAYERS_WITH_TECH).call();
+		new Template("production-player.xml", PLAYERS_ALL).call();
+		new Template("production-repair.xml", PLAYERS_ALL).call();
+		new Template("tech-mech-inf.xml", PLAYERS_ALL).call();
+		new Template("tech-unit-attach.xml", DEVELOP_UNITS).call();
+		new Template("tech-frontier-change.xml", ArrayUtils.addAll(DEVELOP_UNITS, PLAYERS_OTHER)).call();
+		new Template("tech-frontier-change-colony.xml", ArrayUtils.addAll(ArrayUtils.addAll(
+			DEVELOP_UNITS, ArrayUtils.addAll(PLAYERS_COLONIAL, PLAYERS_COLONY_MAP)))).call();
+		new Template("remove-all-after-combat.xml", ArrayUtils.addAll(ArrayUtils.addAll(
+			REMOVE_AFTER_BATTLE_UNITS, PLAYERS_ALL))).call();
+		new Template("infra-during-combat-move.xml", ArrayUtils.addAll(ArrayUtils.addAll(
+			INFRA_DURING_COMBAT_MOVE_UNITS, PLAYERS_ALL))).call();
 	}
 }

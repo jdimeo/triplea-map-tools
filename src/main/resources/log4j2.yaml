@@ -6,11 +6,11 @@ Configuration:
       name: sysout
       target: SYSTEM_OUT
       PatternLayout:
-        Pattern: "%d{MM/dd HH:mm:ss} %-5level %msg%n%throwable"
+        disableAnsi: false
+        Pattern: "%style{%d{MM/dd HH:mm:ss}}{bright,black} %highlight{%style{%-5level}{bright}} %msg%n%throwable"
 
   Loggers:
     Root:
       level: info
       AppenderRef:
         ref: sysout
-    

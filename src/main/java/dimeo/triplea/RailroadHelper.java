@@ -8,25 +8,31 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.concurrent.Callable;
 
 import org.apache.commons.lang3.BooleanUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.jooq.lambda.Seq;
 
-import com.beust.jcommander.Parameter;
-import com.elderresearch.commons.lang.CLIUtils;
-
+import dimeo.triplea.excel.GameCodec;
+import dimeo.triplea.excel.Units;
 import generated.Attachment;
 import generated.Game;
 import lombok.val;
+import picocli.CommandLine.Command;
+import picocli.CommandLine.Option;
 
-public class RailroadHelper {
-	@Parameter(names = {"-g", "--gameFile"}, description = "The original game XML file", required = true)
+@Command(name = "railroads", description = {
+	"For games that use canals through land as a railroad system, this will automate much of the boilerplate."
+})
+public class RailroadHelper implements Callable<Void> {
+	@Option(names = {"-g", "--gameFile"}, description = "The original game XML file", required = true)
 	private String gameFile;
 	
 	private Set<String> rrZones;
 	
-	public void run() throws IOException {
+	@Override
+	public Void call() throws IOException {
 		File gf = new File(gameFile);
 		
 		val codec = new GameCodec();
@@ -34,6 +40,8 @@ public class RailroadHelper {
 		addCanals(game);
 		movementRestrictions(game);
 		codec.save(game, gf);
+		
+		return null;
 	}
 	
 	private void addCanals(Game g) {
@@ -99,10 +107,5 @@ public class RailroadHelper {
 			a.getOption().add(o);
 			return o;
 		}).setValue(value);
-	}
-	
-	public static void main(String[] args) throws IOException {
-		RailroadHelper uc = new RailroadHelper();
-		if (CLIUtils.parseArgs(args, uc)) { uc.run(); }
 	}
 }

@@ -1,45 +1,59 @@
-/*******************************************************************************
- * Copyright (c) 2017 Elder Research, Inc.
- * All rights reserved.
- *******************************************************************************/
 package dimeo.triplea;
 
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.Callable;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.text.StringSubstitutor;
 import org.apache.poi.util.IOUtils;
+import org.jooq.lambda.Seq;
 
-import com.beust.jcommander.Parameter;
-import com.elderresearch.commons.lang.CLIUtils;
 import com.elderresearch.commons.lang.Utilities;
 
+import lombok.NoArgsConstructor;
 import lombok.val;
 import lombok.extern.log4j.Log4j2;
+import picocli.CommandLine.Command;
+import picocli.CommandLine.Option;
+import picocli.CommandLine.Parameters;
 
 @Log4j2
-public class Template {
-	@Parameter(names = "-t", description = "The template name")
+@Command(name = "template", description = {
+	"Plugin a matrix of values into a template.",
+	"This allows automating the repetitive parts of the game file (for example, the same production frontier for several players)."
+})
+@NoArgsConstructor
+public class Template implements Callable<Void> {
+	@Option(names = "-t", description = "The template name")
 	private String templateName;
 	
-	@Parameter(description = "Colon-separated pairs of values to plug in to the template e.g. \"key:value\"")
+	@Option(names = "-out", description = "The output file")
+	private Path outputFile = Paths.get("out.xml");
+
+	@Parameters(description = "Colon-separated pairs of values to plug in to the template e.g. \"key:value\"")
 	private List<String> pairs = new LinkedList<>();
 	
-	public static void main(String... args) throws IOException {
+	public Template(String templateResource, String... pairs) {
 		val t = new Template();
-		if (CLIUtils.parseArgs(args, t)) {
-			Files.write(Paths.get("out.xml"), t.apply(), StandardOpenOption.CREATE, StandardOpenOption.APPEND);
-		}
+		t.templateName = "/templates/" + templateResource;
+		Seq.of(pairs).forEach(this.pairs::add);
 	}
 	
-	public List<String> apply() {
+	@Override
+	public Void call() throws IOException {
+		Files.write(outputFile, apply(), StandardOpenOption.CREATE, StandardOpenOption.APPEND);
+		return null;
+	}
+	
+	private List<String> apply() {
 		if (pairs.isEmpty()) {
 			throw new IllegalArgumentException("Must specify at least one pair of values to template");
 		}
@@ -51,7 +65,7 @@ public class Template {
 		}
 		
 		val ret = new LinkedList<String>();
-		try (val is = Utilities.getResourceOrFile(getClass(), "/templates/" + templateName)) {
+		try (val is = Utilities.getResourceOrFile(getClass(), templateName)) {
 			val s = new String(IOUtils.toByteArray(is));
 			recurse(s, keyVals, ret);
 		} catch (IOException e) {

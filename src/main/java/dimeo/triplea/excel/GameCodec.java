@@ -2,7 +2,7 @@
  * Copyright (c) 2017 Elder Research, Inc.
  * All rights reserved.
  *******************************************************************************/
-package dimeo.triplea;
+package dimeo.triplea.excel;
 
 import java.io.IOException;
 
@@ -13,9 +13,12 @@ import javax.xml.transform.Transformer;
 import com.elderresearch.commons.xsd.XMLCodec;
 
 import generated.Game;
+import generated.ObjectFactory;
 
 public class GameCodec extends XMLCodec<Game> {
-	public GameCodec() throws IOException { super(Game.class); }
+	public GameCodec() throws IOException {
+		super(Game.class, ObjectFactory::createGame);
+	}
 	
 	@Override
 	protected void customizeTransformer(Transformer t) throws JAXBException {

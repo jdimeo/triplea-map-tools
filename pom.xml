@@ -22,12 +22,12 @@
 		<dependency>
 			<groupId>com.elderresearch.commons</groupId>
 			<artifactId>eri-commons-xsd</artifactId>
-			<version>0.2.1</version>
+			<version>0.7.0</version>
 		</dependency>
 		<dependency>
-			<groupId>com.elderresearch.commons</groupId>
-			<artifactId>eri-commons-lang</artifactId>
-			<version>1.8.2</version>
+			<groupId>com.elderresearch.commons-jvm</groupId>
+			<artifactId>commons-jvm</artifactId>
+			<version>2.4.8</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.poi</groupId>
@@ -38,6 +38,16 @@
 		    <groupId>org.locationtech.jts</groupId>
 		    <artifactId>jts-core</artifactId>
 		    <version>1.16.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.fusesource.jansi</groupId>
+			<artifactId>jansi</artifactId>
+			<version>1.18</version>
+		</dependency>
+		<dependency>
+			<groupId>info.picocli</groupId>
+			<artifactId>picocli</artifactId>
+			<version>4.4.0</version>
 		</dependency>
 	</dependencies>
 
