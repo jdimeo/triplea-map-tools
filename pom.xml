@@ -20,9 +20,9 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>com.elderresearch.commons</groupId>
-			<artifactId>eri-commons-xsd</artifactId>
-			<version>0.7.0</version>
+			<groupId>com.elderresearch.commons-xsd</groupId>
+			<artifactId>commons-xsd</artifactId>
+			<version>0.8.1</version>
 		</dependency>
 		<dependency>
 			<groupId>com.elderresearch.commons-jvm</groupId>

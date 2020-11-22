@@ -17,7 +17,7 @@ import generated.ObjectFactory;
 
 public class GameCodec extends XMLCodec<Game> {
 	public GameCodec() throws IOException {
-		super(Game.class, ObjectFactory::createGame);
+		super(Game.class, null);
 	}
 	
 	@Override
