@@ -27,7 +27,7 @@ import picocli.CommandLine.Parameters;
 
 @Log4j2
 @Command(name = "template", description = {
-	"Plugin a matrix of values into a template.",
+	"Plugin a matrix of values into a template",
 	"This allows automating the repetitive parts of the game file (for example, the same production frontier for several players)."
 })
 @NoArgsConstructor

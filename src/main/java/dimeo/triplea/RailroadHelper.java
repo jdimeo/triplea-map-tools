@@ -23,7 +23,7 @@ import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
 @Command(name = "railroads", description = {
-	"For games that use canals through land as a railroad system, this will automate much of the boilerplate."
+	"For games that use canals through land as a railroad system, this will automate much of the boilerplate"
 })
 public class RailroadHelper implements Callable<Void> {
 	@Option(names = {"-g", "--gameFile"}, description = "The original game XML file", required = true)

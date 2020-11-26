@@ -15,6 +15,7 @@
 	
 	<properties>
 		<project.directory>../jdimeo/triplea-map-tools</project.directory>
+		<lombok.src.dir>${project.generatedSource.directory}/xjc</lombok.src.dir>
 		<jaxb.runtime.version>2.3.3</jaxb.runtime.version>
 	</properties>
 

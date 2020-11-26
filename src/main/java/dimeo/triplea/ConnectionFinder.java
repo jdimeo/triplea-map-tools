@@ -1,12 +1,14 @@
 package dimeo.triplea;
 
 import java.awt.Polygon;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
+import java.util.concurrent.Callable;
 
 import org.jooq.lambda.Seq;
 import org.locationtech.jts.awt.ShapeReader;
@@ -16,21 +18,32 @@ import org.locationtech.jts.geom.GeometryFactory;
 import org.locationtech.jts.geom.PrecisionModel;
 import org.locationtech.jts.geom.TopologyException;
 
-import com.elderresearch.commons.lang.Utilities;
-
 import games.strategy.util.PointFileReaderWriter;
 import lombok.val;
+import picocli.CommandLine.Command;
+import picocli.CommandLine.Parameters;
 
-public class ConnectionFinder {
-	@SuppressWarnings("resource")
-	public static void main(String... args) throws IOException {
-		val pw = new PrintWriter("connections.txt");
-		
+@Command(name = "connections", description = {
+	"Automatically generate connections from polygons.txt",
+	"This will write out a connections.txt file with <connection> tags in it that you can insert in your game file."	
+})
+public class ConnectionFinder implements Callable<Void> {
+	@Parameters(index = "0", arity = "1", description = "The polygons.txt file to process")
+	private Path input;
+	
+	@Override
+	public Void call() throws IOException {
 		Map<String, List<Polygon>> polys;
-		try (val is = new FileInputStream(Utilities.first(args))) {
+		try (val is = Files.newInputStream(input)) {
 			polys = PointFileReaderWriter.readOneToManyPolygons(is);
 		}
-		
+		try (val pw = new PrintWriter("connections.txt")) {
+			computeConnections(polys, pw);
+		}
+		return null;
+	}
+	
+	private static void computeConnections(Map<String, List<Polygon>> polys, PrintWriter out) {
 		val gf = new GeometryFactory(new PrecisionModel(PrecisionModel.FIXED));
 		val sr = new ShapeReader(gf);
 		
@@ -65,7 +78,7 @@ public class ConnectionFinder {
 				try {
 					if (geoThis.intersects(geoOther) && geoThis.intersection(geoOther).getArea() > minArea) {
 						System.out.print(" | " + strArr[j]);
-						pw.format("        <connection t1=\"%s\" t2=\"%s\"/>%n", strThis, strOther);
+						out.format("        <connection t1=\"%s\" t2=\"%s\"/>%n", strThis, strOther);
 					}
 				} catch (TopologyException e) {
 					System.err.println("Error with " + strThis + " <-> " + strOther + ": " + e.getMessage());
@@ -73,6 +86,5 @@ public class ConnectionFinder {
 			}
 			System.out.println();
 		}
-		pw.close();
 	}
 }

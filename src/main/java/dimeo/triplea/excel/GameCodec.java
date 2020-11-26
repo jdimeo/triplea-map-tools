@@ -13,7 +13,6 @@ import javax.xml.transform.Transformer;
 import com.elderresearch.commons.xsd.XMLCodec;
 
 import generated.Game;
-import generated.ObjectFactory;
 
 public class GameCodec extends XMLCodec<Game> {
 	public GameCodec() throws IOException {

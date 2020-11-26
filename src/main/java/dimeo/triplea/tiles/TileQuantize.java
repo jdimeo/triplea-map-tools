@@ -13,7 +13,7 @@ import lombok.val;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Parameters;
 
-@Command(name = "tile-quantize", description = "Quantize (standardize) the colors in an image to black (borders), white (land) and blue (sea) for base tile images.")
+@Command(name = "tile-quantize", description = "Quantize (standardize) the colors in an image to black (borders), white (land) and blue (sea) for base tile images")
 public class TileQuantize implements Callable<Void> {
 	// TODO: Parameterize the 3 colors
 	private static final Color[] FIXED_COLORS = { 
