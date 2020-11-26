@@ -42,8 +42,7 @@ public class Template implements Callable<Void> {
 	private List<String> pairs = new LinkedList<>();
 	
 	public Template(String templateResource, String... pairs) {
-		val t = new Template();
-		t.templateName = "/templates/" + templateResource;
+		templateName = "/templates/" + templateResource;
 		Seq.of(pairs).forEach(this.pairs::add);
 	}
 	
