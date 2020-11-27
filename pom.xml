@@ -17,6 +17,10 @@
 		<project.directory>../jdimeo/triplea-map-tools</project.directory>
 		<lombok.src.dir>${project.generatedSource.directory}/xjc</lombok.src.dir>
 		<jaxb.runtime.version>2.3.3</jaxb.runtime.version>
+		
+		<application.mainClass>dimeo.triplea.TripleAMapTools</application.mainClass>
+		<application.file>triplea-tools</application.file>
+		<application.headerType>console</application.headerType>
 	</properties>
 
 	<dependencies>
@@ -94,6 +98,17 @@
 						<version>${jaxb.runtime.version}</version>
 					</dependency>
 				</dependencies>
+			</plugin>
+			<plugin>
+				<artifactId>maven-shade-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>com.akathist.maven.plugins.launch4j</groupId>
+				<artifactId>launch4j-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+			    <groupId>org.skife.maven</groupId>
+                <artifactId>really-executable-jar-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
 	</build>
