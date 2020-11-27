@@ -260,7 +260,7 @@
 	<!ELEMENT property (boolean?, string?, number?, value?) >
 	<!-- can the player edit this on start up? if true then the type must be specified with a nested element -->
 	<!ATTLIST property
-		value CDATA ""
+		stringValue CDATA ""
 		name CDATA #REQUIRED
 		editable (true | false) "false"
 		player CDATA ""
@@ -268,11 +268,9 @@
 		<!ELEMENT value (#PCDATA)>
 	
 		<!ELEMENT boolean EMPTY>
-		<!ATTLIST boolean
-		>
+		<!ATTLIST boolean>
 		<!ELEMENT string EMPTY>
-		<!ATTLIST string
-		>
+		<!ATTLIST string>
 		<!ELEMENT number EMPTY>
 		<!-- currently only integers are supported -->
 		<!ATTLIST number

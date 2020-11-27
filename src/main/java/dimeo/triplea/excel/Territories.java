@@ -55,7 +55,7 @@ public class Territories implements WorkbookUtils {
 			territories.put(territory, td);
 		});
 		
-		game.getMap().getGridOrTerritory().forEach(obj -> {
+		game.getMap().getTerritory().forEach(obj -> {
 			Territory t = Utilities.cast(obj);
 			TerritoryData td = territories.get(t.getName());
 			if (td != null) {
@@ -161,7 +161,7 @@ public class Territories implements WorkbookUtils {
 	
 	private void saveTo(Sheet ws) {
 		Map<String, TerritoryData> territories = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);	
-		game.getMap().getGridOrTerritory().forEach(obj -> {
+		game.getMap().getTerritory().forEach(obj -> {
 			Territory t = Utilities.cast(obj);
 			territories.put(t.getName(), new TerritoryData(t.getName(), BooleanUtils.toBoolean(t.getWater())));
 		});
