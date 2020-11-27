@@ -1,8 +1,4 @@
-/*******************************************************************************
- * Copyright (c) 2017 Elder Research, Inc.
- * All rights reserved.
- *******************************************************************************/
-package dimeo.triplea.excel;
+package games.strategy.util;
 
 import java.io.IOException;
 

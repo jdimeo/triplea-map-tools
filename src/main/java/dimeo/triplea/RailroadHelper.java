@@ -14,8 +14,8 @@ import org.apache.commons.lang3.BooleanUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.jooq.lambda.Seq;
 
-import dimeo.triplea.excel.GameCodec;
 import dimeo.triplea.excel.Units;
+import games.strategy.util.GameCodec;
 import generated.Attachment;
 import generated.Game;
 import lombok.val;

@@ -15,6 +15,7 @@ import picocli.CommandLine.HelpCommand;
 	Template.class,
 	ConnectionFinder.class,
 	RailroadHelper.class,
+	VariableLists.class,
 	FixFileNames.class,
 	TileJoin.class,
 	TileQuantize.class,
