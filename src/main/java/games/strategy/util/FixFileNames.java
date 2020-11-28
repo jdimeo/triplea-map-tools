@@ -22,6 +22,7 @@ public class FixFileNames implements Callable<Void> {
 	
 	@Override
 	public Void call() throws IOException {
+		log.info("Fixing file names in {}...", input);
 		Files.walk(input).forEach(f -> {
 			if (!Files.isRegularFile(f)) { return; }
 			
@@ -39,6 +40,7 @@ public class FixFileNames implements Callable<Void> {
 				}	
 			}
 		});
+		log.info("Done.");
 		return null;
 	}
 }

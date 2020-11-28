@@ -1,0 +1,1491 @@
+            <step name="Germans-CombatMove" delegate="move" player="Germans" display="Move Battleships, Cruisers and Railguns"/>
+            <step name="Germans-MunitionsTechActivation" delegate="munitions" player="Germans" display="Load Munitions"/>
+            <step name="Germans-MunitionsCombatMove" delegate="move" player="Germans" display="Fire Munitions and Combat Move"/>
+            <step name="Germans-Purchase" delegate="purchase" player="Germans"/>
+            <step name="Germans-Battle" delegate="battle" player="Germans"/>
+            <step name="Germans-NonCombatMove" delegate="move" player="Germans" display="Non Combat Move"/>
+            <step name="Germans-Place" delegate="place" player="Germans"/>
+            <step name="Germans-EndTurn" delegate="endTurn" player="Germans"/>
+            <step name="Imperial-German-Afrika-CombatMove" delegate="move" player="Imperial-German-Afrika" display="Move Battleships, Cruisers and Railguns"/>
+            <step name="Imperial-German-Afrika-MunitionsTechActivation" delegate="munitions" player="Imperial-German-Afrika" display="Load Munitions"/>
+            <step name="Imperial-German-Afrika-MunitionsCombatMove" delegate="move" player="Imperial-German-Afrika" display="Fire Munitions and Combat Move"/>
+            <step name="Imperial-German-Afrika-Purchase" delegate="purchase" player="Imperial-German-Afrika"/>
+            <step name="Imperial-German-Afrika-Battle" delegate="battle" player="Imperial-German-Afrika"/>
+            <step name="Imperial-German-Afrika-NonCombatMove" delegate="move" player="Imperial-German-Afrika" display="Non Combat Move"/>
+            <step name="Imperial-German-Afrika-Place" delegate="place" player="Imperial-German-Afrika"/>
+            <step name="Imperial-German-Afrika-EndTurn" delegate="endTurn" player="Imperial-German-Afrika"/>
+            <step name="French-CombatMove" delegate="move" player="French" display="Move Battleships, Cruisers and Railguns"/>
+            <step name="French-MunitionsTechActivation" delegate="munitions" player="French" display="Load Munitions"/>
+            <step name="French-MunitionsCombatMove" delegate="move" player="French" display="Fire Munitions and Combat Move"/>
+            <step name="French-Purchase" delegate="purchase" player="French"/>
+            <step name="French-Battle" delegate="battle" player="French"/>
+            <step name="French-NonCombatMove" delegate="move" player="French" display="Non Combat Move"/>
+            <step name="French-Place" delegate="place" player="French"/>
+            <step name="French-EndTurn" delegate="endTurn" player="French"/>
+            <step name="French-Colonial-Africa-CombatMove" delegate="move" player="French-Colonial-Africa" display="Move Battleships, Cruisers and Railguns"/>
+            <step name="French-Colonial-Africa-MunitionsTechActivation" delegate="munitions" player="French-Colonial-Africa" display="Load Munitions"/>
+            <step name="French-Colonial-Africa-MunitionsCombatMove" delegate="move" player="French-Colonial-Africa" display="Fire Munitions and Combat Move"/>
+            <step name="French-Colonial-Africa-Purchase" delegate="purchase" player="French-Colonial-Africa"/>
+            <step name="French-Colonial-Africa-Battle" delegate="battle" player="French-Colonial-Africa"/>
+            <step name="French-Colonial-Africa-NonCombatMove" delegate="move" player="French-Colonial-Africa" display="Non Combat Move"/>
+            <step name="French-Colonial-Africa-Place" delegate="place" player="French-Colonial-Africa"/>
+            <step name="French-Colonial-Africa-EndTurn" delegate="endTurn" player="French-Colonial-Africa"/>
+            <step name="Russians-CombatMove" delegate="move" player="Russians" display="Move Battleships, Cruisers and Railguns"/>
+            <step name="Russians-MunitionsTechActivation" delegate="munitions" player="Russians" display="Load Munitions"/>
+            <step name="Russians-MunitionsCombatMove" delegate="move" player="Russians" display="Fire Munitions and Combat Move"/>
+            <step name="Russians-Purchase" delegate="purchase" player="Russians"/>
+            <step name="Russians-Battle" delegate="battle" player="Russians"/>
+            <step name="Russians-NonCombatMove" delegate="move" player="Russians" display="Non Combat Move"/>
+            <step name="Russians-Place" delegate="place" player="Russians"/>
+            <step name="Russians-EndTurn" delegate="endTurn" player="Russians"/>
+            <step name="Austrians-CombatMove" delegate="move" player="Austrians" display="Move Battleships, Cruisers and Railguns"/>
+            <step name="Austrians-MunitionsTechActivation" delegate="munitions" player="Austrians" display="Load Munitions"/>
+            <step name="Austrians-MunitionsCombatMove" delegate="move" player="Austrians" display="Fire Munitions and Combat Move"/>
+            <step name="Austrians-Purchase" delegate="purchase" player="Austrians"/>
+            <step name="Austrians-Battle" delegate="battle" player="Austrians"/>
+            <step name="Austrians-NonCombatMove" delegate="move" player="Austrians" display="Non Combat Move"/>
+            <step name="Austrians-Place" delegate="place" player="Austrians"/>
+            <step name="Austrians-EndTurn" delegate="endTurn" player="Austrians"/>
+            <step name="Ottomans-CombatMove" delegate="move" player="Ottomans" display="Move Battleships, Cruisers and Railguns"/>
+            <step name="Ottomans-MunitionsTechActivation" delegate="munitions" player="Ottomans" display="Load Munitions"/>
+            <step name="Ottomans-MunitionsCombatMove" delegate="move" player="Ottomans" display="Fire Munitions and Combat Move"/>
+            <step name="Ottomans-Purchase" delegate="purchase" player="Ottomans"/>
+            <step name="Ottomans-Battle" delegate="battle" player="Ottomans"/>
+            <step name="Ottomans-NonCombatMove" delegate="move" player="Ottomans" display="Non Combat Move"/>
+            <step name="Ottomans-Place" delegate="place" player="Ottomans"/>
+            <step name="Ottomans-EndTurn" delegate="endTurn" player="Ottomans"/>
+            <step name="British-CombatMove" delegate="move" player="British" display="Move Battleships, Cruisers and Railguns"/>
+            <step name="British-MunitionsTechActivation" delegate="munitions" player="British" display="Load Munitions"/>
+            <step name="British-MunitionsCombatMove" delegate="move" player="British" display="Fire Munitions and Combat Move"/>
+            <step name="British-Purchase" delegate="purchase" player="British"/>
+            <step name="British-Battle" delegate="battle" player="British"/>
+            <step name="British-NonCombatMove" delegate="move" player="British" display="Non Combat Move"/>
+            <step name="British-Place" delegate="place" player="British"/>
+            <step name="British-EndTurn" delegate="endTurn" player="British"/>
+            <step name="British-Commonwealth-CombatMove" delegate="move" player="British-Commonwealth" display="Move Battleships, Cruisers and Railguns"/>
+            <step name="British-Commonwealth-MunitionsTechActivation" delegate="munitions" player="British-Commonwealth" display="Load Munitions"/>
+            <step name="British-Commonwealth-MunitionsCombatMove" delegate="move" player="British-Commonwealth" display="Fire Munitions and Combat Move"/>
+            <step name="British-Commonwealth-Purchase" delegate="purchase" player="British-Commonwealth"/>
+            <step name="British-Commonwealth-Battle" delegate="battle" player="British-Commonwealth"/>
+            <step name="British-Commonwealth-NonCombatMove" delegate="move" player="British-Commonwealth" display="Non Combat Move"/>
+            <step name="British-Commonwealth-Place" delegate="place" player="British-Commonwealth"/>
+            <step name="British-Commonwealth-EndTurn" delegate="endTurn" player="British-Commonwealth"/>
+            <step name="Italians-CombatMove" delegate="move" player="Italians" display="Move Battleships, Cruisers and Railguns"/>
+            <step name="Italians-MunitionsTechActivation" delegate="munitions" player="Italians" display="Load Munitions"/>
+            <step name="Italians-MunitionsCombatMove" delegate="move" player="Italians" display="Fire Munitions and Combat Move"/>
+            <step name="Italians-Purchase" delegate="purchase" player="Italians"/>
+            <step name="Italians-Battle" delegate="battle" player="Italians"/>
+            <step name="Italians-NonCombatMove" delegate="move" player="Italians" display="Non Combat Move"/>
+            <step name="Italians-Place" delegate="place" player="Italians"/>
+            <step name="Italians-EndTurn" delegate="endTurn" player="Italians"/>
+            <step name="Americans-CombatMove" delegate="move" player="Americans" display="Move Battleships, Cruisers and Railguns"/>
+            <step name="Americans-MunitionsTechActivation" delegate="munitions" player="Americans" display="Load Munitions"/>
+            <step name="Americans-MunitionsCombatMove" delegate="move" player="Americans" display="Fire Munitions and Combat Move"/>
+            <step name="Americans-Purchase" delegate="purchase" player="Americans"/>
+            <step name="Americans-Battle" delegate="battle" player="Americans"/>
+            <step name="Americans-NonCombatMove" delegate="move" player="Americans" display="Non Combat Move"/>
+            <step name="Americans-Place" delegate="place" player="Americans"/>
+            <step name="Americans-EndTurn" delegate="endTurn" player="Americans"/>
+            <step name="Bolsheviks-CombatMove" delegate="move" player="Bolsheviks" display="Move Battleships, Cruisers and Railguns"/>
+            <step name="Bolsheviks-MunitionsTechActivation" delegate="munitions" player="Bolsheviks" display="Load Munitions"/>
+            <step name="Bolsheviks-MunitionsCombatMove" delegate="move" player="Bolsheviks" display="Fire Munitions and Combat Move"/>
+            <step name="Bolsheviks-Purchase" delegate="purchase" player="Bolsheviks"/>
+            <step name="Bolsheviks-Battle" delegate="battle" player="Bolsheviks"/>
+            <step name="Bolsheviks-NonCombatMove" delegate="move" player="Bolsheviks" display="Non Combat Move"/>
+            <step name="Bolsheviks-Place" delegate="place" player="Bolsheviks"/>
+            <step name="Bolsheviks-EndTurn" delegate="endTurn" player="Bolsheviks"/>
+		<productionFrontier name="Imperial-German-Afrika-Frontier">
+			<frontierRules name="buyAA-Gun"/>
+			<frontierRules name="buyArmored-Train"/>
+			<frontierRules name="buyBattlecruiser"/>
+			<frontierRules name="buyBattleship"/>
+			<frontierRules name="buyCavalry"/>
+			<frontierRules name="buyDestroyer"/>
+			<frontierRules name="buyFactory"/>
+			<frontierRules name="buyField-Artillery"/>
+			<frontierRules name="buyFighter"/>
+			<frontierRules name="buyFreighter"/>
+			<frontierRules name="buyHarbor-Defenses"/>
+			<frontierRules name="buyInfantry"/>
+			<frontierRules name="buyShipyard"/>
+			<frontierRules name="buySubmarine"/>
+			<frontierRules name="buyTrain"/>
+			<frontierRules name="buyTrenches"/>
+			<frontierRules name="buyTroop-Transport"/>
+			<frontierRules name="buyZeppelin"/>
+		</productionFrontier>
+		<productionFrontier name="British-Commonwealth-Frontier">
+			<frontierRules name="buyAA-Gun"/>
+			<frontierRules name="buyArmored-Train"/>
+			<frontierRules name="buyBattlecruiser"/>
+			<frontierRules name="buyBattleship"/>
+			<frontierRules name="buyCavalry"/>
+			<frontierRules name="buyDestroyer"/>
+			<frontierRules name="buyFactory"/>
+			<frontierRules name="buyField-Artillery"/>
+			<frontierRules name="buyFighter"/>
+			<frontierRules name="buyFreighter"/>
+			<frontierRules name="buyHarbor-Defenses"/>
+			<frontierRules name="buyInfantry"/>
+			<frontierRules name="buyShipyard"/>
+			<frontierRules name="buySubmarine"/>
+			<frontierRules name="buyTrain"/>
+			<frontierRules name="buyTrenches"/>
+			<frontierRules name="buyTroop-Transport"/>
+			<frontierRules name="buyZeppelin"/>
+		</productionFrontier>
+		<productionFrontier name="French-Colonial-Africa-Frontier">
+			<frontierRules name="buyAA-Gun"/>
+			<frontierRules name="buyArmored-Train"/>
+			<frontierRules name="buyBattlecruiser"/>
+			<frontierRules name="buyBattleship"/>
+			<frontierRules name="buyCavalry"/>
+			<frontierRules name="buyDestroyer"/>
+			<frontierRules name="buyFactory"/>
+			<frontierRules name="buyField-Artillery"/>
+			<frontierRules name="buyFighter"/>
+			<frontierRules name="buyFreighter"/>
+			<frontierRules name="buyHarbor-Defenses"/>
+			<frontierRules name="buyInfantry"/>
+			<frontierRules name="buyShipyard"/>
+			<frontierRules name="buySubmarine"/>
+			<frontierRules name="buyTrain"/>
+			<frontierRules name="buyTrenches"/>
+			<frontierRules name="buyTroop-Transport"/>
+			<frontierRules name="buyZeppelin"/>
+		</productionFrontier>
+		<productionFrontier name="Bolsheviks-Frontier">
+			<frontierRules name="buyAA-Gun"/>
+			<frontierRules name="buyArmored-Train"/>
+			<frontierRules name="buyBattlecruiser"/>
+			<frontierRules name="buyBattleship"/>
+			<frontierRules name="buyCavalry"/>
+			<frontierRules name="buyDestroyer"/>
+			<frontierRules name="buyFactory"/>
+			<frontierRules name="buyField-Artillery"/>
+			<frontierRules name="buyFighter"/>
+			<frontierRules name="buyFreighter"/>
+			<frontierRules name="buyHarbor-Defenses"/>
+			<frontierRules name="buyInfantry"/>
+			<frontierRules name="buyShipyard"/>
+			<frontierRules name="buySubmarine"/>
+			<frontierRules name="buyTrain"/>
+			<frontierRules name="buyTrenches"/>
+			<frontierRules name="buyTroop-Transport"/>
+			<frontierRules name="buyZeppelin"/>
+		</productionFrontier>
+		<productionFrontier name="Germans-Frontier">
+			<frontierRules name="buyAA-Gun"/>
+			<frontierRules name="buyArmored-Train"/>
+			<frontierRules name="buyBattlecruiser"/>
+			<frontierRules name="buyBattleship"/>
+			<frontierRules name="buyCavalry"/>
+			<frontierRules name="buyDestroyer"/>
+			<frontierRules name="buyDevelop-Bomber"/>
+			<frontierRules name="buyDevelop-Carrier"/>
+			<frontierRules name="buyDevelop-Heavy-Artillery"/>
+			<frontierRules name="buyDevelop-Mech-Infantry"/>
+			<frontierRules name="buyDevelop-Railgun"/>
+			<frontierRules name="buyDevelop-Tank"/>
+			<frontierRules name="buyFactory"/>
+			<frontierRules name="buyField-Artillery"/>
+			<frontierRules name="buyFighter"/>
+			<frontierRules name="buyFreighter"/>
+			<frontierRules name="buyHarbor-Defenses"/>
+			<frontierRules name="buyInfantry"/>
+			<frontierRules name="buyShipyard"/>
+			<frontierRules name="buySubmarine"/>
+			<frontierRules name="buyTrain"/>
+			<frontierRules name="buyTrenches"/>
+			<frontierRules name="buyTroop-Transport"/>
+			<frontierRules name="buyZeppelin"/>
+		</productionFrontier>
+		<productionFrontier name="British-Frontier">
+			<frontierRules name="buyAA-Gun"/>
+			<frontierRules name="buyArmored-Train"/>
+			<frontierRules name="buyBattlecruiser"/>
+			<frontierRules name="buyBattleship"/>
+			<frontierRules name="buyCavalry"/>
+			<frontierRules name="buyDestroyer"/>
+			<frontierRules name="buyDevelop-Bomber"/>
+			<frontierRules name="buyDevelop-Carrier"/>
+			<frontierRules name="buyDevelop-Heavy-Artillery"/>
+			<frontierRules name="buyDevelop-Mech-Infantry"/>
+			<frontierRules name="buyDevelop-Railgun"/>
+			<frontierRules name="buyDevelop-Tank"/>
+			<frontierRules name="buyFactory"/>
+			<frontierRules name="buyField-Artillery"/>
+			<frontierRules name="buyFighter"/>
+			<frontierRules name="buyFreighter"/>
+			<frontierRules name="buyHarbor-Defenses"/>
+			<frontierRules name="buyInfantry"/>
+			<frontierRules name="buyShipyard"/>
+			<frontierRules name="buySubmarine"/>
+			<frontierRules name="buyTrain"/>
+			<frontierRules name="buyTrenches"/>
+			<frontierRules name="buyTroop-Transport"/>
+			<frontierRules name="buyZeppelin"/>
+		</productionFrontier>
+		<productionFrontier name="French-Frontier">
+			<frontierRules name="buyAA-Gun"/>
+			<frontierRules name="buyArmored-Train"/>
+			<frontierRules name="buyBattlecruiser"/>
+			<frontierRules name="buyBattleship"/>
+			<frontierRules name="buyCavalry"/>
+			<frontierRules name="buyDestroyer"/>
+			<frontierRules name="buyDevelop-Bomber"/>
+			<frontierRules name="buyDevelop-Carrier"/>
+			<frontierRules name="buyDevelop-Heavy-Artillery"/>
+			<frontierRules name="buyDevelop-Mech-Infantry"/>
+			<frontierRules name="buyDevelop-Railgun"/>
+			<frontierRules name="buyDevelop-Tank"/>
+			<frontierRules name="buyFactory"/>
+			<frontierRules name="buyField-Artillery"/>
+			<frontierRules name="buyFighter"/>
+			<frontierRules name="buyFreighter"/>
+			<frontierRules name="buyHarbor-Defenses"/>
+			<frontierRules name="buyInfantry"/>
+			<frontierRules name="buyShipyard"/>
+			<frontierRules name="buySubmarine"/>
+			<frontierRules name="buyTrain"/>
+			<frontierRules name="buyTrenches"/>
+			<frontierRules name="buyTroop-Transport"/>
+			<frontierRules name="buyZeppelin"/>
+		</productionFrontier>
+		<productionFrontier name="Russians-Frontier">
+			<frontierRules name="buyAA-Gun"/>
+			<frontierRules name="buyArmored-Train"/>
+			<frontierRules name="buyBattlecruiser"/>
+			<frontierRules name="buyBattleship"/>
+			<frontierRules name="buyCavalry"/>
+			<frontierRules name="buyDestroyer"/>
+			<frontierRules name="buyDevelop-Bomber"/>
+			<frontierRules name="buyDevelop-Carrier"/>
+			<frontierRules name="buyDevelop-Heavy-Artillery"/>
+			<frontierRules name="buyDevelop-Mech-Infantry"/>
+			<frontierRules name="buyDevelop-Railgun"/>
+			<frontierRules name="buyDevelop-Tank"/>
+			<frontierRules name="buyFactory"/>
+			<frontierRules name="buyField-Artillery"/>
+			<frontierRules name="buyFighter"/>
+			<frontierRules name="buyFreighter"/>
+			<frontierRules name="buyHarbor-Defenses"/>
+			<frontierRules name="buyInfantry"/>
+			<frontierRules name="buyShipyard"/>
+			<frontierRules name="buySubmarine"/>
+			<frontierRules name="buyTrain"/>
+			<frontierRules name="buyTrenches"/>
+			<frontierRules name="buyTroop-Transport"/>
+			<frontierRules name="buyZeppelin"/>
+		</productionFrontier>
+		<productionFrontier name="Austrians-Frontier">
+			<frontierRules name="buyAA-Gun"/>
+			<frontierRules name="buyArmored-Train"/>
+			<frontierRules name="buyBattlecruiser"/>
+			<frontierRules name="buyBattleship"/>
+			<frontierRules name="buyCavalry"/>
+			<frontierRules name="buyDestroyer"/>
+			<frontierRules name="buyDevelop-Bomber"/>
+			<frontierRules name="buyDevelop-Carrier"/>
+			<frontierRules name="buyDevelop-Heavy-Artillery"/>
+			<frontierRules name="buyDevelop-Mech-Infantry"/>
+			<frontierRules name="buyDevelop-Railgun"/>
+			<frontierRules name="buyDevelop-Tank"/>
+			<frontierRules name="buyFactory"/>
+			<frontierRules name="buyField-Artillery"/>
+			<frontierRules name="buyFighter"/>
+			<frontierRules name="buyFreighter"/>
+			<frontierRules name="buyHarbor-Defenses"/>
+			<frontierRules name="buyInfantry"/>
+			<frontierRules name="buyShipyard"/>
+			<frontierRules name="buySubmarine"/>
+			<frontierRules name="buyTrain"/>
+			<frontierRules name="buyTrenches"/>
+			<frontierRules name="buyTroop-Transport"/>
+			<frontierRules name="buyZeppelin"/>
+		</productionFrontier>
+		<productionFrontier name="Ottomans-Frontier">
+			<frontierRules name="buyAA-Gun"/>
+			<frontierRules name="buyArmored-Train"/>
+			<frontierRules name="buyBattlecruiser"/>
+			<frontierRules name="buyBattleship"/>
+			<frontierRules name="buyCavalry"/>
+			<frontierRules name="buyDestroyer"/>
+			<frontierRules name="buyDevelop-Bomber"/>
+			<frontierRules name="buyDevelop-Carrier"/>
+			<frontierRules name="buyDevelop-Heavy-Artillery"/>
+			<frontierRules name="buyDevelop-Mech-Infantry"/>
+			<frontierRules name="buyDevelop-Railgun"/>
+			<frontierRules name="buyDevelop-Tank"/>
+			<frontierRules name="buyFactory"/>
+			<frontierRules name="buyField-Artillery"/>
+			<frontierRules name="buyFighter"/>
+			<frontierRules name="buyFreighter"/>
+			<frontierRules name="buyHarbor-Defenses"/>
+			<frontierRules name="buyInfantry"/>
+			<frontierRules name="buyShipyard"/>
+			<frontierRules name="buySubmarine"/>
+			<frontierRules name="buyTrain"/>
+			<frontierRules name="buyTrenches"/>
+			<frontierRules name="buyTroop-Transport"/>
+			<frontierRules name="buyZeppelin"/>
+		</productionFrontier>
+		<productionFrontier name="Italians-Frontier">
+			<frontierRules name="buyAA-Gun"/>
+			<frontierRules name="buyArmored-Train"/>
+			<frontierRules name="buyBattlecruiser"/>
+			<frontierRules name="buyBattleship"/>
+			<frontierRules name="buyCavalry"/>
+			<frontierRules name="buyDestroyer"/>
+			<frontierRules name="buyDevelop-Bomber"/>
+			<frontierRules name="buyDevelop-Carrier"/>
+			<frontierRules name="buyDevelop-Heavy-Artillery"/>
+			<frontierRules name="buyDevelop-Mech-Infantry"/>
+			<frontierRules name="buyDevelop-Railgun"/>
+			<frontierRules name="buyDevelop-Tank"/>
+			<frontierRules name="buyFactory"/>
+			<frontierRules name="buyField-Artillery"/>
+			<frontierRules name="buyFighter"/>
+			<frontierRules name="buyFreighter"/>
+			<frontierRules name="buyHarbor-Defenses"/>
+			<frontierRules name="buyInfantry"/>
+			<frontierRules name="buyShipyard"/>
+			<frontierRules name="buySubmarine"/>
+			<frontierRules name="buyTrain"/>
+			<frontierRules name="buyTrenches"/>
+			<frontierRules name="buyTroop-Transport"/>
+			<frontierRules name="buyZeppelin"/>
+		</productionFrontier>
+		<productionFrontier name="Americans-Frontier">
+			<frontierRules name="buyAA-Gun"/>
+			<frontierRules name="buyArmored-Train"/>
+			<frontierRules name="buyBattlecruiser"/>
+			<frontierRules name="buyBattleship"/>
+			<frontierRules name="buyCavalry"/>
+			<frontierRules name="buyDestroyer"/>
+			<frontierRules name="buyDevelop-Bomber"/>
+			<frontierRules name="buyDevelop-Carrier"/>
+			<frontierRules name="buyDevelop-Heavy-Artillery"/>
+			<frontierRules name="buyDevelop-Mech-Infantry"/>
+			<frontierRules name="buyDevelop-Railgun"/>
+			<frontierRules name="buyDevelop-Tank"/>
+			<frontierRules name="buyFactory"/>
+			<frontierRules name="buyField-Artillery"/>
+			<frontierRules name="buyFighter"/>
+			<frontierRules name="buyFreighter"/>
+			<frontierRules name="buyHarbor-Defenses"/>
+			<frontierRules name="buyInfantry"/>
+			<frontierRules name="buyShipyard"/>
+			<frontierRules name="buySubmarine"/>
+			<frontierRules name="buyTrain"/>
+			<frontierRules name="buyTrenches"/>
+			<frontierRules name="buyTroop-Transport"/>
+			<frontierRules name="buyZeppelin"/>
+		</productionFrontier>
+		<playerProduction player="Germans" frontier="Germans-Frontier"/>
+		<playerProduction player="British" frontier="British-Frontier"/>
+		<playerProduction player="French" frontier="French-Frontier"/>
+		<playerProduction player="Russians" frontier="Russians-Frontier"/>
+		<playerProduction player="Austrians" frontier="Austrians-Frontier"/>
+		<playerProduction player="Ottomans" frontier="Ottomans-Frontier"/>
+		<playerProduction player="Italians" frontier="Italians-Frontier"/>
+		<playerProduction player="Americans" frontier="Americans-Frontier"/>
+		<playerProduction player="Imperial-German-Afrika" frontier="Imperial-German-Afrika-Frontier"/>
+		<playerProduction player="British-Commonwealth" frontier="British-Commonwealth-Frontier"/>
+		<playerProduction player="French-Colonial-Africa" frontier="French-Colonial-Africa-Frontier"/>
+		<playerProduction player="Bolsheviks" frontier="Bolsheviks-Frontier"/>
+		<playerRepair player="Germans" frontier="repair"/>
+		<playerRepair player="British" frontier="repair"/>
+		<playerRepair player="French" frontier="repair"/>
+		<playerRepair player="Russians" frontier="repair"/>
+		<playerRepair player="Austrians" frontier="repair"/>
+		<playerRepair player="Ottomans" frontier="repair"/>
+		<playerRepair player="Italians" frontier="repair"/>
+		<playerRepair player="Americans" frontier="repair"/>
+		<playerRepair player="Imperial-German-Afrika" frontier="repair"/>
+		<playerRepair player="British-Commonwealth" frontier="repair"/>
+		<playerRepair player="French-Colonial-Africa" frontier="repair"/>
+		<playerRepair player="Bolsheviks" frontier="repair"/>
+        <!-- Give mech inf to Germans so land transport works and define an "always true" condition for other triggers that should always fire -->
+        <attachment name="techAttachment" attachTo="Germans" javaClass="games.strategy.triplea.attachments.TechAttachment" type="player">
+            <option name="mechanizedInfantry" value="true" count=""/>
+        </attachment>
+		<attachment name="conditionAttachment-Germans-AlwaysTrue" attachTo="Germans" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
+		    <option name="techs" value="mechanizedInfantry" count="1" />
+		</attachment>
+        
+        <!-- Give mech inf to British so land transport works and define an "always true" condition for other triggers that should always fire -->
+        <attachment name="techAttachment" attachTo="British" javaClass="games.strategy.triplea.attachments.TechAttachment" type="player">
+            <option name="mechanizedInfantry" value="true" count=""/>
+        </attachment>
+		<attachment name="conditionAttachment-British-AlwaysTrue" attachTo="British" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
+		    <option name="techs" value="mechanizedInfantry" count="1" />
+		</attachment>
+        
+        <!-- Give mech inf to French so land transport works and define an "always true" condition for other triggers that should always fire -->
+        <attachment name="techAttachment" attachTo="French" javaClass="games.strategy.triplea.attachments.TechAttachment" type="player">
+            <option name="mechanizedInfantry" value="true" count=""/>
+        </attachment>
+		<attachment name="conditionAttachment-French-AlwaysTrue" attachTo="French" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
+		    <option name="techs" value="mechanizedInfantry" count="1" />
+		</attachment>
+        
+        <!-- Give mech inf to Russians so land transport works and define an "always true" condition for other triggers that should always fire -->
+        <attachment name="techAttachment" attachTo="Russians" javaClass="games.strategy.triplea.attachments.TechAttachment" type="player">
+            <option name="mechanizedInfantry" value="true" count=""/>
+        </attachment>
+		<attachment name="conditionAttachment-Russians-AlwaysTrue" attachTo="Russians" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
+		    <option name="techs" value="mechanizedInfantry" count="1" />
+		</attachment>
+        
+        <!-- Give mech inf to Austrians so land transport works and define an "always true" condition for other triggers that should always fire -->
+        <attachment name="techAttachment" attachTo="Austrians" javaClass="games.strategy.triplea.attachments.TechAttachment" type="player">
+            <option name="mechanizedInfantry" value="true" count=""/>
+        </attachment>
+		<attachment name="conditionAttachment-Austrians-AlwaysTrue" attachTo="Austrians" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
+		    <option name="techs" value="mechanizedInfantry" count="1" />
+		</attachment>
+        
+        <!-- Give mech inf to Ottomans so land transport works and define an "always true" condition for other triggers that should always fire -->
+        <attachment name="techAttachment" attachTo="Ottomans" javaClass="games.strategy.triplea.attachments.TechAttachment" type="player">
+            <option name="mechanizedInfantry" value="true" count=""/>
+        </attachment>
+		<attachment name="conditionAttachment-Ottomans-AlwaysTrue" attachTo="Ottomans" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
+		    <option name="techs" value="mechanizedInfantry" count="1" />
+		</attachment>
+        
+        <!-- Give mech inf to Italians so land transport works and define an "always true" condition for other triggers that should always fire -->
+        <attachment name="techAttachment" attachTo="Italians" javaClass="games.strategy.triplea.attachments.TechAttachment" type="player">
+            <option name="mechanizedInfantry" value="true" count=""/>
+        </attachment>
+		<attachment name="conditionAttachment-Italians-AlwaysTrue" attachTo="Italians" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
+		    <option name="techs" value="mechanizedInfantry" count="1" />
+		</attachment>
+        
+        <!-- Give mech inf to Americans so land transport works and define an "always true" condition for other triggers that should always fire -->
+        <attachment name="techAttachment" attachTo="Americans" javaClass="games.strategy.triplea.attachments.TechAttachment" type="player">
+            <option name="mechanizedInfantry" value="true" count=""/>
+        </attachment>
+		<attachment name="conditionAttachment-Americans-AlwaysTrue" attachTo="Americans" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
+		    <option name="techs" value="mechanizedInfantry" count="1" />
+		</attachment>
+        
+        <!-- Give mech inf to Imperial-German-Afrika so land transport works and define an "always true" condition for other triggers that should always fire -->
+        <attachment name="techAttachment" attachTo="Imperial-German-Afrika" javaClass="games.strategy.triplea.attachments.TechAttachment" type="player">
+            <option name="mechanizedInfantry" value="true" count=""/>
+        </attachment>
+		<attachment name="conditionAttachment-Imperial-German-Afrika-AlwaysTrue" attachTo="Imperial-German-Afrika" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
+		    <option name="techs" value="mechanizedInfantry" count="1" />
+		</attachment>
+        
+        <!-- Give mech inf to British-Commonwealth so land transport works and define an "always true" condition for other triggers that should always fire -->
+        <attachment name="techAttachment" attachTo="British-Commonwealth" javaClass="games.strategy.triplea.attachments.TechAttachment" type="player">
+            <option name="mechanizedInfantry" value="true" count=""/>
+        </attachment>
+		<attachment name="conditionAttachment-British-Commonwealth-AlwaysTrue" attachTo="British-Commonwealth" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
+		    <option name="techs" value="mechanizedInfantry" count="1" />
+		</attachment>
+        
+        <!-- Give mech inf to French-Colonial-Africa so land transport works and define an "always true" condition for other triggers that should always fire -->
+        <attachment name="techAttachment" attachTo="French-Colonial-Africa" javaClass="games.strategy.triplea.attachments.TechAttachment" type="player">
+            <option name="mechanizedInfantry" value="true" count=""/>
+        </attachment>
+		<attachment name="conditionAttachment-French-Colonial-Africa-AlwaysTrue" attachTo="French-Colonial-Africa" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
+		    <option name="techs" value="mechanizedInfantry" count="1" />
+		</attachment>
+        
+        <!-- Give mech inf to Bolsheviks so land transport works and define an "always true" condition for other triggers that should always fire -->
+        <attachment name="techAttachment" attachTo="Bolsheviks" javaClass="games.strategy.triplea.attachments.TechAttachment" type="player">
+            <option name="mechanizedInfantry" value="true" count=""/>
+        </attachment>
+		<attachment name="conditionAttachment-Bolsheviks-AlwaysTrue" attachTo="Bolsheviks" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
+		    <option name="techs" value="mechanizedInfantry" count="1" />
+		</attachment>
+        
+		<attachment name="unitAttachment" attachTo="Develop-Bomber" javaClass="games.strategy.triplea.attachments.UnitAttachment" type="unitType">
+			<option name="attack" value="0" count=""/>
+			<option name="defense" value="0" count=""/>
+			<option name="movement" value="0" count=""/>
+			<option name="maxBuiltPerPlayer" value="1" count=""/>
+			<option name="isInfrastructure" value="true" count=""/>
+		</attachment>
+		<attachment name="unitAttachment" attachTo="Develop-Carrier" javaClass="games.strategy.triplea.attachments.UnitAttachment" type="unitType">
+			<option name="attack" value="0" count=""/>
+			<option name="defense" value="0" count=""/>
+			<option name="movement" value="0" count=""/>
+			<option name="maxBuiltPerPlayer" value="1" count=""/>
+			<option name="isInfrastructure" value="true" count=""/>
+		</attachment>
+		<attachment name="unitAttachment" attachTo="Develop-Heavy-Artillery" javaClass="games.strategy.triplea.attachments.UnitAttachment" type="unitType">
+			<option name="attack" value="0" count=""/>
+			<option name="defense" value="0" count=""/>
+			<option name="movement" value="0" count=""/>
+			<option name="maxBuiltPerPlayer" value="1" count=""/>
+			<option name="isInfrastructure" value="true" count=""/>
+		</attachment>
+		<attachment name="unitAttachment" attachTo="Develop-Mech-Infantry" javaClass="games.strategy.triplea.attachments.UnitAttachment" type="unitType">
+			<option name="attack" value="0" count=""/>
+			<option name="defense" value="0" count=""/>
+			<option name="movement" value="0" count=""/>
+			<option name="maxBuiltPerPlayer" value="1" count=""/>
+			<option name="isInfrastructure" value="true" count=""/>
+		</attachment>
+		<attachment name="unitAttachment" attachTo="Develop-Tank" javaClass="games.strategy.triplea.attachments.UnitAttachment" type="unitType">
+			<option name="attack" value="0" count=""/>
+			<option name="defense" value="0" count=""/>
+			<option name="movement" value="0" count=""/>
+			<option name="maxBuiltPerPlayer" value="1" count=""/>
+			<option name="isInfrastructure" value="true" count=""/>
+		</attachment>
+		<!-- Develop Bomber for Austrians -->
+		<attachment name="conditionAttachment-Austrians-Develop-Bomber" attachTo="Austrians" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
+			<option name="directPresenceTerritories" value="map" count="1"/>
+			<option name="unitPresence" value="Develop-Bomber" count="1"/>
+		</attachment>
+		<attachment name="triggerAttachment-Austrians-Develop-Bomber" attachTo="Austrians" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachment-Austrians-Develop-Bomber" count=""/>
+			<option name="when" value="after:Austrians-Place" count=""/>
+			<option name="when" value="after:Austrians-BidPlace" count=""/>
+			<option name="productionRule" value="Austrians-Frontier:-buyDevelop-Bomber" count=""/>
+			<option name="productionRule" value="Austrians-Frontier:buyBomber" count=""/>
+			<option name="removeUnits" value="all:Develop-Bomber" count="1"/>
+			<option name="uses" value="1" count=""/>
+		</attachment>
+		<!-- Develop Bomber for Ottomans -->
+		<attachment name="conditionAttachment-Ottomans-Develop-Bomber" attachTo="Ottomans" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
+			<option name="directPresenceTerritories" value="map" count="1"/>
+			<option name="unitPresence" value="Develop-Bomber" count="1"/>
+		</attachment>
+		<attachment name="triggerAttachment-Ottomans-Develop-Bomber" attachTo="Ottomans" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachment-Ottomans-Develop-Bomber" count=""/>
+			<option name="when" value="after:Ottomans-Place" count=""/>
+			<option name="when" value="after:Ottomans-BidPlace" count=""/>
+			<option name="productionRule" value="Ottomans-Frontier:-buyDevelop-Bomber" count=""/>
+			<option name="productionRule" value="Ottomans-Frontier:buyBomber" count=""/>
+			<option name="removeUnits" value="all:Develop-Bomber" count="1"/>
+			<option name="uses" value="1" count=""/>
+		</attachment>
+		<!-- Develop Bomber for Italians -->
+		<attachment name="conditionAttachment-Italians-Develop-Bomber" attachTo="Italians" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
+			<option name="directPresenceTerritories" value="map" count="1"/>
+			<option name="unitPresence" value="Develop-Bomber" count="1"/>
+		</attachment>
+		<attachment name="triggerAttachment-Italians-Develop-Bomber" attachTo="Italians" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachment-Italians-Develop-Bomber" count=""/>
+			<option name="when" value="after:Italians-Place" count=""/>
+			<option name="when" value="after:Italians-BidPlace" count=""/>
+			<option name="productionRule" value="Italians-Frontier:-buyDevelop-Bomber" count=""/>
+			<option name="productionRule" value="Italians-Frontier:buyBomber" count=""/>
+			<option name="removeUnits" value="all:Develop-Bomber" count="1"/>
+			<option name="uses" value="1" count=""/>
+		</attachment>
+		<!-- Develop Bomber for Americans -->
+		<attachment name="conditionAttachment-Americans-Develop-Bomber" attachTo="Americans" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
+			<option name="directPresenceTerritories" value="map" count="1"/>
+			<option name="unitPresence" value="Develop-Bomber" count="1"/>
+		</attachment>
+		<attachment name="triggerAttachment-Americans-Develop-Bomber" attachTo="Americans" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachment-Americans-Develop-Bomber" count=""/>
+			<option name="when" value="after:Americans-Place" count=""/>
+			<option name="when" value="after:Americans-BidPlace" count=""/>
+			<option name="productionRule" value="Americans-Frontier:-buyDevelop-Bomber" count=""/>
+			<option name="productionRule" value="Americans-Frontier:buyBomber" count=""/>
+			<option name="removeUnits" value="all:Develop-Bomber" count="1"/>
+			<option name="uses" value="1" count=""/>
+		</attachment>
+		<!-- Develop Carrier for Austrians -->
+		<attachment name="conditionAttachment-Austrians-Develop-Carrier" attachTo="Austrians" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
+			<option name="directPresenceTerritories" value="map" count="1"/>
+			<option name="unitPresence" value="Develop-Carrier" count="1"/>
+		</attachment>
+		<attachment name="triggerAttachment-Austrians-Develop-Carrier" attachTo="Austrians" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachment-Austrians-Develop-Carrier" count=""/>
+			<option name="when" value="after:Austrians-Place" count=""/>
+			<option name="when" value="after:Austrians-BidPlace" count=""/>
+			<option name="productionRule" value="Austrians-Frontier:-buyDevelop-Carrier" count=""/>
+			<option name="productionRule" value="Austrians-Frontier:buyCarrier" count=""/>
+			<option name="removeUnits" value="all:Develop-Carrier" count="1"/>
+			<option name="uses" value="1" count=""/>
+		</attachment>
+		<!-- Develop Carrier for Ottomans -->
+		<attachment name="conditionAttachment-Ottomans-Develop-Carrier" attachTo="Ottomans" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
+			<option name="directPresenceTerritories" value="map" count="1"/>
+			<option name="unitPresence" value="Develop-Carrier" count="1"/>
+		</attachment>
+		<attachment name="triggerAttachment-Ottomans-Develop-Carrier" attachTo="Ottomans" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachment-Ottomans-Develop-Carrier" count=""/>
+			<option name="when" value="after:Ottomans-Place" count=""/>
+			<option name="when" value="after:Ottomans-BidPlace" count=""/>
+			<option name="productionRule" value="Ottomans-Frontier:-buyDevelop-Carrier" count=""/>
+			<option name="productionRule" value="Ottomans-Frontier:buyCarrier" count=""/>
+			<option name="removeUnits" value="all:Develop-Carrier" count="1"/>
+			<option name="uses" value="1" count=""/>
+		</attachment>
+		<!-- Develop Carrier for Italians -->
+		<attachment name="conditionAttachment-Italians-Develop-Carrier" attachTo="Italians" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
+			<option name="directPresenceTerritories" value="map" count="1"/>
+			<option name="unitPresence" value="Develop-Carrier" count="1"/>
+		</attachment>
+		<attachment name="triggerAttachment-Italians-Develop-Carrier" attachTo="Italians" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachment-Italians-Develop-Carrier" count=""/>
+			<option name="when" value="after:Italians-Place" count=""/>
+			<option name="when" value="after:Italians-BidPlace" count=""/>
+			<option name="productionRule" value="Italians-Frontier:-buyDevelop-Carrier" count=""/>
+			<option name="productionRule" value="Italians-Frontier:buyCarrier" count=""/>
+			<option name="removeUnits" value="all:Develop-Carrier" count="1"/>
+			<option name="uses" value="1" count=""/>
+		</attachment>
+		<!-- Develop Carrier for Americans -->
+		<attachment name="conditionAttachment-Americans-Develop-Carrier" attachTo="Americans" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
+			<option name="directPresenceTerritories" value="map" count="1"/>
+			<option name="unitPresence" value="Develop-Carrier" count="1"/>
+		</attachment>
+		<attachment name="triggerAttachment-Americans-Develop-Carrier" attachTo="Americans" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachment-Americans-Develop-Carrier" count=""/>
+			<option name="when" value="after:Americans-Place" count=""/>
+			<option name="when" value="after:Americans-BidPlace" count=""/>
+			<option name="productionRule" value="Americans-Frontier:-buyDevelop-Carrier" count=""/>
+			<option name="productionRule" value="Americans-Frontier:buyCarrier" count=""/>
+			<option name="removeUnits" value="all:Develop-Carrier" count="1"/>
+			<option name="uses" value="1" count=""/>
+		</attachment>
+		<!-- Develop Heavy-Artillery for Austrians -->
+		<attachment name="conditionAttachment-Austrians-Develop-Heavy-Artillery" attachTo="Austrians" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
+			<option name="directPresenceTerritories" value="map" count="1"/>
+			<option name="unitPresence" value="Develop-Heavy-Artillery" count="1"/>
+		</attachment>
+		<attachment name="triggerAttachment-Austrians-Develop-Heavy-Artillery" attachTo="Austrians" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachment-Austrians-Develop-Heavy-Artillery" count=""/>
+			<option name="when" value="after:Austrians-Place" count=""/>
+			<option name="when" value="after:Austrians-BidPlace" count=""/>
+			<option name="productionRule" value="Austrians-Frontier:-buyDevelop-Heavy-Artillery" count=""/>
+			<option name="productionRule" value="Austrians-Frontier:buyHeavy-Artillery" count=""/>
+			<option name="removeUnits" value="all:Develop-Heavy-Artillery" count="1"/>
+			<option name="uses" value="1" count=""/>
+		</attachment>
+		<!-- Develop Heavy-Artillery for Ottomans -->
+		<attachment name="conditionAttachment-Ottomans-Develop-Heavy-Artillery" attachTo="Ottomans" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
+			<option name="directPresenceTerritories" value="map" count="1"/>
+			<option name="unitPresence" value="Develop-Heavy-Artillery" count="1"/>
+		</attachment>
+		<attachment name="triggerAttachment-Ottomans-Develop-Heavy-Artillery" attachTo="Ottomans" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachment-Ottomans-Develop-Heavy-Artillery" count=""/>
+			<option name="when" value="after:Ottomans-Place" count=""/>
+			<option name="when" value="after:Ottomans-BidPlace" count=""/>
+			<option name="productionRule" value="Ottomans-Frontier:-buyDevelop-Heavy-Artillery" count=""/>
+			<option name="productionRule" value="Ottomans-Frontier:buyHeavy-Artillery" count=""/>
+			<option name="removeUnits" value="all:Develop-Heavy-Artillery" count="1"/>
+			<option name="uses" value="1" count=""/>
+		</attachment>
+		<!-- Develop Heavy-Artillery for Italians -->
+		<attachment name="conditionAttachment-Italians-Develop-Heavy-Artillery" attachTo="Italians" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
+			<option name="directPresenceTerritories" value="map" count="1"/>
+			<option name="unitPresence" value="Develop-Heavy-Artillery" count="1"/>
+		</attachment>
+		<attachment name="triggerAttachment-Italians-Develop-Heavy-Artillery" attachTo="Italians" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachment-Italians-Develop-Heavy-Artillery" count=""/>
+			<option name="when" value="after:Italians-Place" count=""/>
+			<option name="when" value="after:Italians-BidPlace" count=""/>
+			<option name="productionRule" value="Italians-Frontier:-buyDevelop-Heavy-Artillery" count=""/>
+			<option name="productionRule" value="Italians-Frontier:buyHeavy-Artillery" count=""/>
+			<option name="removeUnits" value="all:Develop-Heavy-Artillery" count="1"/>
+			<option name="uses" value="1" count=""/>
+		</attachment>
+		<!-- Develop Heavy-Artillery for Americans -->
+		<attachment name="conditionAttachment-Americans-Develop-Heavy-Artillery" attachTo="Americans" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
+			<option name="directPresenceTerritories" value="map" count="1"/>
+			<option name="unitPresence" value="Develop-Heavy-Artillery" count="1"/>
+		</attachment>
+		<attachment name="triggerAttachment-Americans-Develop-Heavy-Artillery" attachTo="Americans" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachment-Americans-Develop-Heavy-Artillery" count=""/>
+			<option name="when" value="after:Americans-Place" count=""/>
+			<option name="when" value="after:Americans-BidPlace" count=""/>
+			<option name="productionRule" value="Americans-Frontier:-buyDevelop-Heavy-Artillery" count=""/>
+			<option name="productionRule" value="Americans-Frontier:buyHeavy-Artillery" count=""/>
+			<option name="removeUnits" value="all:Develop-Heavy-Artillery" count="1"/>
+			<option name="uses" value="1" count=""/>
+		</attachment>
+		<!-- Develop Mech-Infantry for Austrians -->
+		<attachment name="conditionAttachment-Austrians-Develop-Mech-Infantry" attachTo="Austrians" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
+			<option name="directPresenceTerritories" value="map" count="1"/>
+			<option name="unitPresence" value="Develop-Mech-Infantry" count="1"/>
+		</attachment>
+		<attachment name="triggerAttachment-Austrians-Develop-Mech-Infantry" attachTo="Austrians" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachment-Austrians-Develop-Mech-Infantry" count=""/>
+			<option name="when" value="after:Austrians-Place" count=""/>
+			<option name="when" value="after:Austrians-BidPlace" count=""/>
+			<option name="productionRule" value="Austrians-Frontier:-buyDevelop-Mech-Infantry" count=""/>
+			<option name="productionRule" value="Austrians-Frontier:buyMech-Infantry" count=""/>
+			<option name="removeUnits" value="all:Develop-Mech-Infantry" count="1"/>
+			<option name="uses" value="1" count=""/>
+		</attachment>
+		<!-- Develop Mech-Infantry for Ottomans -->
+		<attachment name="conditionAttachment-Ottomans-Develop-Mech-Infantry" attachTo="Ottomans" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
+			<option name="directPresenceTerritories" value="map" count="1"/>
+			<option name="unitPresence" value="Develop-Mech-Infantry" count="1"/>
+		</attachment>
+		<attachment name="triggerAttachment-Ottomans-Develop-Mech-Infantry" attachTo="Ottomans" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachment-Ottomans-Develop-Mech-Infantry" count=""/>
+			<option name="when" value="after:Ottomans-Place" count=""/>
+			<option name="when" value="after:Ottomans-BidPlace" count=""/>
+			<option name="productionRule" value="Ottomans-Frontier:-buyDevelop-Mech-Infantry" count=""/>
+			<option name="productionRule" value="Ottomans-Frontier:buyMech-Infantry" count=""/>
+			<option name="removeUnits" value="all:Develop-Mech-Infantry" count="1"/>
+			<option name="uses" value="1" count=""/>
+		</attachment>
+		<!-- Develop Mech-Infantry for Italians -->
+		<attachment name="conditionAttachment-Italians-Develop-Mech-Infantry" attachTo="Italians" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
+			<option name="directPresenceTerritories" value="map" count="1"/>
+			<option name="unitPresence" value="Develop-Mech-Infantry" count="1"/>
+		</attachment>
+		<attachment name="triggerAttachment-Italians-Develop-Mech-Infantry" attachTo="Italians" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachment-Italians-Develop-Mech-Infantry" count=""/>
+			<option name="when" value="after:Italians-Place" count=""/>
+			<option name="when" value="after:Italians-BidPlace" count=""/>
+			<option name="productionRule" value="Italians-Frontier:-buyDevelop-Mech-Infantry" count=""/>
+			<option name="productionRule" value="Italians-Frontier:buyMech-Infantry" count=""/>
+			<option name="removeUnits" value="all:Develop-Mech-Infantry" count="1"/>
+			<option name="uses" value="1" count=""/>
+		</attachment>
+		<!-- Develop Mech-Infantry for Americans -->
+		<attachment name="conditionAttachment-Americans-Develop-Mech-Infantry" attachTo="Americans" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
+			<option name="directPresenceTerritories" value="map" count="1"/>
+			<option name="unitPresence" value="Develop-Mech-Infantry" count="1"/>
+		</attachment>
+		<attachment name="triggerAttachment-Americans-Develop-Mech-Infantry" attachTo="Americans" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachment-Americans-Develop-Mech-Infantry" count=""/>
+			<option name="when" value="after:Americans-Place" count=""/>
+			<option name="when" value="after:Americans-BidPlace" count=""/>
+			<option name="productionRule" value="Americans-Frontier:-buyDevelop-Mech-Infantry" count=""/>
+			<option name="productionRule" value="Americans-Frontier:buyMech-Infantry" count=""/>
+			<option name="removeUnits" value="all:Develop-Mech-Infantry" count="1"/>
+			<option name="uses" value="1" count=""/>
+		</attachment>
+		<!-- Develop Tank for Austrians -->
+		<attachment name="conditionAttachment-Austrians-Develop-Tank" attachTo="Austrians" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
+			<option name="directPresenceTerritories" value="map" count="1"/>
+			<option name="unitPresence" value="Develop-Tank" count="1"/>
+		</attachment>
+		<attachment name="triggerAttachment-Austrians-Develop-Tank" attachTo="Austrians" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachment-Austrians-Develop-Tank" count=""/>
+			<option name="when" value="after:Austrians-Place" count=""/>
+			<option name="when" value="after:Austrians-BidPlace" count=""/>
+			<option name="productionRule" value="Austrians-Frontier:-buyDevelop-Tank" count=""/>
+			<option name="productionRule" value="Austrians-Frontier:buyTank" count=""/>
+			<option name="removeUnits" value="all:Develop-Tank" count="1"/>
+			<option name="uses" value="1" count=""/>
+		</attachment>
+		<!-- Develop Tank for Ottomans -->
+		<attachment name="conditionAttachment-Ottomans-Develop-Tank" attachTo="Ottomans" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
+			<option name="directPresenceTerritories" value="map" count="1"/>
+			<option name="unitPresence" value="Develop-Tank" count="1"/>
+		</attachment>
+		<attachment name="triggerAttachment-Ottomans-Develop-Tank" attachTo="Ottomans" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachment-Ottomans-Develop-Tank" count=""/>
+			<option name="when" value="after:Ottomans-Place" count=""/>
+			<option name="when" value="after:Ottomans-BidPlace" count=""/>
+			<option name="productionRule" value="Ottomans-Frontier:-buyDevelop-Tank" count=""/>
+			<option name="productionRule" value="Ottomans-Frontier:buyTank" count=""/>
+			<option name="removeUnits" value="all:Develop-Tank" count="1"/>
+			<option name="uses" value="1" count=""/>
+		</attachment>
+		<!-- Develop Tank for Italians -->
+		<attachment name="conditionAttachment-Italians-Develop-Tank" attachTo="Italians" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
+			<option name="directPresenceTerritories" value="map" count="1"/>
+			<option name="unitPresence" value="Develop-Tank" count="1"/>
+		</attachment>
+		<attachment name="triggerAttachment-Italians-Develop-Tank" attachTo="Italians" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachment-Italians-Develop-Tank" count=""/>
+			<option name="when" value="after:Italians-Place" count=""/>
+			<option name="when" value="after:Italians-BidPlace" count=""/>
+			<option name="productionRule" value="Italians-Frontier:-buyDevelop-Tank" count=""/>
+			<option name="productionRule" value="Italians-Frontier:buyTank" count=""/>
+			<option name="removeUnits" value="all:Develop-Tank" count="1"/>
+			<option name="uses" value="1" count=""/>
+		</attachment>
+		<!-- Develop Tank for Americans -->
+		<attachment name="conditionAttachment-Americans-Develop-Tank" attachTo="Americans" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
+			<option name="directPresenceTerritories" value="map" count="1"/>
+			<option name="unitPresence" value="Develop-Tank" count="1"/>
+		</attachment>
+		<attachment name="triggerAttachment-Americans-Develop-Tank" attachTo="Americans" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachment-Americans-Develop-Tank" count=""/>
+			<option name="when" value="after:Americans-Place" count=""/>
+			<option name="when" value="after:Americans-BidPlace" count=""/>
+			<option name="productionRule" value="Americans-Frontier:-buyDevelop-Tank" count=""/>
+			<option name="productionRule" value="Americans-Frontier:buyTank" count=""/>
+			<option name="removeUnits" value="all:Develop-Tank" count="1"/>
+			<option name="uses" value="1" count=""/>
+		</attachment>
+		<!-- Develop Bomber for Germans AND Imperial-German-Afrika -->
+		<attachment name="conditionAttachment-Germans-Develop-Bomber" attachTo="Germans" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
+			<option name="directPresenceTerritories" value="map" count="1"/>
+			<option name="unitPresence" value="Develop-Bomber" count="1"/>
+		</attachment>
+		<attachment name="triggerAttachment-Germans-Develop-Bomber" attachTo="Germans" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachment-Germans-Develop-Bomber" count=""/>
+			<option name="when" value="after:Germans-Place" count=""/>
+			<option name="when" value="after:Germans-BidPlace" count=""/>
+			<option name="productionRule" value="Germans-Frontier:-buyDevelop-Bomber" count=""/>
+			<option name="productionRule" value="Germans-Frontier:buyBomber" count=""/>
+			<option name="productionRule" value="Imperial-German-Afrika-Frontier:buyBomber" count=""/>
+			<option name="removeUnits" value="all:Develop-Bomber" count="1"/>
+			<option name="uses" value="1" count=""/>
+		</attachment>
+		<!-- Develop Bomber for British AND British-Commonwealth -->
+		<attachment name="conditionAttachment-British-Develop-Bomber" attachTo="British" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
+			<option name="directPresenceTerritories" value="map" count="1"/>
+			<option name="unitPresence" value="Develop-Bomber" count="1"/>
+		</attachment>
+		<attachment name="triggerAttachment-British-Develop-Bomber" attachTo="British" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachment-British-Develop-Bomber" count=""/>
+			<option name="when" value="after:British-Place" count=""/>
+			<option name="when" value="after:British-BidPlace" count=""/>
+			<option name="productionRule" value="British-Frontier:-buyDevelop-Bomber" count=""/>
+			<option name="productionRule" value="British-Frontier:buyBomber" count=""/>
+			<option name="productionRule" value="British-Commonwealth-Frontier:buyBomber" count=""/>
+			<option name="removeUnits" value="all:Develop-Bomber" count="1"/>
+			<option name="uses" value="1" count=""/>
+		</attachment>
+		<!-- Develop Bomber for French AND French-Colonial-Africa -->
+		<attachment name="conditionAttachment-French-Develop-Bomber" attachTo="French" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
+			<option name="directPresenceTerritories" value="map" count="1"/>
+			<option name="unitPresence" value="Develop-Bomber" count="1"/>
+		</attachment>
+		<attachment name="triggerAttachment-French-Develop-Bomber" attachTo="French" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachment-French-Develop-Bomber" count=""/>
+			<option name="when" value="after:French-Place" count=""/>
+			<option name="when" value="after:French-BidPlace" count=""/>
+			<option name="productionRule" value="French-Frontier:-buyDevelop-Bomber" count=""/>
+			<option name="productionRule" value="French-Frontier:buyBomber" count=""/>
+			<option name="productionRule" value="French-Colonial-Africa-Frontier:buyBomber" count=""/>
+			<option name="removeUnits" value="all:Develop-Bomber" count="1"/>
+			<option name="uses" value="1" count=""/>
+		</attachment>
+		<!-- Develop Bomber for Russians AND Bolsheviks -->
+		<attachment name="conditionAttachment-Russians-Develop-Bomber" attachTo="Russians" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
+			<option name="directPresenceTerritories" value="map" count="1"/>
+			<option name="unitPresence" value="Develop-Bomber" count="1"/>
+		</attachment>
+		<attachment name="triggerAttachment-Russians-Develop-Bomber" attachTo="Russians" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachment-Russians-Develop-Bomber" count=""/>
+			<option name="when" value="after:Russians-Place" count=""/>
+			<option name="when" value="after:Russians-BidPlace" count=""/>
+			<option name="productionRule" value="Russians-Frontier:-buyDevelop-Bomber" count=""/>
+			<option name="productionRule" value="Russians-Frontier:buyBomber" count=""/>
+			<option name="productionRule" value="Bolsheviks-Frontier:buyBomber" count=""/>
+			<option name="removeUnits" value="all:Develop-Bomber" count="1"/>
+			<option name="uses" value="1" count=""/>
+		</attachment>
+		<!-- Develop Carrier for Germans AND Imperial-German-Afrika -->
+		<attachment name="conditionAttachment-Germans-Develop-Carrier" attachTo="Germans" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
+			<option name="directPresenceTerritories" value="map" count="1"/>
+			<option name="unitPresence" value="Develop-Carrier" count="1"/>
+		</attachment>
+		<attachment name="triggerAttachment-Germans-Develop-Carrier" attachTo="Germans" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachment-Germans-Develop-Carrier" count=""/>
+			<option name="when" value="after:Germans-Place" count=""/>
+			<option name="when" value="after:Germans-BidPlace" count=""/>
+			<option name="productionRule" value="Germans-Frontier:-buyDevelop-Carrier" count=""/>
+			<option name="productionRule" value="Germans-Frontier:buyCarrier" count=""/>
+			<option name="productionRule" value="Imperial-German-Afrika-Frontier:buyCarrier" count=""/>
+			<option name="removeUnits" value="all:Develop-Carrier" count="1"/>
+			<option name="uses" value="1" count=""/>
+		</attachment>
+		<!-- Develop Carrier for British AND British-Commonwealth -->
+		<attachment name="conditionAttachment-British-Develop-Carrier" attachTo="British" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
+			<option name="directPresenceTerritories" value="map" count="1"/>
+			<option name="unitPresence" value="Develop-Carrier" count="1"/>
+		</attachment>
+		<attachment name="triggerAttachment-British-Develop-Carrier" attachTo="British" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachment-British-Develop-Carrier" count=""/>
+			<option name="when" value="after:British-Place" count=""/>
+			<option name="when" value="after:British-BidPlace" count=""/>
+			<option name="productionRule" value="British-Frontier:-buyDevelop-Carrier" count=""/>
+			<option name="productionRule" value="British-Frontier:buyCarrier" count=""/>
+			<option name="productionRule" value="British-Commonwealth-Frontier:buyCarrier" count=""/>
+			<option name="removeUnits" value="all:Develop-Carrier" count="1"/>
+			<option name="uses" value="1" count=""/>
+		</attachment>
+		<!-- Develop Carrier for French AND French-Colonial-Africa -->
+		<attachment name="conditionAttachment-French-Develop-Carrier" attachTo="French" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
+			<option name="directPresenceTerritories" value="map" count="1"/>
+			<option name="unitPresence" value="Develop-Carrier" count="1"/>
+		</attachment>
+		<attachment name="triggerAttachment-French-Develop-Carrier" attachTo="French" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachment-French-Develop-Carrier" count=""/>
+			<option name="when" value="after:French-Place" count=""/>
+			<option name="when" value="after:French-BidPlace" count=""/>
+			<option name="productionRule" value="French-Frontier:-buyDevelop-Carrier" count=""/>
+			<option name="productionRule" value="French-Frontier:buyCarrier" count=""/>
+			<option name="productionRule" value="French-Colonial-Africa-Frontier:buyCarrier" count=""/>
+			<option name="removeUnits" value="all:Develop-Carrier" count="1"/>
+			<option name="uses" value="1" count=""/>
+		</attachment>
+		<!-- Develop Carrier for Russians AND Bolsheviks -->
+		<attachment name="conditionAttachment-Russians-Develop-Carrier" attachTo="Russians" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
+			<option name="directPresenceTerritories" value="map" count="1"/>
+			<option name="unitPresence" value="Develop-Carrier" count="1"/>
+		</attachment>
+		<attachment name="triggerAttachment-Russians-Develop-Carrier" attachTo="Russians" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachment-Russians-Develop-Carrier" count=""/>
+			<option name="when" value="after:Russians-Place" count=""/>
+			<option name="when" value="after:Russians-BidPlace" count=""/>
+			<option name="productionRule" value="Russians-Frontier:-buyDevelop-Carrier" count=""/>
+			<option name="productionRule" value="Russians-Frontier:buyCarrier" count=""/>
+			<option name="productionRule" value="Bolsheviks-Frontier:buyCarrier" count=""/>
+			<option name="removeUnits" value="all:Develop-Carrier" count="1"/>
+			<option name="uses" value="1" count=""/>
+		</attachment>
+		<!-- Develop Heavy-Artillery for Germans AND Imperial-German-Afrika -->
+		<attachment name="conditionAttachment-Germans-Develop-Heavy-Artillery" attachTo="Germans" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
+			<option name="directPresenceTerritories" value="map" count="1"/>
+			<option name="unitPresence" value="Develop-Heavy-Artillery" count="1"/>
+		</attachment>
+		<attachment name="triggerAttachment-Germans-Develop-Heavy-Artillery" attachTo="Germans" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachment-Germans-Develop-Heavy-Artillery" count=""/>
+			<option name="when" value="after:Germans-Place" count=""/>
+			<option name="when" value="after:Germans-BidPlace" count=""/>
+			<option name="productionRule" value="Germans-Frontier:-buyDevelop-Heavy-Artillery" count=""/>
+			<option name="productionRule" value="Germans-Frontier:buyHeavy-Artillery" count=""/>
+			<option name="productionRule" value="Imperial-German-Afrika-Frontier:buyHeavy-Artillery" count=""/>
+			<option name="removeUnits" value="all:Develop-Heavy-Artillery" count="1"/>
+			<option name="uses" value="1" count=""/>
+		</attachment>
+		<!-- Develop Heavy-Artillery for British AND British-Commonwealth -->
+		<attachment name="conditionAttachment-British-Develop-Heavy-Artillery" attachTo="British" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
+			<option name="directPresenceTerritories" value="map" count="1"/>
+			<option name="unitPresence" value="Develop-Heavy-Artillery" count="1"/>
+		</attachment>
+		<attachment name="triggerAttachment-British-Develop-Heavy-Artillery" attachTo="British" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachment-British-Develop-Heavy-Artillery" count=""/>
+			<option name="when" value="after:British-Place" count=""/>
+			<option name="when" value="after:British-BidPlace" count=""/>
+			<option name="productionRule" value="British-Frontier:-buyDevelop-Heavy-Artillery" count=""/>
+			<option name="productionRule" value="British-Frontier:buyHeavy-Artillery" count=""/>
+			<option name="productionRule" value="British-Commonwealth-Frontier:buyHeavy-Artillery" count=""/>
+			<option name="removeUnits" value="all:Develop-Heavy-Artillery" count="1"/>
+			<option name="uses" value="1" count=""/>
+		</attachment>
+		<!-- Develop Heavy-Artillery for French AND French-Colonial-Africa -->
+		<attachment name="conditionAttachment-French-Develop-Heavy-Artillery" attachTo="French" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
+			<option name="directPresenceTerritories" value="map" count="1"/>
+			<option name="unitPresence" value="Develop-Heavy-Artillery" count="1"/>
+		</attachment>
+		<attachment name="triggerAttachment-French-Develop-Heavy-Artillery" attachTo="French" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachment-French-Develop-Heavy-Artillery" count=""/>
+			<option name="when" value="after:French-Place" count=""/>
+			<option name="when" value="after:French-BidPlace" count=""/>
+			<option name="productionRule" value="French-Frontier:-buyDevelop-Heavy-Artillery" count=""/>
+			<option name="productionRule" value="French-Frontier:buyHeavy-Artillery" count=""/>
+			<option name="productionRule" value="French-Colonial-Africa-Frontier:buyHeavy-Artillery" count=""/>
+			<option name="removeUnits" value="all:Develop-Heavy-Artillery" count="1"/>
+			<option name="uses" value="1" count=""/>
+		</attachment>
+		<!-- Develop Heavy-Artillery for Russians AND Bolsheviks -->
+		<attachment name="conditionAttachment-Russians-Develop-Heavy-Artillery" attachTo="Russians" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
+			<option name="directPresenceTerritories" value="map" count="1"/>
+			<option name="unitPresence" value="Develop-Heavy-Artillery" count="1"/>
+		</attachment>
+		<attachment name="triggerAttachment-Russians-Develop-Heavy-Artillery" attachTo="Russians" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachment-Russians-Develop-Heavy-Artillery" count=""/>
+			<option name="when" value="after:Russians-Place" count=""/>
+			<option name="when" value="after:Russians-BidPlace" count=""/>
+			<option name="productionRule" value="Russians-Frontier:-buyDevelop-Heavy-Artillery" count=""/>
+			<option name="productionRule" value="Russians-Frontier:buyHeavy-Artillery" count=""/>
+			<option name="productionRule" value="Bolsheviks-Frontier:buyHeavy-Artillery" count=""/>
+			<option name="removeUnits" value="all:Develop-Heavy-Artillery" count="1"/>
+			<option name="uses" value="1" count=""/>
+		</attachment>
+		<!-- Develop Mech-Infantry for Germans AND Imperial-German-Afrika -->
+		<attachment name="conditionAttachment-Germans-Develop-Mech-Infantry" attachTo="Germans" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
+			<option name="directPresenceTerritories" value="map" count="1"/>
+			<option name="unitPresence" value="Develop-Mech-Infantry" count="1"/>
+		</attachment>
+		<attachment name="triggerAttachment-Germans-Develop-Mech-Infantry" attachTo="Germans" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachment-Germans-Develop-Mech-Infantry" count=""/>
+			<option name="when" value="after:Germans-Place" count=""/>
+			<option name="when" value="after:Germans-BidPlace" count=""/>
+			<option name="productionRule" value="Germans-Frontier:-buyDevelop-Mech-Infantry" count=""/>
+			<option name="productionRule" value="Germans-Frontier:buyMech-Infantry" count=""/>
+			<option name="productionRule" value="Imperial-German-Afrika-Frontier:buyMech-Infantry" count=""/>
+			<option name="removeUnits" value="all:Develop-Mech-Infantry" count="1"/>
+			<option name="uses" value="1" count=""/>
+		</attachment>
+		<!-- Develop Mech-Infantry for British AND British-Commonwealth -->
+		<attachment name="conditionAttachment-British-Develop-Mech-Infantry" attachTo="British" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
+			<option name="directPresenceTerritories" value="map" count="1"/>
+			<option name="unitPresence" value="Develop-Mech-Infantry" count="1"/>
+		</attachment>
+		<attachment name="triggerAttachment-British-Develop-Mech-Infantry" attachTo="British" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachment-British-Develop-Mech-Infantry" count=""/>
+			<option name="when" value="after:British-Place" count=""/>
+			<option name="when" value="after:British-BidPlace" count=""/>
+			<option name="productionRule" value="British-Frontier:-buyDevelop-Mech-Infantry" count=""/>
+			<option name="productionRule" value="British-Frontier:buyMech-Infantry" count=""/>
+			<option name="productionRule" value="British-Commonwealth-Frontier:buyMech-Infantry" count=""/>
+			<option name="removeUnits" value="all:Develop-Mech-Infantry" count="1"/>
+			<option name="uses" value="1" count=""/>
+		</attachment>
+		<!-- Develop Mech-Infantry for French AND French-Colonial-Africa -->
+		<attachment name="conditionAttachment-French-Develop-Mech-Infantry" attachTo="French" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
+			<option name="directPresenceTerritories" value="map" count="1"/>
+			<option name="unitPresence" value="Develop-Mech-Infantry" count="1"/>
+		</attachment>
+		<attachment name="triggerAttachment-French-Develop-Mech-Infantry" attachTo="French" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachment-French-Develop-Mech-Infantry" count=""/>
+			<option name="when" value="after:French-Place" count=""/>
+			<option name="when" value="after:French-BidPlace" count=""/>
+			<option name="productionRule" value="French-Frontier:-buyDevelop-Mech-Infantry" count=""/>
+			<option name="productionRule" value="French-Frontier:buyMech-Infantry" count=""/>
+			<option name="productionRule" value="French-Colonial-Africa-Frontier:buyMech-Infantry" count=""/>
+			<option name="removeUnits" value="all:Develop-Mech-Infantry" count="1"/>
+			<option name="uses" value="1" count=""/>
+		</attachment>
+		<!-- Develop Mech-Infantry for Russians AND Bolsheviks -->
+		<attachment name="conditionAttachment-Russians-Develop-Mech-Infantry" attachTo="Russians" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
+			<option name="directPresenceTerritories" value="map" count="1"/>
+			<option name="unitPresence" value="Develop-Mech-Infantry" count="1"/>
+		</attachment>
+		<attachment name="triggerAttachment-Russians-Develop-Mech-Infantry" attachTo="Russians" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachment-Russians-Develop-Mech-Infantry" count=""/>
+			<option name="when" value="after:Russians-Place" count=""/>
+			<option name="when" value="after:Russians-BidPlace" count=""/>
+			<option name="productionRule" value="Russians-Frontier:-buyDevelop-Mech-Infantry" count=""/>
+			<option name="productionRule" value="Russians-Frontier:buyMech-Infantry" count=""/>
+			<option name="productionRule" value="Bolsheviks-Frontier:buyMech-Infantry" count=""/>
+			<option name="removeUnits" value="all:Develop-Mech-Infantry" count="1"/>
+			<option name="uses" value="1" count=""/>
+		</attachment>
+		<!-- Develop Tank for Germans AND Imperial-German-Afrika -->
+		<attachment name="conditionAttachment-Germans-Develop-Tank" attachTo="Germans" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
+			<option name="directPresenceTerritories" value="map" count="1"/>
+			<option name="unitPresence" value="Develop-Tank" count="1"/>
+		</attachment>
+		<attachment name="triggerAttachment-Germans-Develop-Tank" attachTo="Germans" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachment-Germans-Develop-Tank" count=""/>
+			<option name="when" value="after:Germans-Place" count=""/>
+			<option name="when" value="after:Germans-BidPlace" count=""/>
+			<option name="productionRule" value="Germans-Frontier:-buyDevelop-Tank" count=""/>
+			<option name="productionRule" value="Germans-Frontier:buyTank" count=""/>
+			<option name="productionRule" value="Imperial-German-Afrika-Frontier:buyTank" count=""/>
+			<option name="removeUnits" value="all:Develop-Tank" count="1"/>
+			<option name="uses" value="1" count=""/>
+		</attachment>
+		<!-- Develop Tank for British AND British-Commonwealth -->
+		<attachment name="conditionAttachment-British-Develop-Tank" attachTo="British" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
+			<option name="directPresenceTerritories" value="map" count="1"/>
+			<option name="unitPresence" value="Develop-Tank" count="1"/>
+		</attachment>
+		<attachment name="triggerAttachment-British-Develop-Tank" attachTo="British" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachment-British-Develop-Tank" count=""/>
+			<option name="when" value="after:British-Place" count=""/>
+			<option name="when" value="after:British-BidPlace" count=""/>
+			<option name="productionRule" value="British-Frontier:-buyDevelop-Tank" count=""/>
+			<option name="productionRule" value="British-Frontier:buyTank" count=""/>
+			<option name="productionRule" value="British-Commonwealth-Frontier:buyTank" count=""/>
+			<option name="removeUnits" value="all:Develop-Tank" count="1"/>
+			<option name="uses" value="1" count=""/>
+		</attachment>
+		<!-- Develop Tank for French AND French-Colonial-Africa -->
+		<attachment name="conditionAttachment-French-Develop-Tank" attachTo="French" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
+			<option name="directPresenceTerritories" value="map" count="1"/>
+			<option name="unitPresence" value="Develop-Tank" count="1"/>
+		</attachment>
+		<attachment name="triggerAttachment-French-Develop-Tank" attachTo="French" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachment-French-Develop-Tank" count=""/>
+			<option name="when" value="after:French-Place" count=""/>
+			<option name="when" value="after:French-BidPlace" count=""/>
+			<option name="productionRule" value="French-Frontier:-buyDevelop-Tank" count=""/>
+			<option name="productionRule" value="French-Frontier:buyTank" count=""/>
+			<option name="productionRule" value="French-Colonial-Africa-Frontier:buyTank" count=""/>
+			<option name="removeUnits" value="all:Develop-Tank" count="1"/>
+			<option name="uses" value="1" count=""/>
+		</attachment>
+		<!-- Develop Tank for Russians AND Bolsheviks -->
+		<attachment name="conditionAttachment-Russians-Develop-Tank" attachTo="Russians" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
+			<option name="directPresenceTerritories" value="map" count="1"/>
+			<option name="unitPresence" value="Develop-Tank" count="1"/>
+		</attachment>
+		<attachment name="triggerAttachment-Russians-Develop-Tank" attachTo="Russians" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachment-Russians-Develop-Tank" count=""/>
+			<option name="when" value="after:Russians-Place" count=""/>
+			<option name="when" value="after:Russians-BidPlace" count=""/>
+			<option name="productionRule" value="Russians-Frontier:-buyDevelop-Tank" count=""/>
+			<option name="productionRule" value="Russians-Frontier:buyTank" count=""/>
+			<option name="productionRule" value="Bolsheviks-Frontier:buyTank" count=""/>
+			<option name="removeUnits" value="all:Develop-Tank" count="1"/>
+			<option name="uses" value="1" count=""/>
+		</attachment>
+        <!-- Add single unit so it shows up in battle calculator during both combat moves -->
+		<attachment name="triggerAttachment_Add_Germans_Munitions" attachTo="Germans" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+            <option name="conditions" value="conditionAttachment-Germans-AlwaysTrue" count=""/>
+            <option name="when" value="before:Germans-CombatMove" count=""/>
+            <option name="placement" value="By DKJD:Munitions" count="1" />
+        </attachment>
+        <!-- Remove after battle to avoid "this unit cannot land" warnings -->
+		<attachment name="triggerAttachment_Remove_Germans_Munitions_1" attachTo="Germans" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachment-Germans-AlwaysTrue" count=""/>
+			<option name="when" value="after:Germans-Battle" count=""/>
+			<option name="removeUnits" value="all:Munitions" count="9999" />
+		</attachment>
+		<!-- Remove again at end of turn again since they get created again during the "real" end turn delegate -->
+        <attachment name="triggerAttachment_Remove_Germans_Munitions_2" attachTo="Germans" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+            <option name="conditions" value="conditionAttachment-Germans-AlwaysTrue" count=""/>
+            <option name="when" value="after:Germans-EndTurn" count=""/>
+            <option name="removeUnits" value="all:Munitions" count="9999" />
+		</attachment>
+        <!-- Add single unit so it shows up in battle calculator during both combat moves -->
+		<attachment name="triggerAttachment_Add_British_Munitions" attachTo="British" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+            <option name="conditions" value="conditionAttachment-British-AlwaysTrue" count=""/>
+            <option name="when" value="before:British-CombatMove" count=""/>
+            <option name="placement" value="By DKJD:Munitions" count="1" />
+        </attachment>
+        <!-- Remove after battle to avoid "this unit cannot land" warnings -->
+		<attachment name="triggerAttachment_Remove_British_Munitions_1" attachTo="British" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachment-British-AlwaysTrue" count=""/>
+			<option name="when" value="after:British-Battle" count=""/>
+			<option name="removeUnits" value="all:Munitions" count="9999" />
+		</attachment>
+		<!-- Remove again at end of turn again since they get created again during the "real" end turn delegate -->
+        <attachment name="triggerAttachment_Remove_British_Munitions_2" attachTo="British" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+            <option name="conditions" value="conditionAttachment-British-AlwaysTrue" count=""/>
+            <option name="when" value="after:British-EndTurn" count=""/>
+            <option name="removeUnits" value="all:Munitions" count="9999" />
+		</attachment>
+        <!-- Add single unit so it shows up in battle calculator during both combat moves -->
+		<attachment name="triggerAttachment_Add_French_Munitions" attachTo="French" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+            <option name="conditions" value="conditionAttachment-French-AlwaysTrue" count=""/>
+            <option name="when" value="before:French-CombatMove" count=""/>
+            <option name="placement" value="By DKJD:Munitions" count="1" />
+        </attachment>
+        <!-- Remove after battle to avoid "this unit cannot land" warnings -->
+		<attachment name="triggerAttachment_Remove_French_Munitions_1" attachTo="French" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachment-French-AlwaysTrue" count=""/>
+			<option name="when" value="after:French-Battle" count=""/>
+			<option name="removeUnits" value="all:Munitions" count="9999" />
+		</attachment>
+		<!-- Remove again at end of turn again since they get created again during the "real" end turn delegate -->
+        <attachment name="triggerAttachment_Remove_French_Munitions_2" attachTo="French" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+            <option name="conditions" value="conditionAttachment-French-AlwaysTrue" count=""/>
+            <option name="when" value="after:French-EndTurn" count=""/>
+            <option name="removeUnits" value="all:Munitions" count="9999" />
+		</attachment>
+        <!-- Add single unit so it shows up in battle calculator during both combat moves -->
+		<attachment name="triggerAttachment_Add_Russians_Munitions" attachTo="Russians" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+            <option name="conditions" value="conditionAttachment-Russians-AlwaysTrue" count=""/>
+            <option name="when" value="before:Russians-CombatMove" count=""/>
+            <option name="placement" value="By DKJD:Munitions" count="1" />
+        </attachment>
+        <!-- Remove after battle to avoid "this unit cannot land" warnings -->
+		<attachment name="triggerAttachment_Remove_Russians_Munitions_1" attachTo="Russians" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachment-Russians-AlwaysTrue" count=""/>
+			<option name="when" value="after:Russians-Battle" count=""/>
+			<option name="removeUnits" value="all:Munitions" count="9999" />
+		</attachment>
+		<!-- Remove again at end of turn again since they get created again during the "real" end turn delegate -->
+        <attachment name="triggerAttachment_Remove_Russians_Munitions_2" attachTo="Russians" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+            <option name="conditions" value="conditionAttachment-Russians-AlwaysTrue" count=""/>
+            <option name="when" value="after:Russians-EndTurn" count=""/>
+            <option name="removeUnits" value="all:Munitions" count="9999" />
+		</attachment>
+        <!-- Add single unit so it shows up in battle calculator during both combat moves -->
+		<attachment name="triggerAttachment_Add_Austrians_Munitions" attachTo="Austrians" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+            <option name="conditions" value="conditionAttachment-Austrians-AlwaysTrue" count=""/>
+            <option name="when" value="before:Austrians-CombatMove" count=""/>
+            <option name="placement" value="By DKJD:Munitions" count="1" />
+        </attachment>
+        <!-- Remove after battle to avoid "this unit cannot land" warnings -->
+		<attachment name="triggerAttachment_Remove_Austrians_Munitions_1" attachTo="Austrians" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachment-Austrians-AlwaysTrue" count=""/>
+			<option name="when" value="after:Austrians-Battle" count=""/>
+			<option name="removeUnits" value="all:Munitions" count="9999" />
+		</attachment>
+		<!-- Remove again at end of turn again since they get created again during the "real" end turn delegate -->
+        <attachment name="triggerAttachment_Remove_Austrians_Munitions_2" attachTo="Austrians" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+            <option name="conditions" value="conditionAttachment-Austrians-AlwaysTrue" count=""/>
+            <option name="when" value="after:Austrians-EndTurn" count=""/>
+            <option name="removeUnits" value="all:Munitions" count="9999" />
+		</attachment>
+        <!-- Add single unit so it shows up in battle calculator during both combat moves -->
+		<attachment name="triggerAttachment_Add_Ottomans_Munitions" attachTo="Ottomans" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+            <option name="conditions" value="conditionAttachment-Ottomans-AlwaysTrue" count=""/>
+            <option name="when" value="before:Ottomans-CombatMove" count=""/>
+            <option name="placement" value="By DKJD:Munitions" count="1" />
+        </attachment>
+        <!-- Remove after battle to avoid "this unit cannot land" warnings -->
+		<attachment name="triggerAttachment_Remove_Ottomans_Munitions_1" attachTo="Ottomans" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachment-Ottomans-AlwaysTrue" count=""/>
+			<option name="when" value="after:Ottomans-Battle" count=""/>
+			<option name="removeUnits" value="all:Munitions" count="9999" />
+		</attachment>
+		<!-- Remove again at end of turn again since they get created again during the "real" end turn delegate -->
+        <attachment name="triggerAttachment_Remove_Ottomans_Munitions_2" attachTo="Ottomans" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+            <option name="conditions" value="conditionAttachment-Ottomans-AlwaysTrue" count=""/>
+            <option name="when" value="after:Ottomans-EndTurn" count=""/>
+            <option name="removeUnits" value="all:Munitions" count="9999" />
+		</attachment>
+        <!-- Add single unit so it shows up in battle calculator during both combat moves -->
+		<attachment name="triggerAttachment_Add_Italians_Munitions" attachTo="Italians" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+            <option name="conditions" value="conditionAttachment-Italians-AlwaysTrue" count=""/>
+            <option name="when" value="before:Italians-CombatMove" count=""/>
+            <option name="placement" value="By DKJD:Munitions" count="1" />
+        </attachment>
+        <!-- Remove after battle to avoid "this unit cannot land" warnings -->
+		<attachment name="triggerAttachment_Remove_Italians_Munitions_1" attachTo="Italians" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachment-Italians-AlwaysTrue" count=""/>
+			<option name="when" value="after:Italians-Battle" count=""/>
+			<option name="removeUnits" value="all:Munitions" count="9999" />
+		</attachment>
+		<!-- Remove again at end of turn again since they get created again during the "real" end turn delegate -->
+        <attachment name="triggerAttachment_Remove_Italians_Munitions_2" attachTo="Italians" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+            <option name="conditions" value="conditionAttachment-Italians-AlwaysTrue" count=""/>
+            <option name="when" value="after:Italians-EndTurn" count=""/>
+            <option name="removeUnits" value="all:Munitions" count="9999" />
+		</attachment>
+        <!-- Add single unit so it shows up in battle calculator during both combat moves -->
+		<attachment name="triggerAttachment_Add_Americans_Munitions" attachTo="Americans" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+            <option name="conditions" value="conditionAttachment-Americans-AlwaysTrue" count=""/>
+            <option name="when" value="before:Americans-CombatMove" count=""/>
+            <option name="placement" value="By DKJD:Munitions" count="1" />
+        </attachment>
+        <!-- Remove after battle to avoid "this unit cannot land" warnings -->
+		<attachment name="triggerAttachment_Remove_Americans_Munitions_1" attachTo="Americans" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachment-Americans-AlwaysTrue" count=""/>
+			<option name="when" value="after:Americans-Battle" count=""/>
+			<option name="removeUnits" value="all:Munitions" count="9999" />
+		</attachment>
+		<!-- Remove again at end of turn again since they get created again during the "real" end turn delegate -->
+        <attachment name="triggerAttachment_Remove_Americans_Munitions_2" attachTo="Americans" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+            <option name="conditions" value="conditionAttachment-Americans-AlwaysTrue" count=""/>
+            <option name="when" value="after:Americans-EndTurn" count=""/>
+            <option name="removeUnits" value="all:Munitions" count="9999" />
+		</attachment>
+        <!-- Add single unit so it shows up in battle calculator during both combat moves -->
+		<attachment name="triggerAttachment_Add_Imperial-German-Afrika_Munitions" attachTo="Imperial-German-Afrika" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+            <option name="conditions" value="conditionAttachment-Imperial-German-Afrika-AlwaysTrue" count=""/>
+            <option name="when" value="before:Imperial-German-Afrika-CombatMove" count=""/>
+            <option name="placement" value="By DKJD:Munitions" count="1" />
+        </attachment>
+        <!-- Remove after battle to avoid "this unit cannot land" warnings -->
+		<attachment name="triggerAttachment_Remove_Imperial-German-Afrika_Munitions_1" attachTo="Imperial-German-Afrika" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachment-Imperial-German-Afrika-AlwaysTrue" count=""/>
+			<option name="when" value="after:Imperial-German-Afrika-Battle" count=""/>
+			<option name="removeUnits" value="all:Munitions" count="9999" />
+		</attachment>
+		<!-- Remove again at end of turn again since they get created again during the "real" end turn delegate -->
+        <attachment name="triggerAttachment_Remove_Imperial-German-Afrika_Munitions_2" attachTo="Imperial-German-Afrika" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+            <option name="conditions" value="conditionAttachment-Imperial-German-Afrika-AlwaysTrue" count=""/>
+            <option name="when" value="after:Imperial-German-Afrika-EndTurn" count=""/>
+            <option name="removeUnits" value="all:Munitions" count="9999" />
+		</attachment>
+        <!-- Add single unit so it shows up in battle calculator during both combat moves -->
+		<attachment name="triggerAttachment_Add_British-Commonwealth_Munitions" attachTo="British-Commonwealth" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+            <option name="conditions" value="conditionAttachment-British-Commonwealth-AlwaysTrue" count=""/>
+            <option name="when" value="before:British-Commonwealth-CombatMove" count=""/>
+            <option name="placement" value="By DKJD:Munitions" count="1" />
+        </attachment>
+        <!-- Remove after battle to avoid "this unit cannot land" warnings -->
+		<attachment name="triggerAttachment_Remove_British-Commonwealth_Munitions_1" attachTo="British-Commonwealth" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachment-British-Commonwealth-AlwaysTrue" count=""/>
+			<option name="when" value="after:British-Commonwealth-Battle" count=""/>
+			<option name="removeUnits" value="all:Munitions" count="9999" />
+		</attachment>
+		<!-- Remove again at end of turn again since they get created again during the "real" end turn delegate -->
+        <attachment name="triggerAttachment_Remove_British-Commonwealth_Munitions_2" attachTo="British-Commonwealth" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+            <option name="conditions" value="conditionAttachment-British-Commonwealth-AlwaysTrue" count=""/>
+            <option name="when" value="after:British-Commonwealth-EndTurn" count=""/>
+            <option name="removeUnits" value="all:Munitions" count="9999" />
+		</attachment>
+        <!-- Add single unit so it shows up in battle calculator during both combat moves -->
+		<attachment name="triggerAttachment_Add_French-Colonial-Africa_Munitions" attachTo="French-Colonial-Africa" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+            <option name="conditions" value="conditionAttachment-French-Colonial-Africa-AlwaysTrue" count=""/>
+            <option name="when" value="before:French-Colonial-Africa-CombatMove" count=""/>
+            <option name="placement" value="By DKJD:Munitions" count="1" />
+        </attachment>
+        <!-- Remove after battle to avoid "this unit cannot land" warnings -->
+		<attachment name="triggerAttachment_Remove_French-Colonial-Africa_Munitions_1" attachTo="French-Colonial-Africa" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachment-French-Colonial-Africa-AlwaysTrue" count=""/>
+			<option name="when" value="after:French-Colonial-Africa-Battle" count=""/>
+			<option name="removeUnits" value="all:Munitions" count="9999" />
+		</attachment>
+		<!-- Remove again at end of turn again since they get created again during the "real" end turn delegate -->
+        <attachment name="triggerAttachment_Remove_French-Colonial-Africa_Munitions_2" attachTo="French-Colonial-Africa" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+            <option name="conditions" value="conditionAttachment-French-Colonial-Africa-AlwaysTrue" count=""/>
+            <option name="when" value="after:French-Colonial-Africa-EndTurn" count=""/>
+            <option name="removeUnits" value="all:Munitions" count="9999" />
+		</attachment>
+        <!-- Add single unit so it shows up in battle calculator during both combat moves -->
+		<attachment name="triggerAttachment_Add_Bolsheviks_Munitions" attachTo="Bolsheviks" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+            <option name="conditions" value="conditionAttachment-Bolsheviks-AlwaysTrue" count=""/>
+            <option name="when" value="before:Bolsheviks-CombatMove" count=""/>
+            <option name="placement" value="By DKJD:Munitions" count="1" />
+        </attachment>
+        <!-- Remove after battle to avoid "this unit cannot land" warnings -->
+		<attachment name="triggerAttachment_Remove_Bolsheviks_Munitions_1" attachTo="Bolsheviks" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachment-Bolsheviks-AlwaysTrue" count=""/>
+			<option name="when" value="after:Bolsheviks-Battle" count=""/>
+			<option name="removeUnits" value="all:Munitions" count="9999" />
+		</attachment>
+		<!-- Remove again at end of turn again since they get created again during the "real" end turn delegate -->
+        <attachment name="triggerAttachment_Remove_Bolsheviks_Munitions_2" attachTo="Bolsheviks" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+            <option name="conditions" value="conditionAttachment-Bolsheviks-AlwaysTrue" count=""/>
+            <option name="when" value="after:Bolsheviks-EndTurn" count=""/>
+            <option name="removeUnits" value="all:Munitions" count="9999" />
+		</attachment>
+		<!-- Set up trenches for Germans so that undefended trenches are capturable during combat but can take hits during battle -->
+		<attachment name="triggerAttachment-infraDuringCombatMove-Germans-1" attachTo="Germans" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+		    <option name="conditions" value="conditionAttachment-Germans-AlwaysTrue" count=""/>
+		    <option name="when" value="before:Germans-CombatMove" count=""/>
+		    <option name="unitType" value="Trenches" count=""/>
+		    <option name="unitProperty" value="isInfrastructure" count="true"/>
+		</attachment>
+		<attachment name="triggerAttachment-infraDuringCombatMove-Germans-2" attachTo="Germans" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+		    <option name="conditions" value="conditionAttachment-Germans-AlwaysTrue" count=""/>
+		    <option name="when" value="before:Germans-Battle" count=""/>
+		    <option name="unitType" value="Trenches" count=""/>
+		    <option name="unitProperty" value="isInfrastructure" count="false"/>
+		</attachment>
+		<!-- Set up trenches for British so that undefended trenches are capturable during combat but can take hits during battle -->
+		<attachment name="triggerAttachment-infraDuringCombatMove-British-1" attachTo="British" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+		    <option name="conditions" value="conditionAttachment-British-AlwaysTrue" count=""/>
+		    <option name="when" value="before:British-CombatMove" count=""/>
+		    <option name="unitType" value="Trenches" count=""/>
+		    <option name="unitProperty" value="isInfrastructure" count="true"/>
+		</attachment>
+		<attachment name="triggerAttachment-infraDuringCombatMove-British-2" attachTo="British" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+		    <option name="conditions" value="conditionAttachment-British-AlwaysTrue" count=""/>
+		    <option name="when" value="before:British-Battle" count=""/>
+		    <option name="unitType" value="Trenches" count=""/>
+		    <option name="unitProperty" value="isInfrastructure" count="false"/>
+		</attachment>
+		<!-- Set up trenches for French so that undefended trenches are capturable during combat but can take hits during battle -->
+		<attachment name="triggerAttachment-infraDuringCombatMove-French-1" attachTo="French" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+		    <option name="conditions" value="conditionAttachment-French-AlwaysTrue" count=""/>
+		    <option name="when" value="before:French-CombatMove" count=""/>
+		    <option name="unitType" value="Trenches" count=""/>
+		    <option name="unitProperty" value="isInfrastructure" count="true"/>
+		</attachment>
+		<attachment name="triggerAttachment-infraDuringCombatMove-French-2" attachTo="French" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+		    <option name="conditions" value="conditionAttachment-French-AlwaysTrue" count=""/>
+		    <option name="when" value="before:French-Battle" count=""/>
+		    <option name="unitType" value="Trenches" count=""/>
+		    <option name="unitProperty" value="isInfrastructure" count="false"/>
+		</attachment>
+		<!-- Set up trenches for Russians so that undefended trenches are capturable during combat but can take hits during battle -->
+		<attachment name="triggerAttachment-infraDuringCombatMove-Russians-1" attachTo="Russians" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+		    <option name="conditions" value="conditionAttachment-Russians-AlwaysTrue" count=""/>
+		    <option name="when" value="before:Russians-CombatMove" count=""/>
+		    <option name="unitType" value="Trenches" count=""/>
+		    <option name="unitProperty" value="isInfrastructure" count="true"/>
+		</attachment>
+		<attachment name="triggerAttachment-infraDuringCombatMove-Russians-2" attachTo="Russians" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+		    <option name="conditions" value="conditionAttachment-Russians-AlwaysTrue" count=""/>
+		    <option name="when" value="before:Russians-Battle" count=""/>
+		    <option name="unitType" value="Trenches" count=""/>
+		    <option name="unitProperty" value="isInfrastructure" count="false"/>
+		</attachment>
+		<!-- Set up trenches for Austrians so that undefended trenches are capturable during combat but can take hits during battle -->
+		<attachment name="triggerAttachment-infraDuringCombatMove-Austrians-1" attachTo="Austrians" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+		    <option name="conditions" value="conditionAttachment-Austrians-AlwaysTrue" count=""/>
+		    <option name="when" value="before:Austrians-CombatMove" count=""/>
+		    <option name="unitType" value="Trenches" count=""/>
+		    <option name="unitProperty" value="isInfrastructure" count="true"/>
+		</attachment>
+		<attachment name="triggerAttachment-infraDuringCombatMove-Austrians-2" attachTo="Austrians" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+		    <option name="conditions" value="conditionAttachment-Austrians-AlwaysTrue" count=""/>
+		    <option name="when" value="before:Austrians-Battle" count=""/>
+		    <option name="unitType" value="Trenches" count=""/>
+		    <option name="unitProperty" value="isInfrastructure" count="false"/>
+		</attachment>
+		<!-- Set up trenches for Ottomans so that undefended trenches are capturable during combat but can take hits during battle -->
+		<attachment name="triggerAttachment-infraDuringCombatMove-Ottomans-1" attachTo="Ottomans" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+		    <option name="conditions" value="conditionAttachment-Ottomans-AlwaysTrue" count=""/>
+		    <option name="when" value="before:Ottomans-CombatMove" count=""/>
+		    <option name="unitType" value="Trenches" count=""/>
+		    <option name="unitProperty" value="isInfrastructure" count="true"/>
+		</attachment>
+		<attachment name="triggerAttachment-infraDuringCombatMove-Ottomans-2" attachTo="Ottomans" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+		    <option name="conditions" value="conditionAttachment-Ottomans-AlwaysTrue" count=""/>
+		    <option name="when" value="before:Ottomans-Battle" count=""/>
+		    <option name="unitType" value="Trenches" count=""/>
+		    <option name="unitProperty" value="isInfrastructure" count="false"/>
+		</attachment>
+		<!-- Set up trenches for Italians so that undefended trenches are capturable during combat but can take hits during battle -->
+		<attachment name="triggerAttachment-infraDuringCombatMove-Italians-1" attachTo="Italians" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+		    <option name="conditions" value="conditionAttachment-Italians-AlwaysTrue" count=""/>
+		    <option name="when" value="before:Italians-CombatMove" count=""/>
+		    <option name="unitType" value="Trenches" count=""/>
+		    <option name="unitProperty" value="isInfrastructure" count="true"/>
+		</attachment>
+		<attachment name="triggerAttachment-infraDuringCombatMove-Italians-2" attachTo="Italians" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+		    <option name="conditions" value="conditionAttachment-Italians-AlwaysTrue" count=""/>
+		    <option name="when" value="before:Italians-Battle" count=""/>
+		    <option name="unitType" value="Trenches" count=""/>
+		    <option name="unitProperty" value="isInfrastructure" count="false"/>
+		</attachment>
+		<!-- Set up trenches for Americans so that undefended trenches are capturable during combat but can take hits during battle -->
+		<attachment name="triggerAttachment-infraDuringCombatMove-Americans-1" attachTo="Americans" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+		    <option name="conditions" value="conditionAttachment-Americans-AlwaysTrue" count=""/>
+		    <option name="when" value="before:Americans-CombatMove" count=""/>
+		    <option name="unitType" value="Trenches" count=""/>
+		    <option name="unitProperty" value="isInfrastructure" count="true"/>
+		</attachment>
+		<attachment name="triggerAttachment-infraDuringCombatMove-Americans-2" attachTo="Americans" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+		    <option name="conditions" value="conditionAttachment-Americans-AlwaysTrue" count=""/>
+		    <option name="when" value="before:Americans-Battle" count=""/>
+		    <option name="unitType" value="Trenches" count=""/>
+		    <option name="unitProperty" value="isInfrastructure" count="false"/>
+		</attachment>
+		<!-- Set up trenches for Imperial-German-Afrika so that undefended trenches are capturable during combat but can take hits during battle -->
+		<attachment name="triggerAttachment-infraDuringCombatMove-Imperial-German-Afrika-1" attachTo="Imperial-German-Afrika" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+		    <option name="conditions" value="conditionAttachment-Imperial-German-Afrika-AlwaysTrue" count=""/>
+		    <option name="when" value="before:Imperial-German-Afrika-CombatMove" count=""/>
+		    <option name="unitType" value="Trenches" count=""/>
+		    <option name="unitProperty" value="isInfrastructure" count="true"/>
+		</attachment>
+		<attachment name="triggerAttachment-infraDuringCombatMove-Imperial-German-Afrika-2" attachTo="Imperial-German-Afrika" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+		    <option name="conditions" value="conditionAttachment-Imperial-German-Afrika-AlwaysTrue" count=""/>
+		    <option name="when" value="before:Imperial-German-Afrika-Battle" count=""/>
+		    <option name="unitType" value="Trenches" count=""/>
+		    <option name="unitProperty" value="isInfrastructure" count="false"/>
+		</attachment>
+		<!-- Set up trenches for British-Commonwealth so that undefended trenches are capturable during combat but can take hits during battle -->
+		<attachment name="triggerAttachment-infraDuringCombatMove-British-Commonwealth-1" attachTo="British-Commonwealth" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+		    <option name="conditions" value="conditionAttachment-British-Commonwealth-AlwaysTrue" count=""/>
+		    <option name="when" value="before:British-Commonwealth-CombatMove" count=""/>
+		    <option name="unitType" value="Trenches" count=""/>
+		    <option name="unitProperty" value="isInfrastructure" count="true"/>
+		</attachment>
+		<attachment name="triggerAttachment-infraDuringCombatMove-British-Commonwealth-2" attachTo="British-Commonwealth" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+		    <option name="conditions" value="conditionAttachment-British-Commonwealth-AlwaysTrue" count=""/>
+		    <option name="when" value="before:British-Commonwealth-Battle" count=""/>
+		    <option name="unitType" value="Trenches" count=""/>
+		    <option name="unitProperty" value="isInfrastructure" count="false"/>
+		</attachment>
+		<!-- Set up trenches for French-Colonial-Africa so that undefended trenches are capturable during combat but can take hits during battle -->
+		<attachment name="triggerAttachment-infraDuringCombatMove-French-Colonial-Africa-1" attachTo="French-Colonial-Africa" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+		    <option name="conditions" value="conditionAttachment-French-Colonial-Africa-AlwaysTrue" count=""/>
+		    <option name="when" value="before:French-Colonial-Africa-CombatMove" count=""/>
+		    <option name="unitType" value="Trenches" count=""/>
+		    <option name="unitProperty" value="isInfrastructure" count="true"/>
+		</attachment>
+		<attachment name="triggerAttachment-infraDuringCombatMove-French-Colonial-Africa-2" attachTo="French-Colonial-Africa" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+		    <option name="conditions" value="conditionAttachment-French-Colonial-Africa-AlwaysTrue" count=""/>
+		    <option name="when" value="before:French-Colonial-Africa-Battle" count=""/>
+		    <option name="unitType" value="Trenches" count=""/>
+		    <option name="unitProperty" value="isInfrastructure" count="false"/>
+		</attachment>
+		<!-- Set up trenches for Bolsheviks so that undefended trenches are capturable during combat but can take hits during battle -->
+		<attachment name="triggerAttachment-infraDuringCombatMove-Bolsheviks-1" attachTo="Bolsheviks" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+		    <option name="conditions" value="conditionAttachment-Bolsheviks-AlwaysTrue" count=""/>
+		    <option name="when" value="before:Bolsheviks-CombatMove" count=""/>
+		    <option name="unitType" value="Trenches" count=""/>
+		    <option name="unitProperty" value="isInfrastructure" count="true"/>
+		</attachment>
+		<attachment name="triggerAttachment-infraDuringCombatMove-Bolsheviks-2" attachTo="Bolsheviks" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+		    <option name="conditions" value="conditionAttachment-Bolsheviks-AlwaysTrue" count=""/>
+		    <option name="when" value="before:Bolsheviks-Battle" count=""/>
+		    <option name="unitType" value="Trenches" count=""/>
+		    <option name="unitProperty" value="isInfrastructure" count="false"/>
+		</attachment>

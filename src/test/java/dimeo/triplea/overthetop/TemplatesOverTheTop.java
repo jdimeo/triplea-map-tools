@@ -10,7 +10,7 @@ import dimeo.triplea.Template;
 
 public class TemplatesOverTheTop {
 	private static final String[] DEVELOP_UNITS = {
-		"unit:Bomber", "unit:Carrier", "unit:Heavy-Artillery", "unit:Mech-Infantry", "unit:Railgun", "unit:Tank"
+		"unit:Bomber", "unit:Carrier", "unit:Heavy-Artillery", "unit:Mech-Infantry", "unit:Tank"
 	};
 	private static final String[] PLAYERS_COLONIAL = {
 		"player:Germans", "player:British", "player:French", "player:Russians"
@@ -58,8 +58,6 @@ public class TemplatesOverTheTop {
 		new Template("tech-mech-inf.xml", PLAYERS_ALL).call();
 		new Template("tech-unit-attach.xml", DEVELOP_UNITS).call();
 		new Template("tech-frontier-change.xml", ArrayUtils.addAll(DEVELOP_UNITS, PLAYERS_OTHER)).call();
-		new Template("tech-unit-upgrade.xml", ArrayUtils.addAll(PLAYERS_ALL,
-			"from:Heavy-Artillery", "to:Heavy-Artillery-Emplacement", "upgrade:Emplace-Heavy-Artillery")).call();
 		new Template("tech-frontier-change-colony.xml", ArrayUtils.addAll(ArrayUtils.addAll(
 			DEVELOP_UNITS, ArrayUtils.addAll(PLAYERS_COLONIAL, PLAYERS_COLONY_MAP)))).call();
 		new Template("remove-all-after-combat.xml", ArrayUtils.addAll(ArrayUtils.addAll(
