@@ -2,9 +2,9 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>com.elderresearch.maven-parent</groupId>
-		<artifactId>maven-parent</artifactId>
-		<version>6.0.9</version>
+		<groupId>com.elderresearch.commons-xsd</groupId>
+		<artifactId>commons-xsd-parent</artifactId>
+		<version>0.8.1</version>
 	</parent>
 
 	<groupId>jdimeo</groupId>
@@ -16,7 +16,6 @@
 	<properties>
 		<project.directory>../jdimeo/triplea-map-tools</project.directory>
 		<lombok.src.dir>${project.generatedSource.directory}/xjc</lombok.src.dir>
-		<jaxb.runtime.version>2.3.3</jaxb.runtime.version>
 		
 		<application.mainClass>dimeo.triplea.TripleAMapTools</application.mainClass>
 		<application.file>triplea-tools</application.file>
@@ -27,7 +26,7 @@
 		<dependency>
 			<groupId>com.elderresearch.commons-xsd</groupId>
 			<artifactId>commons-xsd</artifactId>
-			<version>0.8.1</version>
+			<version>${project.parent.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.elderresearch.commons-jvm</groupId>
@@ -61,43 +60,11 @@
 			<plugin>
 				<groupId>org.jvnet.jaxb2.maven2</groupId>
 				<artifactId>maven-jaxb2-plugin</artifactId>
-				<version>0.14.0</version>
-				<executions>
-					<execution>
-						<goals>
-							<goal>generate</goal>
-						</goals>
-					</execution>
-				</executions>
 				<configuration>
 					<schemaIncludes>
-						<include>*.dtd</include>
+						<schemaInclude>*.dtd</schemaInclude>
 					</schemaIncludes>
-					<args>
-						<arg>-Xfluent-api</arg>
-						<arg>-XsimpleEquals</arg>
-						<arg>-XsimpleHashCode</arg>
-					</args>
-					<plugins>
-						<dependency>
-						    <groupId>org.jvnet.jaxb2_commons</groupId>
-						    <artifactId>jaxb2-fluent-api</artifactId>
-						    <version>3.0</version>
-						</dependency>
-						<plugin>
-							<groupId>org.jvnet.jaxb2_commons</groupId>
-							<artifactId>jaxb2-basics</artifactId>
-							<version>0.12.0</version>
-						</plugin>
-					</plugins>
 				</configuration>
-				<dependencies>
-					<dependency>
-						<groupId>org.glassfish.jaxb</groupId>
-						<artifactId>jaxb-runtime</artifactId>
-						<version>${jaxb.runtime.version}</version>
-					</dependency>
-				</dependencies>
 			</plugin>
 			<plugin>
 				<artifactId>maven-shade-plugin</artifactId>
