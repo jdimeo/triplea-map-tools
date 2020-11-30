@@ -53,6 +53,17 @@
 			<artifactId>picocli</artifactId>
 			<version>4.4.0</version>
 		</dependency>
+		<dependency>
+		    <groupId>net.sf.cssbox</groupId>
+		    <artifactId>cssbox</artifactId>
+		    <version>4.17</version>
+		    <exclusions>
+		    	<exclusion>
+		    		<groupId>xml-apis</groupId>
+		    		<artifactId>xml-apis</artifactId>
+		    	</exclusion>
+		    </exclusions>
+		</dependency>
 	</dependencies>
 
 	<build>
