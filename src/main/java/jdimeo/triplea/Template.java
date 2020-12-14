@@ -1,4 +1,4 @@
-package dimeo.triplea;
+package jdimeo.triplea;
 
 import java.io.IOException;
 import java.nio.file.Files;

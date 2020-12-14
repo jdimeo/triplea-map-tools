@@ -1,4 +1,4 @@
-package games.strategy.util;
+package jdimeo.triplea.util;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.concurrent.Callable;
 
 import org.fit.cssbox.css.CSSNorm;
@@ -32,14 +33,10 @@ public class CopyNotes implements Callable<Void> {
 	private Path gameFile;
 	
 	@Option(names = {"-n", "--notesFile"}, description = "The temporary HTML file to use to edit and preview the notes", required = false)
-	private Path notesFile;
+	private Path notesFile = Paths.get("doc", "notes.html");
 	
 	@Override
 	public Void call() throws IOException, SAXException {
-		if (notesFile == null) {
-			notesFile = gameFile.getParent().getParent().resolve("doc").resolve("notes.html");
-		}
-		
 		String s = Files.readString(gameFile);
 		int i = s.indexOf("<![CDATA[") + 9;
 		int j = s.indexOf("]]>", i);

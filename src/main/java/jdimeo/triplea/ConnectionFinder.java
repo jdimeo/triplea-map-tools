@@ -1,4 +1,4 @@
-package dimeo.triplea;
+package jdimeo.triplea;
 
 import java.awt.Polygon;
 import java.io.IOException;
@@ -18,7 +18,7 @@ import org.locationtech.jts.geom.GeometryFactory;
 import org.locationtech.jts.geom.PrecisionModel;
 import org.locationtech.jts.geom.TopologyException;
 
-import games.strategy.util.PointFileReaderWriter;
+import jdimeo.triplea.util.PointFileReaderWriter;
 import lombok.val;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Parameters;

@@ -1,4 +1,4 @@
-package dimeo.triplea.excel;
+package jdimeo.triplea.excel;
 
 import java.util.ArrayList;
 import java.util.Collection;

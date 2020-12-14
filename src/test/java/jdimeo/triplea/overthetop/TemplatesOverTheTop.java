@@ -1,4 +1,4 @@
-package dimeo.triplea.overthetop;
+package jdimeo.triplea.overthetop;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -6,7 +6,7 @@ import java.nio.file.Paths;
 
 import org.apache.commons.lang3.ArrayUtils;
 
-import dimeo.triplea.Template;
+import jdimeo.triplea.Template;
 
 public class TemplatesOverTheTop {
 	private static final String[] DEVELOP_UNITS = {

@@ -1,4 +1,4 @@
-package dimeo.triplea.excel;
+package jdimeo.triplea.excel;
 
 import java.io.File;
 import java.io.FileInputStream;

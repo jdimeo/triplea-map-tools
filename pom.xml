@@ -17,7 +17,7 @@
 		<project.directory>../jdimeo/triplea-map-tools</project.directory>
 		<lombok.src.dir>${project.generatedSource.directory}/xjc</lombok.src.dir>
 		
-		<application.mainClass>dimeo.triplea.TripleAMapTools</application.mainClass>
+		<application.mainClass>jdimeo.triplea.TripleAMapTools</application.mainClass>
 		<application.file>triplea-tools</application.file>
 		<application.headerType>console</application.headerType>
 	</properties>

@@ -1,4 +1,4 @@
-package dimeo.triplea.tiles;
+package jdimeo.triplea.tiles;
 
 import java.awt.Image;
 import java.awt.Point;

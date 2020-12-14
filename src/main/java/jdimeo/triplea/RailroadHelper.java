@@ -1,4 +1,4 @@
-package dimeo.triplea;
+package jdimeo.triplea;
 
 import java.io.File;
 import java.io.IOException;
@@ -14,10 +14,10 @@ import org.apache.commons.lang3.BooleanUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.jooq.lambda.Seq;
 
-import dimeo.triplea.excel.Units;
-import games.strategy.util.GameCodec;
 import generated.Attachment;
 import generated.Game;
+import jdimeo.triplea.excel.Units;
+import jdimeo.triplea.util.GameCodec;
 import lombok.val;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;

@@ -1,4 +1,4 @@
-package games.strategy.util;
+package jdimeo.triplea.util;
 
 import java.awt.Point;
 import java.awt.Polygon;

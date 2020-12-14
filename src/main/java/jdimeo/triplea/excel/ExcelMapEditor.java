@@ -1,10 +1,10 @@
-package dimeo.triplea.excel;
+package jdimeo.triplea.excel;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.Callable;
 
-import games.strategy.util.GameCodec;
+import jdimeo.triplea.util.GameCodec;
 import lombok.val;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;

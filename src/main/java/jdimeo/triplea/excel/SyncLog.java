@@ -1,4 +1,4 @@
-package dimeo.triplea.excel;
+package jdimeo.triplea.excel;
 
 import lombok.extern.log4j.Log4j2;
 

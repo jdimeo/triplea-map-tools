@@ -1,11 +1,11 @@
-package dimeo.triplea;
+package jdimeo.triplea;
 
-import dimeo.triplea.excel.ExcelMapEditor;
-import dimeo.triplea.tiles.TileJoin;
-import dimeo.triplea.tiles.TileQuantize;
-import dimeo.triplea.tiles.TileSplit;
-import games.strategy.util.CopyNotes;
-import games.strategy.util.FixFileNames;
+import jdimeo.triplea.excel.ExcelMapEditor;
+import jdimeo.triplea.tiles.TileJoin;
+import jdimeo.triplea.tiles.TileQuantize;
+import jdimeo.triplea.tiles.TileSplit;
+import jdimeo.triplea.util.CopyNotes;
+import jdimeo.triplea.util.FixFileNames;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.HelpCommand;

@@ -1,4 +1,4 @@
-package dimeo.triplea;
+package jdimeo.triplea;
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -8,12 +8,12 @@ import java.util.function.Predicate;
 import org.apache.commons.lang3.BooleanUtils;
 import org.jooq.lambda.Seq;
 
-import games.strategy.util.GameCodec;
 import generated.Element;
 import generated.Game;
 import generated.Territory;
 import generated.Variable;
 import generated.VariableList;
+import jdimeo.triplea.util.GameCodec;
 import lombok.val;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;

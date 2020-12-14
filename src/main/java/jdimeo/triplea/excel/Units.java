@@ -1,4 +1,4 @@
-package dimeo.triplea.excel;
+package jdimeo.triplea.excel;
 
 import java.text.DecimalFormat;
 import java.util.LinkedHashMap;
