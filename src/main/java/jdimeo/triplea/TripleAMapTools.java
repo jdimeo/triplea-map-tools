@@ -6,6 +6,7 @@ import jdimeo.triplea.tiles.TileQuantize;
 import jdimeo.triplea.tiles.TileSplit;
 import jdimeo.triplea.util.CopyNotes;
 import jdimeo.triplea.util.FixFileNames;
+import jdimeo.triplea.util.OrderLines;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.HelpCommand;
@@ -19,6 +20,7 @@ import picocli.CommandLine.HelpCommand;
 	RailroadHelper.class,
 	VariableLists.class,
 	FixFileNames.class,
+	OrderLines.class,
 	TileJoin.class,
 	TileQuantize.class,
 	TileSplit.class,
