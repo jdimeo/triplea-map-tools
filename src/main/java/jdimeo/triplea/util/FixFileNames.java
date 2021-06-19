@@ -29,6 +29,11 @@ public class FixFileNames implements Callable<Void> {
 			String orig = f.toString();
 			int i = orig.lastIndexOf(File.separatorChar);
 			String fixed = orig.substring(0, i + 1) + WordUtils.capitalizeFully(orig.substring(i + 1), '-', ' ').replace("Aa", "AA");
+			
+			// Standardize recognized image suffixes if hyphens were used
+			fixed = StringUtils.replaceIgnoreCase(fixed, "-hit", "_hit");
+			fixed = StringUtils.replaceIgnoreCase(fixed, "-disabled", "_disabled");
+			
 			if (!StringUtils.equals(orig, fixed)) {
 				log.info("Renamed {} to {}", orig, fixed);
 				try {
