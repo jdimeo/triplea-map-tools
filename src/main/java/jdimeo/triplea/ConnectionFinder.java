@@ -1,24 +1,15 @@
 package jdimeo.triplea;
 
-import java.awt.Polygon;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
 import java.util.concurrent.Callable;
 
-import org.jooq.lambda.Seq;
-import org.locationtech.jts.awt.ShapeReader;
 import org.locationtech.jts.geom.Geometry;
-import org.locationtech.jts.geom.GeometryCollection;
-import org.locationtech.jts.geom.GeometryFactory;
-import org.locationtech.jts.geom.PrecisionModel;
 import org.locationtech.jts.geom.TopologyException;
 
-import jdimeo.triplea.util.PointFileReaderWriter;
+import jdimeo.triplea.util.TerritoryGeo;
 import lombok.val;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Parameters;
@@ -33,33 +24,20 @@ public class ConnectionFinder implements Callable<Void> {
 	
 	@Override
 	public Void call() throws IOException {
-		Map<String, List<Polygon>> polys;
-		try (val is = Files.newInputStream(input)) {
-			polys = PointFileReaderWriter.readOneToManyPolygons(is);
-		}
+		val territories = TerritoryGeo.fromPolysFile(input);
 		try (val pw = new PrintWriter("connections.txt")) {
-			computeConnections(polys, pw);
+			computeConnections(territories, pw);
 		}
 		return null;
 	}
 	
-	private static void computeConnections(Map<String, List<Polygon>> polys, PrintWriter out) {
-		val gf = new GeometryFactory(new PrecisionModel(PrecisionModel.FIXED));
-		val sr = new ShapeReader(gf);
-		
-		Map<String, Geometry> geoms = new TreeMap<>();
-		polys.forEach((key, list) -> {
-			geoms.put(key, new GeometryCollection(
-				Seq.seq(list).map($ -> $.getPathIterator(null)).map(sr::read).toArray(Geometry[]::new)
-			, gf));
-		});
-		
-		val strArr = new String[geoms.size()];
-		val geoArr = new Geometry[geoms.size()];
+	private static void computeConnections(List<TerritoryGeo> territories, PrintWriter out) {
+		val strArr = new String[territories.size()];
+		val geoArr = new Geometry[territories.size()];
 		int i = 0;
-		for (val e : geoms.entrySet()) {
-			strArr[i] = e.getKey();
-			geoArr[i++] = e.getValue().buffer(2.0).norm();
+		for (val t : territories) {
+			strArr[i] = t.getName();
+			geoArr[i++] = t.getGeo().buffer(2.0).norm();
 		}
 
 		for (i = 0; i < strArr.length; i++) {

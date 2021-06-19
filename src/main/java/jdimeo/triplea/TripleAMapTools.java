@@ -17,6 +17,7 @@ import picocli.CommandLine.HelpCommand;
 	CopyNotes.class,
 	Template.class,
 	ConnectionFinder.class,
+	PlacementPicker.class,
 	RailroadHelper.class,
 	VariableLists.class,
 	FixFileNames.class,
