@@ -63,7 +63,7 @@ public class PlacementPicker implements Callable<Void> {
 		territories.parallelStream().forEach(t -> {
 			val geo    = t.getGeo();
 			val env    = geo.getEnvelopeInternal();
-			val center = geo.getCentroid();
+			val center = TerritoryGeo.GEO_FACTORY.createPoint(new Coordinate(t.getCenter().x, t.getCenter().y));
 			
 			// Try a some starting offsets to see which yields the most placements
 			// Start at 2 so placements don't overlap/touch borders
