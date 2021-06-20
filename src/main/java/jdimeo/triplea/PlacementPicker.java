@@ -35,10 +35,10 @@ public class PlacementPicker implements Callable<Void> {
 	private Path mapFolder;
 	
 	@Option(names = {"-d", "--diameter"}, description = "The diameter of the unit placement circles")
-	private int diameter = 60;
+	private int diameter = 56;
 	
 	@Option(names = {"-s", "--step-size"}, description = "The step size of the offset from (0, 0) to try to maximize placements per territory (up to the radius)")
-	private int step = 3;
+	private int step = 4;
 	
 	private List<TerritoryGeo> territories;
 	private GeometricShapeFactory factory;
@@ -66,9 +66,10 @@ public class PlacementPicker implements Callable<Void> {
 			val center = geo.getCentroid();
 			
 			// Try a some starting offsets to see which yields the most placements
+			// Start at 2 so placements don't overlap/touch borders
 			int max = 0;
-			for (double x = 0; x <= radius; x += step) {
-				for (double y = 0; y <= radius; y += step) {
+			for (double x = 2; x <= radius; x += step) {
+				for (double y = 2; y <= radius; y += step) {
 					val placements = findPlacements(t, env, x, y);
 					if (placements.size() > max) {
 						max = placements.size();
@@ -119,7 +120,7 @@ public class PlacementPicker implements Callable<Void> {
 	}
 	
 	private static boolean contains(Geometry collection, Geometry g) {
-		return test(collection, g, Geometry::covers);
+		return test(collection, g, Geometry::contains);
 	}
 	private static boolean overlaps(Geometry collection, Geometry g) {
 		return test(collection, g, Geometry::overlaps);
