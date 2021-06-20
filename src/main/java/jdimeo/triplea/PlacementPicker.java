@@ -1,10 +1,15 @@
 package jdimeo.triplea;
 
+import java.awt.Point;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.LinkedList;
 import java.util.concurrent.Callable;
 
-import com.google.common.collect.Lists;
+import org.jooq.lambda.Seq;
+import org.locationtech.jts.geom.Coordinate;
+import org.locationtech.jts.geom.Polygon;
+import org.locationtech.jts.util.GeometricShapeFactory;
 
 import jdimeo.triplea.util.PointFileReaderWriter;
 import jdimeo.triplea.util.TerritoryGeo;
@@ -36,14 +41,38 @@ public class PlacementPicker implements Callable<Void> {
 			val centers = PointFileReaderWriter.readOneToOneCenters(is);
 			territories.forEach($ -> $.setCenter(centers.get($.getName())));
 		}
+
+		val factory = new GeometricShapeFactory(TerritoryGeo.GEO_FACTORY);
+		factory.setSize(diameter);
 		
 		log.info("Computing placements...");
-		territories.parallelStream().forEach(t -> {
+		territories.forEach(t -> {
+			val geo = t.getGeo();
+			val env = geo.getEnvelopeInternal();
 			
+			val placements = new LinkedList<Polygon>();
+			for (double x = env.getMinX() + 2; x <= env.getMaxX(); x += diameter) {
+				for (double y = env.getMinY() + 2; y <= env.getMaxY(); y += diameter) {
+					factory.setBase(new Coordinate(x, y));
+					val placement = factory.createRectangle();
+					
+					for (int n = 0; n < geo.getNumGeometries(); n++) {
+						if (geo.getGeometryN(n).contains(placement)) {
+							placements.add(placement);
+							
+							t.getPlacements().add(new Point(
+								(int) Math.round(x),
+								(int) Math.round(y)));
+							break;
+						}	
+					}
+				}
+			}
 		});
 		
 		log.info("Writing placements...");
-		Files.write(mapFolder.resolve("place.txt"), Lists.transform(territories, TerritoryGeo::asPlaceString));
+		Files.write(mapFolder.resolve("place.txt"), Seq.seq(territories)
+			.filter($ -> !$.getPlacements().isEmpty()).map(TerritoryGeo::asPlaceString));
 		
 		log.info("Done.");
 		return null;

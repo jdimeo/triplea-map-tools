@@ -7,6 +7,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -24,14 +25,14 @@ import lombok.experimental.Accessors;
 
 @Getter @Setter @Accessors(chain = true)
 public class TerritoryGeo {
-	private static final GeometryFactory GEO_FACTORY = new GeometryFactory(new PrecisionModel(PrecisionModel.FIXED));
+	public static final GeometryFactory GEO_FACTORY = new GeometryFactory(new PrecisionModel(PrecisionModel.FIXED));
 	private static final ShapeReader SHAPE_READER = new ShapeReader(GEO_FACTORY);
 	
 	private String name;
 	private Point center;
 	private List<Polygon> polys;
 	private Geometry geo;
-	private List<Point> placements;
+	private List<Point> placements = new LinkedList<>();
 	
 	public static List<TerritoryGeo> fromPolysFile(Path p) throws IOException {
 		Map<String, List<Polygon>> polys;
