@@ -17,10 +17,12 @@ import org.locationtech.jts.geom.GeometryCollection;
 import org.locationtech.jts.geom.GeometryFactory;
 import org.locationtech.jts.geom.PrecisionModel;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.val;
+import lombok.experimental.Accessors;
 
-@Data
+@Getter @Setter @Accessors(chain = true)
 public class TerritoryGeo {
 	private static final GeometryFactory GEO_FACTORY = new GeometryFactory(new PrecisionModel(PrecisionModel.FIXED));
 	private static final ShapeReader SHAPE_READER = new ShapeReader(GEO_FACTORY);
@@ -29,6 +31,7 @@ public class TerritoryGeo {
 	private Point center;
 	private List<Polygon> polys;
 	private Geometry geo;
+	private List<Point> placements;
 	
 	public static List<TerritoryGeo> fromPolysFile(Path p) throws IOException {
 		Map<String, List<Polygon>> polys;
@@ -37,16 +40,18 @@ public class TerritoryGeo {
 		}
 		
 		val ret = new ArrayList<TerritoryGeo>();
-		polys.forEach((key, list) -> {
-			TerritoryGeo t = new TerritoryGeo();
-			t.setName(key);
-			t.setPolys(list);
-			t.setGeo(new GeometryCollection(
+		polys.forEach((key, list) -> ret.add(new TerritoryGeo()
+			.setName(key)
+			.setPolys(list)
+			.setGeo(new GeometryCollection(
 				Seq.seq(list).map($ -> $.getPathIterator(null)).map(SHAPE_READER::read).toArray(Geometry[]::new)
-			, GEO_FACTORY));
-			ret.add(t);
-		});
+			, GEO_FACTORY))
+		));
 		ret.sort(Comparator.comparing(TerritoryGeo::getName));
 		return ret;
+	}
+	
+	public String asPlaceString() {
+		return name + Seq.seq(placements).map($ -> "  (" + $.x + "," + $.y + ")");
 	}
 }
