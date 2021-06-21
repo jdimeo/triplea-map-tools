@@ -48,7 +48,7 @@ public class TerritoryGeo {
 				Seq.seq(list).map($ -> $.getPathIterator(null)).map(SHAPE_READER::read).toArray(Geometry[]::new)
 			, GEO_FACTORY))
 		));
-		ret.sort(Comparator.comparing(TerritoryGeo::getName));
+		ret.sort(Comparator.comparing($ -> $.getName().toLowerCase()));
 		return ret;
 	}
 	
