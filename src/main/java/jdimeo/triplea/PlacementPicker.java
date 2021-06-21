@@ -30,6 +30,7 @@ import picocli.CommandLine.Parameters;
 })
 public class PlacementPicker implements Callable<Void> {
 	private static final double CIRCLE_PACK_DENSITY_HEX = 0.91;
+	private static final int MAX_TO_REMOVE_IF_MANY = 1;
 	
 	@Parameters(description = "The folder containing centers.txt, polygons.txt and the place to write place.txt")
 	private Path mapFolder;
@@ -39,6 +40,12 @@ public class PlacementPicker implements Callable<Void> {
 	
 	@Option(names = {"-s", "--step-size"}, description = "The step size of the offset from (0, 0) to try to maximize placements per territory (up to the radius)")
 	private int step = 4;
+	
+	@Option(names = {"-p", "--preferred-per-territory"}, description = {
+		"The preferred number of placements per territory.",
+		"If there are more than this number of available placements (because the territory is large) one placement will be removed closest to the center to free space for country owernship markers, production values, etc."		
+	})
+	private int preferred = 5;
 	
 	private List<TerritoryGeo> territories;
 	private GeometricShapeFactory factory;
@@ -63,7 +70,7 @@ public class PlacementPicker implements Callable<Void> {
 		territories.parallelStream().forEach(t -> {
 			val geo    = t.getGeo();
 			val env    = geo.getEnvelopeInternal();
-			val center = TerritoryGeo.GEO_FACTORY.createPoint(new Coordinate(t.getCenter().x, t.getCenter().y));
+			val center = TerritoryGeo.GEO_FACTORY.createPoint(new Coordinate(t.getCenter().x - radius, t.getCenter().y - radius));
 			
 			// Try a some starting offsets to see which yields the most placements
 			// Start at 2 so placements don't overlap/touch borders
@@ -78,12 +85,18 @@ public class PlacementPicker implements Callable<Void> {
 				}
 			}
 			if (max == 0) {
-				t.getPlacements().add(round(center.getX() - radius, center.getY() - radius));
+				t.getPlacements().add(round(center.getX(), center.getY()));
 			}
 			
 			// Put placement closest to center first
 			t.getPlacements().sort(Comparator.comparing($ -> center.distance(
 				TerritoryGeo.GEO_FACTORY.createPoint(new Coordinate($.x, $.y)))));
+			
+			// Remove closest to center first if we have a lot, which frees up space around other things
+			// anchored to the center (like production values or country markers)
+			for (int removed = 0; t.getPlacements().size() > preferred && removed < MAX_TO_REMOVE_IF_MANY; removed++) {
+				t.getPlacements().remove(0);
+			}
 		});
 		
 		log.info("Writing placements...");
