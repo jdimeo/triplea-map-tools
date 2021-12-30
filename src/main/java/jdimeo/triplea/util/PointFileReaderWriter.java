@@ -13,6 +13,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
@@ -190,7 +191,7 @@ public class PointFileReaderWriter {
    * Returns a map of the form String -> Collection of points.
    */
   public static Map<String, List<Polygon>> readOneToManyPolygons(final InputStream stream) {
-    final HashMap<String, List<Polygon>> mapping = new HashMap<>();
+    final Map<String, List<Polygon>> mapping = new LinkedHashMap<>();
     try (InputStreamReader inputStreamReader = new InputStreamReader(stream);
         LineNumberReader reader = new LineNumberReader(inputStreamReader)) {
       String current = reader.readLine();
@@ -215,7 +216,7 @@ public class PointFileReaderWriter {
     return mapping;
   }
 
-  private static void readMultiplePolygons(final String line, final HashMap<String, List<Polygon>> mapping)
+  private static void readMultiplePolygons(final String line, final Map<String, List<Polygon>> mapping)
       throws IOException {
     try {
       // this loop is executed a lot when loading games
