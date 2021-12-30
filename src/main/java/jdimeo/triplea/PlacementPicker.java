@@ -68,6 +68,11 @@ public class PlacementPicker implements Callable<Void> {
 		
 		log.info("Computing placements...");
 		territories.parallelStream().forEach(t -> {
+			if (t.getCenter() == null) {
+				log.warn("Territory {} does not have a center point", t.getName());
+				return;
+			}
+			
 			val geo    = t.getGeo();
 			val env    = geo.getEnvelopeInternal();
 			val center = TerritoryGeo.GEO_FACTORY.createPoint(new Coordinate(t.getCenter().x - radius, t.getCenter().y - radius));
