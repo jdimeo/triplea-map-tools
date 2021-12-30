@@ -2,7 +2,6 @@ package jdimeo.triplea.util;
 
 import java.awt.Point;
 import java.awt.Polygon;
-import java.awt.geom.PathIterator;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -16,6 +15,7 @@ import java.util.Map;
 import org.jooq.lambda.Seq;
 import org.locationtech.jts.awt.ShapeReader;
 import org.locationtech.jts.awt.ShapeWriter;
+import org.locationtech.jts.geom.Envelope;
 import org.locationtech.jts.geom.Geometry;
 import org.locationtech.jts.geom.GeometryCollection;
 import org.locationtech.jts.geom.GeometryFactory;
@@ -91,22 +91,31 @@ public class TerritoryGeo {
 		log.info("{} covers {}, substracting inner poly from outer", t1.name, t2.name);
 		t1.geo = g1.difference(g2);
 		
-		val shape = SHAPE_WRITER.toShape(t1.geo);
+		// Split the territory in half so that subtracting the inner territory doesn't create a poly with holes
+		val env1 = g1.getEnvelopeInternal();
+		val center2 = g2.getCentroid();
+		val leftSide  = new Envelope(env1.getMinX(), center2.getX(), env1.getMinY(), env1.getMaxY());
+		val rightSide = new Envelope(center2.getX(), env1.getMaxX(), env1.getMinY(), env1.getMaxY());
+		
+		val leftDiff  = g1.difference(GEO_FACTORY.toGeometry(rightSide));
+		val rightDiff = g1.difference(GEO_FACTORY.toGeometry(leftSide)); 
+		
+		// Buffer one side or else a thin black line appears between the two halves
+		polyMap.put(t1.name, Arrays.asList(toAWTPoly(leftDiff), toAWTPoly(rightDiff)));
+	}
+	
+	private static Polygon toAWTPoly(Geometry geo) {
+		val shape = SHAPE_WRITER.toShape(geo);
 		val poly  = new Polygon();
 		val iter  = shape.getPathIterator(null);
 		val arr   = new float[2];
-		for (int i = 0; !iter.isDone(); i++) {
-			try {
-				if (iter.currentSegment(arr) == PathIterator.SEG_LINETO || i == 0) {
-					poly.addPoint(Math.round(arr[0]), Math.round(arr[1]));		
-				}
-			} catch (ArrayIndexOutOfBoundsException e) {
-				log.warn("Error updating geometry", e);
-				return;
+		while (!iter.isDone()) {
+			iter.currentSegment(arr);
+			if (arr[0] + arr[1] > 0.0f) {
+				poly.addPoint(Math.round(arr[0]), Math.round(arr[1]));		
 			}
 			iter.next();
 		}
-		
-		polyMap.put(t1.name, Arrays.asList(poly));
+		return poly;
 	}
 }
