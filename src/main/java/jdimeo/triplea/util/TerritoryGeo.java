@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
@@ -15,9 +14,7 @@ import java.util.Map;
 import org.jooq.lambda.Seq;
 import org.locationtech.jts.awt.ShapeReader;
 import org.locationtech.jts.awt.ShapeWriter;
-import org.locationtech.jts.geom.Envelope;
 import org.locationtech.jts.geom.Geometry;
-import org.locationtech.jts.geom.GeometryCollection;
 import org.locationtech.jts.geom.GeometryFactory;
 import org.locationtech.jts.geom.PrecisionModel;
 
@@ -29,7 +26,7 @@ import lombok.extern.log4j.Log4j2;
 
 @Log4j2
 @Getter @Setter @Accessors(chain = true)
-public class TerritoryGeo {
+public class TerritoryGeo implements Comparable<TerritoryGeo> {
 	public static final GeometryFactory GEO_FACTORY = new GeometryFactory(new PrecisionModel(PrecisionModel.FIXED));
 	private static final ShapeReader SHAPE_READER = new ShapeReader(GEO_FACTORY);
 	private static final ShapeWriter SHAPE_WRITER = new ShapeWriter();
@@ -70,23 +67,8 @@ public class TerritoryGeo {
 				Seq.seq(list).map($ -> $.getPathIterator(null)).map(SHAPE_READER::read).toArray(Geometry[]::new)
 			))
 		));
-		ret.sort(Comparator.comparing($ -> $.getName().toLowerCase()));
+		ret.sort(Comparator.naturalOrder());
 	
-		// Ensure that no territory completely encloses another
-		for (int i = 0; i < ret.size(); i++) {
-			val t1 = ret.get(i);
-			val poly1 = t1.geo.union();
-			for (int j = i + 1; j < ret.size(); j++) {
-				val t2 = ret.get(j);
-				val poly2 = t2.geo.union();
-				if (poly1.covers(poly2)) {
-					subtract(t1, poly1, t2, poly2, polys);
-				} else if (poly2.covers(poly1)) {
-					subtract(t2, poly2, t1, poly1, polys);
-				}
-			}
-		}
-		
 		try (val os = Files.newOutputStream(p)) {
 			PointFileReaderWriter.writeOneToManyPolygons(os, polys);
 		} catch (Exception e) {
@@ -96,39 +78,20 @@ public class TerritoryGeo {
 		return ret;
 	}
 	
+	@Override
+	public int compareTo(TerritoryGeo o) {
+		return String.CASE_INSENSITIVE_ORDER.compare(sortableName(getName()), sortableName(o.getName()));
+	}
+	
+	private static String sortableName(String s) {
+		// Railroads should be top in Z-order (so they always draw on top of their "container" territory)
+		if (s.startsWith("RR ")) { return "3" + s; }
+		// Sea zones should be bottom of Z-order (so islands always draw on top of water)
+		if (s.startsWith("SZ ")) { return "1" + s; }
+		return "2" + s;
+	}
+	
 	public String asPlaceString() {
 		return name + Seq.seq(placements).map($ -> "  (" + $.x + "," + $.y + ")");
-	}
-	
-	private static void subtract(TerritoryGeo t1, Geometry g1, TerritoryGeo t2, Geometry g2, Map<String, List<Polygon>> polyMap) {
-		log.info("{} covers {}, substracting inner poly from outer", t1.name, t2.name);
-		t1.geo = g1.difference(g2);
-		
-		// Split the territory in half so that subtracting the inner territory doesn't create a poly with holes
-		val env1 = g1.getEnvelopeInternal();
-		val center2 = g2.getCentroid();
-		val leftSide  = new Envelope(env1.getMinX(), center2.getX(), env1.getMinY(), env1.getMaxY());
-		val rightSide = new Envelope(center2.getX(), env1.getMaxX(), env1.getMinY(), env1.getMaxY());
-		
-		val leftDiff  = g1.difference(GEO_FACTORY.toGeometry(rightSide));
-		val rightDiff = g1.difference(GEO_FACTORY.toGeometry(leftSide)); 
-		
-		// Buffer one side or else a thin black line appears between the two halves
-		polyMap.put(t1.name, Arrays.asList(toAWTPoly(leftDiff), toAWTPoly(rightDiff)));
-	}
-	
-	private static Polygon toAWTPoly(Geometry geo) {
-		val shape = SHAPE_WRITER.toShape(geo);
-		val poly  = new Polygon();
-		val iter  = shape.getPathIterator(null);
-		val arr   = new float[2];
-		while (!iter.isDone()) {
-			iter.currentSegment(arr);
-			if (arr[0] + arr[1] > 0.0f) {
-				poly.addPoint(Math.round(arr[0]), Math.round(arr[1]));		
-			}
-			iter.next();
-		}
-		return poly;
 	}
 }

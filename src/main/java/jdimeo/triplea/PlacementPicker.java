@@ -15,7 +15,6 @@ import org.locationtech.jts.geom.Envelope;
 import org.locationtech.jts.geom.Geometry;
 import org.locationtech.jts.util.GeometricShapeFactory;
 
-import jdimeo.triplea.util.PointFileReaderWriter;
 import jdimeo.triplea.util.TerritoryGeo;
 import lombok.val;
 import lombok.extern.log4j.Log4j2;

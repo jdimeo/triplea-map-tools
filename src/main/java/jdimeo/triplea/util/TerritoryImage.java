@@ -59,6 +59,8 @@ public class TerritoryImage implements Callable<Void> {
 				g.draw(p);
 			}
 			g.drawOval(t.getCenter().x - 2, t.getCenter().y - 2, 4, 4);
+			g.setColor(Color.BLACK);
+			g.drawString(t.getName(), t.getCenter().x - 2, t.getCenter().y + 14);
 		}
 		g.dispose();
 		
