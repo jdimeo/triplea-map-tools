@@ -7,6 +7,7 @@ import jdimeo.triplea.tiles.TileSplit;
 import jdimeo.triplea.util.CopyNotes;
 import jdimeo.triplea.util.FixFileNames;
 import jdimeo.triplea.util.OrderLines;
+import jdimeo.triplea.util.TerritoryImage;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.HelpCommand;
@@ -18,6 +19,7 @@ import picocli.CommandLine.HelpCommand;
 	Template.class,
 	ConnectionFinder.class,
 	PlacementPicker.class,
+	TerritoryImage.class,
 	RailroadHelper.class,
 	VariableLists.class,
 	FixFileNames.class,

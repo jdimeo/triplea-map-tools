@@ -43,6 +43,19 @@ public class TerritoryGeo {
 	private Geometry geo;
 	private List<Point> placements = new LinkedList<>();
 	
+	public static List<TerritoryGeo> fromMapFolder(Path p) throws IOException {
+		log.info("Loading polygons...");
+		val ret = fromPolysFile(p.resolve("polygons.txt"));
+
+		log.info("Loading centers...");
+		try (val is = Files.newInputStream(p.resolve("centers.txt"))) {
+			val centers = PointFileReaderWriter.readOneToOneCenters(is);
+			ret.forEach($ -> $.setCenter(centers.get($.getName())));
+		}
+		
+		return ret;
+	}
+	
 	public static List<TerritoryGeo> fromPolysFile(Path p) throws IOException {
 		Map<String, List<Polygon>> polys;
 		try (val is = Files.newInputStream(p)) {
@@ -53,9 +66,9 @@ public class TerritoryGeo {
 		polys.forEach((key, list) -> ret.add(new TerritoryGeo()
 			.setName(key)
 			.setPolys(list)
-			.setGeo(new GeometryCollection(
+			.setGeo(GEO_FACTORY.createGeometryCollection(
 				Seq.seq(list).map($ -> $.getPathIterator(null)).map(SHAPE_READER::read).toArray(Geometry[]::new)
-			, GEO_FACTORY))
+			))
 		));
 		ret.sort(Comparator.comparing($ -> $.getName().toLowerCase()));
 	

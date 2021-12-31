@@ -52,14 +52,7 @@ public class PlacementPicker implements Callable<Void> {
 	
 	@Override
 	public Void call() throws Exception {
-		log.info("Loading polygons...");
-		territories = TerritoryGeo.fromPolysFile(mapFolder.resolve("polygons.txt"));
-
-		log.info("Loading centers...");
-		try (val is = Files.newInputStream(mapFolder.resolve("centers.txt"))) {
-			val centers = PointFileReaderWriter.readOneToOneCenters(is);
-			territories.forEach($ -> $.setCenter(centers.get($.getName())));
-		}
+		territories = TerritoryGeo.fromMapFolder(mapFolder);
 
 		factory = new GeometricShapeFactory(TerritoryGeo.GEO_FACTORY);
 		factory.setSize(diameter);
